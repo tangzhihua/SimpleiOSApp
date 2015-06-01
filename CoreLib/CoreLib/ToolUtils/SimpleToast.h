@@ -2,7 +2,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MySimpleToast : NSObject
+@interface SimpleToast : NSObject
 
 /**
  *  显示一个toast

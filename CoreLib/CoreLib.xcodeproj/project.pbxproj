@@ -20,14 +20,14 @@
 		1218BD041B1C2DFF008D49A1 /* UIImage+ImageCompression.m in Sources */ = {isa = PBXBuildFile; fileRef = 1218BCF41B1C2DFF008D49A1 /* UIImage+ImageCompression.m */; };
 		1218BD051B1C2DFF008D49A1 /* UIPopoverController+Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 1218BCF61B1C2DFF008D49A1 /* UIPopoverController+Tag.m */; };
 		1218BD061B1C2DFF008D49A1 /* UIView+Screenshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 1218BCF81B1C2DFF008D49A1 /* UIView+Screenshot.m */; };
-		1218BD081B1C2E34008D49A1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1218BD071B1C2E34008D49A1 /* UIKit.framework */; };
-		1218BD0A1B1C2E3E008D49A1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1218BD091B1C2E3E008D49A1 /* Foundation.framework */; };
 		1218BD1A1B1C30BD008D49A1 /* ColorUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1218BD0E1B1C30BD008D49A1 /* ColorUtils.m */; };
 		1218BD1B1B1C30BD008D49A1 /* PRPDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = 1218BD101B1C30BD008D49A1 /* PRPDebug.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1218BD1C1B1C30BD008D49A1 /* SimpleFolderTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 1218BD131B1C30BD008D49A1 /* SimpleFolderTools.m */; };
 		1218BD1D1B1C30BD008D49A1 /* SimpleLocalizedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 1218BD151B1C30BD008D49A1 /* SimpleLocalizedString.m */; };
 		1218BD271B1C320C008D49A1 /* NSDictionary+SafeObjectForKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 1218BD231B1C320C008D49A1 /* NSDictionary+SafeObjectForKey.m */; };
 		1218BD281B1C320C008D49A1 /* NSMutableDictionary+SafeSetObjectForKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 1218BD251B1C320C008D49A1 /* NSMutableDictionary+SafeSetObjectForKey.m */; };
+		1218BD2D1B1C3393008D49A1 /* SimpleProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1218BD2A1B1C3393008D49A1 /* SimpleProgressBar.m */; };
+		1218BD2E1B1C3393008D49A1 /* SimpleToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 1218BD2C1B1C3393008D49A1 /* SimpleToast.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,8 +80,6 @@
 		1218BCF61B1C2DFF008D49A1 /* UIPopoverController+Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIPopoverController+Tag.m"; sourceTree = "<group>"; };
 		1218BCF71B1C2DFF008D49A1 /* UIView+Screenshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Screenshot.h"; sourceTree = "<group>"; };
 		1218BCF81B1C2DFF008D49A1 /* UIView+Screenshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Screenshot.m"; sourceTree = "<group>"; };
-		1218BD071B1C2E34008D49A1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		1218BD091B1C2E3E008D49A1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1218BD0B1B1C2F44008D49A1 /* CoreLib-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CoreLib-Prefix.pch"; path = "CoreLib/CoreLib-Prefix.pch"; sourceTree = "<group>"; };
 		1218BD0D1B1C30BD008D49A1 /* ColorUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorUtils.h; sourceTree = "<group>"; };
 		1218BD0E1B1C30BD008D49A1 /* ColorUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorUtils.m; sourceTree = "<group>"; };
@@ -96,6 +94,10 @@
 		1218BD231B1C320C008D49A1 /* NSDictionary+SafeObjectForKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+SafeObjectForKey.m"; sourceTree = "<group>"; };
 		1218BD241B1C320C008D49A1 /* NSMutableDictionary+SafeSetObjectForKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+SafeSetObjectForKey.h"; sourceTree = "<group>"; };
 		1218BD251B1C320C008D49A1 /* NSMutableDictionary+SafeSetObjectForKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+SafeSetObjectForKey.m"; sourceTree = "<group>"; };
+		1218BD291B1C3393008D49A1 /* SimpleProgressBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleProgressBar.h; sourceTree = "<group>"; };
+		1218BD2A1B1C3393008D49A1 /* SimpleProgressBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleProgressBar.m; sourceTree = "<group>"; };
+		1218BD2B1B1C3393008D49A1 /* SimpleToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleToast.h; sourceTree = "<group>"; };
+		1218BD2C1B1C3393008D49A1 /* SimpleToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleToast.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,8 +105,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1218BD0A1B1C2E3E008D49A1 /* Foundation.framework in Frameworks */,
-				1218BD081B1C2E34008D49A1 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,8 +123,6 @@
 			isa = PBXGroup;
 			children = (
 				1218BD0B1B1C2F44008D49A1 /* CoreLib-Prefix.pch */,
-				1218BD091B1C2E3E008D49A1 /* Foundation.framework */,
-				1218BD071B1C2E34008D49A1 /* UIKit.framework */,
 				1218BCC21B1C2B61008D49A1 /* CoreLib */,
 				1218BCCF1B1C2B61008D49A1 /* CoreLibTests */,
 				1218BCC11B1C2B61008D49A1 /* Products */,
@@ -203,6 +201,10 @@
 		1218BD0C1B1C30BD008D49A1 /* ToolUtils */ = {
 			isa = PBXGroup;
 			children = (
+				1218BD291B1C3393008D49A1 /* SimpleProgressBar.h */,
+				1218BD2A1B1C3393008D49A1 /* SimpleProgressBar.m */,
+				1218BD2B1B1C3393008D49A1 /* SimpleToast.h */,
+				1218BD2C1B1C3393008D49A1 /* SimpleToast.m */,
 				1218BD0D1B1C30BD008D49A1 /* ColorUtils.h */,
 				1218BD0E1B1C30BD008D49A1 /* ColorUtils.m */,
 				1218BD0F1B1C30BD008D49A1 /* PRPDebug.h */,
@@ -306,8 +308,10 @@
 			files = (
 				1218BD031B1C2DFF008D49A1 /* UIImage+animatedGIF.m in Sources */,
 				1218BD021B1C2DFF008D49A1 /* UIDevice+Resolutions.m in Sources */,
+				1218BD2D1B1C3393008D49A1 /* SimpleProgressBar.m in Sources */,
 				1218BD061B1C2DFF008D49A1 /* UIView+Screenshot.m in Sources */,
 				1218BD001B1C2DFF008D49A1 /* UIAlertView+Blocks.m in Sources */,
+				1218BD2E1B1C3393008D49A1 /* SimpleToast.m in Sources */,
 				1218BD1C1B1C30BD008D49A1 /* SimpleFolderTools.m in Sources */,
 				1218BD271B1C320C008D49A1 /* NSDictionary+SafeObjectForKey.m in Sources */,
 				1218BD1A1B1C30BD008D49A1 /* ColorUtils.m in Sources */,
@@ -426,6 +430,12 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CoreLib/CoreLib-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"\"../Pods/Headers/Public\"",
+					"\"../Pods/Headers/Public/MBProgressHUD\"",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -437,6 +447,12 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CoreLib/CoreLib-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"\"../Pods/Headers/Public\"",
+					"\"../Pods/Headers/Public/MBProgressHUD\"",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

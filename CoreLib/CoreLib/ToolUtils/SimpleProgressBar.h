@@ -2,7 +2,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MySimpleProgressBar : NSObject
+@interface SimpleProgressBar : NSObject
 + (void) show;
 + (void) dismiss;
 @end

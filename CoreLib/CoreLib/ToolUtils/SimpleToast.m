@@ -1,13 +1,13 @@
 
 
 #import "SimpleToast.h"
-#import "MyMBProgressHUD.h"
+#import "MBProgressHUD.h"
 
-@implementation MySimpleToast
+@implementation SimpleToast
 + (void)showWithText:(NSString *)text duration:(int)duration {
   UIWindow *window = [UIApplication sharedApplication].windows[0];
   
-  MyMBProgressHUD *toast = [MyMBProgressHUD showHUDAddedTo:window animated:YES];
+  MBProgressHUD *toast = [MBProgressHUD showHUDAddedTo:window animated:YES];
   
   // Configure for text only and offset down
   toast.mode = MBProgressHUDModeText;

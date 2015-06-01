@@ -1,19 +1,19 @@
 
 
 #import "SimpleProgressBar.h"
-#import "MyMBProgressHUD.h"
+#import "MBProgressHUD.h"
 
 
-static MyMBProgressHUD *_loadingHUD = nil;
+static MBProgressHUD *_loadingHUD = nil;
 static NSInteger _hudReferenceCounter = 0;
 
-@implementation MySimpleProgressBar
+@implementation SimpleProgressBar
 
 + (void) show {
   _hudReferenceCounter++;
   if (_loadingHUD == nil) {
     UIWindow *window = [UIApplication sharedApplication].windows[0];
-    _loadingHUD = [MyMBProgressHUD showHUDAddedTo:window animated:YES];
+    _loadingHUD = [MBProgressHUD showHUDAddedTo:window animated:YES];
   }
 }
 + (void) dismiss {

@@ -20,7 +20,7 @@
   // Override point for customization after application launch.
   [self.window makeKeyAndVisible];
    
- //test       gggg 
+ //test       gggg   的
   return YES;
 }
 
