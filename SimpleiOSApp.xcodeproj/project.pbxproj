@@ -14,6 +14,7 @@
 		120589A91B1AFE7F00190A1C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 120589A81B1AFE7E00190A1C /* Images.xcassets */; };
 		120589AC1B1AFE7F00190A1C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 120589AA1B1AFE7F00190A1C /* LaunchScreen.xib */; };
 		120589B81B1AFE7F00190A1C /* SimpleiOSAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 120589B71B1AFE7F00190A1C /* SimpleiOSAppTests.m */; };
+		1218BCDB1B1C2C62008D49A1 /* libCoreLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1218BCDA1B1C2C62008D49A1 /* libCoreLib.a */; };
 		12C188F71B1B096E00FD3CE4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12C188F61B1B096E00FD3CE4 /* UIKit.framework */; };
 		12C188F91B1B097A00FD3CE4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12C188F81B1B097A00FD3CE4 /* Foundation.framework */; };
 		293DACB04795DC5FF417E545 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97655A34BF21D1172FA6DCA8 /* libPods.a */; };
@@ -43,6 +44,7 @@
 		120589B11B1AFE7F00190A1C /* SimpleiOSAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleiOSAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		120589B61B1AFE7F00190A1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		120589B71B1AFE7F00190A1C /* SimpleiOSAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SimpleiOSAppTests.m; sourceTree = "<group>"; };
+		1218BCDA1B1C2C62008D49A1 /* libCoreLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCoreLib.a; path = "../../Library/Developer/Xcode/DerivedData/SimpleiOSApp-bwkdfxhmwpynlfdacbnnrpolqyvk/Build/Products/Debug-iphoneos/libCoreLib.a"; sourceTree = "<group>"; };
 		12C188F61B1B096E00FD3CE4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		12C188F81B1B097A00FD3CE4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		97655A34BF21D1172FA6DCA8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1218BCDB1B1C2C62008D49A1 /* libCoreLib.a in Frameworks */,
 				12C188F91B1B097A00FD3CE4 /* Foundation.framework in Frameworks */,
 				12C188F71B1B096E00FD3CE4 /* UIKit.framework in Frameworks */,
 				293DACB04795DC5FF417E545 /* libPods.a in Frameworks */,
@@ -144,6 +147,7 @@
 		2F7F99C6B51F2D071208B866 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1218BCDA1B1C2C62008D49A1 /* libCoreLib.a */,
 				12C188F81B1B097A00FD3CE4 /* Foundation.framework */,
 				12C188F61B1B096E00FD3CE4 /* UIKit.framework */,
 				97655A34BF21D1172FA6DCA8 /* libPods.a */,
@@ -422,12 +426,15 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = SimpleiOSApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SimpleiOSApp",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/SimpleiOSApp-bwkdfxhmwpynlfdacbnnrpolqyvk/Build/Products/Debug-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/CoreLib/CoreLib";
 			};
 			name = Debug;
 		};
@@ -441,12 +448,15 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = SimpleiOSApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SimpleiOSApp",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/SimpleiOSApp-bwkdfxhmwpynlfdacbnnrpolqyvk/Build/Products/Debug-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/CoreLib/CoreLib";
 			};
 			name = Release;
 		};
