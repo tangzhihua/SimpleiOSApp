@@ -3,7 +3,7 @@
 #import "LoginDatabaseFieldsConstant.h"
 
 static NSString *const kNSCodingField_uid       = @"uid";
-static NSString *const kNSCodingField_userName  = @"userName";
+static NSString *const kNSCodingField_username  = @"username";
 static NSString *const kNSCodingField_email     = @"email";
 static NSString *const kNSCodingField_gender    = @"gender";
 static NSString *const kNSCodingField_bio       = @"bio";
@@ -27,7 +27,7 @@ static NSString *const kNSCodingField_phone     = @"phone";
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
   [aCoder encodeObject:_uid forKey:kNSCodingField_uid];
-  [aCoder encodeObject:_userName forKey:kNSCodingField_userName];
+  [aCoder encodeObject:_username forKey:kNSCodingField_username];
   [aCoder encodeObject:_email forKey:kNSCodingField_email];
   [aCoder encodeInteger:_gender forKey:kNSCodingField_gender];
   [aCoder encodeObject:_bio forKey:kNSCodingField_bio];
@@ -43,8 +43,8 @@ static NSString *const kNSCodingField_phone     = @"phone";
     if ([aDecoder containsValueForKey:kNSCodingField_uid]) {
       _uid = [aDecoder decodeObjectForKey:kNSCodingField_uid];
     }
-    if ([aDecoder containsValueForKey:kNSCodingField_userName]) {
-      _userName = [aDecoder decodeObjectForKey:kNSCodingField_userName];
+    if ([aDecoder containsValueForKey:kNSCodingField_username]) {
+      _username = [aDecoder decodeObjectForKey:kNSCodingField_username];
     }
     if ([aDecoder containsValueForKey:kNSCodingField_email]) {
       _email = [aDecoder decodeObjectForKey:kNSCodingField_email];

@@ -16,7 +16,7 @@ typedef NS_ENUM(NSInteger, SexEnum) {
 //
 @property (nonatomic, copy) NSString *uid;
 //
-@property (nonatomic, copy) NSString *userName;
+@property (nonatomic, copy) NSString *username;
 //
 @property (nonatomic, copy) NSString *email;
 //

@@ -13,9 +13,17 @@ static NSString *const kNSCodingField_UserInfo    = @"UserInfo";
 @end
 
 @implementation LoginNetRespondBean
+- (AccessToken *)accessToken {
+  if (_accessToken == nil) {
+    _accessToken = [[AccessToken alloc] init];
+  }
+  
+  return _accessToken;
+}
 
+//
 - (NSString *)description {
-	return descriptionForDebug(self);
+  return descriptionForDebug(self);
 }
 
 
@@ -41,4 +49,22 @@ static NSString *const kNSCodingField_UserInfo    = @"UserInfo";
   
   return self;
 }
+
+#pragma mark -
+#pragma mark - KVC
+- (void)setValue:(id)value forKey:(NSString *)key {
+  if ([key isEqualToString:LastMinute_Login_RespondKey_access_token]) {
+    self.accessToken.access_token = value;
+  } else if ([key isEqualToString:LastMinute_Login_RespondKey_expires_in]) {
+    self.accessToken.expires_in = [value integerValue];
+  } else if ([key isEqualToString:LastMinute_Login_RespondKey_scope]) {
+    self.accessToken.scope = value;
+  } else if ([key isEqualToString:LastMinute_Login_RespondKey_user_info]) {
+    _userInfo = [[UserInfo alloc] initWithDictionary:value];
+  } else {
+    [super setValue:value forKey:key];
+  }
+}
+
+
 @end
