@@ -86,10 +86,7 @@ NSString *descriptionForDebug(id object) {
 }
 
 void PRPDebug(const char *fileName, int lineNumber, NSString *fmt, ...) {
-//  if (![EagameboxSDK sharedInstance].isShowDebugLog) {
-//    return;
-//  }
-  
+
   va_list args;
   va_start(args, fmt);
   

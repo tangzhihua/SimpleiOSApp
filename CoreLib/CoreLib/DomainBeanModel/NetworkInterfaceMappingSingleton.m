@@ -1,9 +1,9 @@
  
 #import "NetworkInterfaceMappingSingleton.h"
 
-// 1.登录
-//#import "KalendsPhoneLoginRequestBean.h"
-//#import "KalendsPhoneLoginDomainBeanHelper.h"
+// 登录
+#import "LoginNetRequestBean.h"
+#import "LoginDomainBeanHelper.h"
 
 
 
@@ -44,9 +44,9 @@
   
   
   /**
-   * 1.登录
+   * 登录
    */
-//  _networkInterfaceMapping[NSStringFromClass([KalendsPhoneLoginRequestBean class])] = [[KalendsPhoneLoginDomainBeanHelper alloc] init];
+  _networkInterfaceMapping[NSStringFromClass([LoginNetRequestBean class])] = [[LoginDomainBeanHelper alloc] init];
   
 }
 @end

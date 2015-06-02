@@ -47,6 +47,17 @@
 		1218BDD31B1C4CDB008D49A1 /* HttpEngineOfMKNetworkKitSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1218BDD01B1C4CDB008D49A1 /* HttpEngineOfMKNetworkKitSingleton.m */; };
 		1218BDD41B1C4CDB008D49A1 /* HttpRequestHandleOfMKNetworkKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 1218BDD21B1C4CDB008D49A1 /* HttpRequestHandleOfMKNetworkKit.m */; };
 		1218BDD81B1C516E008D49A1 /* NetworkInterfaceMappingSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1218BDD71B1C516E008D49A1 /* NetworkInterfaceMappingSingleton.m */; };
+		12B592321B1D7BE600982834 /* AccessToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B592261B1D7BE600982834 /* AccessToken.m */; };
+		12B592331B1D7BE600982834 /* LoginDomainBeanHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B592291B1D7BE600982834 /* LoginDomainBeanHelper.m */; };
+		12B592341B1D7BE600982834 /* LoginNetRequestBean.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B5922B1B1D7BE600982834 /* LoginNetRequestBean.m */; };
+		12B592351B1D7BE600982834 /* LoginNetRespondBean.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B5922D1B1D7BE600982834 /* LoginNetRespondBean.m */; };
+		12B592361B1D7BE600982834 /* LoginParseDomainBeanToDD.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B5922F1B1D7BE600982834 /* LoginParseDomainBeanToDD.m */; };
+		12B592371B1D7BE600982834 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B592311B1D7BE600982834 /* UserInfo.m */; };
+		12B5923A1B1D857700982834 /* UrlConstantForThisProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B592391B1D857700982834 /* UrlConstantForThisProject.m */; };
+		12B592431B1D92D100982834 /* GlobalDataCacheForDisk.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B5923D1B1D92D100982834 /* GlobalDataCacheForDisk.m */; };
+		12B592441B1D92D100982834 /* GlobalDataCacheForMemorySingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B5923F1B1D92D100982834 /* GlobalDataCacheForMemorySingleton.m */; };
+		12B592451B1D92D100982834 /* LocalCacheDataPathConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B592411B1D92D100982834 /* LocalCacheDataPathConstant.m */; };
+		12B592481B1D950C00982834 /* ProjectHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B592471B1D950C00982834 /* ProjectHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -171,6 +182,29 @@
 		1218BDD21B1C4CDB008D49A1 /* HttpRequestHandleOfMKNetworkKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpRequestHandleOfMKNetworkKit.m; sourceTree = "<group>"; };
 		1218BDD61B1C516E008D49A1 /* NetworkInterfaceMappingSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkInterfaceMappingSingleton.h; sourceTree = "<group>"; };
 		1218BDD71B1C516E008D49A1 /* NetworkInterfaceMappingSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkInterfaceMappingSingleton.m; sourceTree = "<group>"; };
+		12B592251B1D7BE600982834 /* AccessToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccessToken.h; sourceTree = "<group>"; };
+		12B592261B1D7BE600982834 /* AccessToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccessToken.m; sourceTree = "<group>"; };
+		12B592271B1D7BE600982834 /* LoginDatabaseFieldsConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginDatabaseFieldsConstant.h; sourceTree = "<group>"; };
+		12B592281B1D7BE600982834 /* LoginDomainBeanHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginDomainBeanHelper.h; sourceTree = "<group>"; };
+		12B592291B1D7BE600982834 /* LoginDomainBeanHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginDomainBeanHelper.m; sourceTree = "<group>"; };
+		12B5922A1B1D7BE600982834 /* LoginNetRequestBean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginNetRequestBean.h; sourceTree = "<group>"; };
+		12B5922B1B1D7BE600982834 /* LoginNetRequestBean.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginNetRequestBean.m; sourceTree = "<group>"; };
+		12B5922C1B1D7BE600982834 /* LoginNetRespondBean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginNetRespondBean.h; sourceTree = "<group>"; };
+		12B5922D1B1D7BE600982834 /* LoginNetRespondBean.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginNetRespondBean.m; sourceTree = "<group>"; };
+		12B5922E1B1D7BE600982834 /* LoginParseDomainBeanToDD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginParseDomainBeanToDD.h; sourceTree = "<group>"; };
+		12B5922F1B1D7BE600982834 /* LoginParseDomainBeanToDD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginParseDomainBeanToDD.m; sourceTree = "<group>"; };
+		12B592301B1D7BE600982834 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
+		12B592311B1D7BE600982834 /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
+		12B592381B1D857700982834 /* UrlConstantForThisProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UrlConstantForThisProject.h; sourceTree = "<group>"; };
+		12B592391B1D857700982834 /* UrlConstantForThisProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UrlConstantForThisProject.m; sourceTree = "<group>"; };
+		12B5923C1B1D92D100982834 /* GlobalDataCacheForDisk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalDataCacheForDisk.h; sourceTree = "<group>"; };
+		12B5923D1B1D92D100982834 /* GlobalDataCacheForDisk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalDataCacheForDisk.m; sourceTree = "<group>"; };
+		12B5923E1B1D92D100982834 /* GlobalDataCacheForMemorySingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalDataCacheForMemorySingleton.h; sourceTree = "<group>"; };
+		12B5923F1B1D92D100982834 /* GlobalDataCacheForMemorySingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalDataCacheForMemorySingleton.m; sourceTree = "<group>"; };
+		12B592401B1D92D100982834 /* LocalCacheDataPathConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalCacheDataPathConstant.h; sourceTree = "<group>"; };
+		12B592411B1D92D100982834 /* LocalCacheDataPathConstant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalCacheDataPathConstant.m; sourceTree = "<group>"; };
+		12B592461B1D950C00982834 /* ProjectHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectHelper.h; sourceTree = "<group>"; };
+		12B592471B1D950C00982834 /* ProjectHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +248,7 @@
 		1218BCC21B1C2B61008D49A1 /* CoreLib */ = {
 			isa = PBXGroup;
 			children = (
+				12B5923B1B1D92D100982834 /* GlobalDataCache */,
 				1218BDD51B1C516E008D49A1 /* DomainBeanModel */,
 				1218BD9A1B1C4503008D49A1 /* EngineHelper */,
 				1218BDA71B1C4504008D49A1 /* HttpEngine */,
@@ -277,6 +312,8 @@
 		1218BD0C1B1C30BD008D49A1 /* ToolUtils */ = {
 			isa = PBXGroup;
 			children = (
+				12B592461B1D950C00982834 /* ProjectHelper.h */,
+				12B592471B1D950C00982834 /* ProjectHelper.m */,
 				1218BD291B1C3393008D49A1 /* SimpleProgressBar.h */,
 				1218BD2A1B1C3393008D49A1 /* SimpleProgressBar.m */,
 				1218BD2B1B1C3393008D49A1 /* SimpleToast.h */,
@@ -451,10 +488,46 @@
 		1218BDD51B1C516E008D49A1 /* DomainBeanModel */ = {
 			isa = PBXGroup;
 			children = (
+				12B592381B1D857700982834 /* UrlConstantForThisProject.h */,
+				12B592391B1D857700982834 /* UrlConstantForThisProject.m */,
 				1218BDD61B1C516E008D49A1 /* NetworkInterfaceMappingSingleton.h */,
 				1218BDD71B1C516E008D49A1 /* NetworkInterfaceMappingSingleton.m */,
+				12B592241B1D7BE600982834 /* login */,
 			);
 			path = DomainBeanModel;
+			sourceTree = "<group>";
+		};
+		12B592241B1D7BE600982834 /* login */ = {
+			isa = PBXGroup;
+			children = (
+				12B592251B1D7BE600982834 /* AccessToken.h */,
+				12B592261B1D7BE600982834 /* AccessToken.m */,
+				12B592271B1D7BE600982834 /* LoginDatabaseFieldsConstant.h */,
+				12B592281B1D7BE600982834 /* LoginDomainBeanHelper.h */,
+				12B592291B1D7BE600982834 /* LoginDomainBeanHelper.m */,
+				12B5922A1B1D7BE600982834 /* LoginNetRequestBean.h */,
+				12B5922B1B1D7BE600982834 /* LoginNetRequestBean.m */,
+				12B5922C1B1D7BE600982834 /* LoginNetRespondBean.h */,
+				12B5922D1B1D7BE600982834 /* LoginNetRespondBean.m */,
+				12B5922E1B1D7BE600982834 /* LoginParseDomainBeanToDD.h */,
+				12B5922F1B1D7BE600982834 /* LoginParseDomainBeanToDD.m */,
+				12B592301B1D7BE600982834 /* UserInfo.h */,
+				12B592311B1D7BE600982834 /* UserInfo.m */,
+			);
+			path = login;
+			sourceTree = "<group>";
+		};
+		12B5923B1B1D92D100982834 /* GlobalDataCache */ = {
+			isa = PBXGroup;
+			children = (
+				12B5923C1B1D92D100982834 /* GlobalDataCacheForDisk.h */,
+				12B5923D1B1D92D100982834 /* GlobalDataCacheForDisk.m */,
+				12B5923E1B1D92D100982834 /* GlobalDataCacheForMemorySingleton.h */,
+				12B5923F1B1D92D100982834 /* GlobalDataCacheForMemorySingleton.m */,
+				12B592401B1D92D100982834 /* LocalCacheDataPathConstant.h */,
+				12B592411B1D92D100982834 /* LocalCacheDataPathConstant.m */,
+			);
+			path = GlobalDataCache;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -548,6 +621,7 @@
 				1218BD971B1C3A61008D49A1 /* SimpleNetworkEngineSingleton.m in Sources */,
 				1218BD031B1C2DFF008D49A1 /* UIImage+animatedGIF.m in Sources */,
 				1218BD4A1B1C3924008D49A1 /* MKReachability.m in Sources */,
+				12B592341B1D7BE600982834 /* LoginNetRequestBean.m in Sources */,
 				1218BD981B1C3A61008D49A1 /* ErrorBean.m in Sources */,
 				1218BD2D1B1C3393008D49A1 /* SimpleProgressBar.m in Sources */,
 				1218BD961B1C3A61008D49A1 /* BaseModel.m in Sources */,
@@ -564,14 +638,23 @@
 				1218BD011B1C2DFF008D49A1 /* UIColor+HexConvert.m in Sources */,
 				1218BDCD1B1C4B08008D49A1 /* SpliceFullUrlByDomainBeanSpecialPath.m in Sources */,
 				1218BD281B1C320C008D49A1 /* NSMutableDictionary+SafeSetObjectForKey.m in Sources */,
+				12B592331B1D7BE600982834 /* LoginDomainBeanHelper.m in Sources */,
 				1218BDCB1B1C4B08008D49A1 /* NetResponseRawEntityDataUnpack.m in Sources */,
+				12B592361B1D7BE600982834 /* LoginParseDomainBeanToDD.m in Sources */,
+				12B5923A1B1D857700982834 /* UrlConstantForThisProject.m in Sources */,
 				1218BD991B1C3A61008D49A1 /* NetRequestHandleNilObject.m in Sources */,
+				12B592431B1D92D100982834 /* GlobalDataCacheForDisk.m in Sources */,
 				1218BD431B1C3924008D49A1 /* NSData+MKBase64.m in Sources */,
 				1218BDC81B1C4B08008D49A1 /* DomainBeanRequestPublicParams.m in Sources */,
 				1218BDC91B1C4B08008D49A1 /* NetRequestParamsPackage.m in Sources */,
+				12B592481B1D950C00982834 /* ProjectHelper.m in Sources */,
 				1218BD041B1C2DFF008D49A1 /* UIImage+ImageCompression.m in Sources */,
+				12B592371B1D7BE600982834 /* UserInfo.m in Sources */,
 				1218BCF91B1C2DFF008D49A1 /* NSDictionary+Contain.m in Sources */,
+				12B592441B1D92D100982834 /* GlobalDataCacheForMemorySingleton.m in Sources */,
 				1218BDC71B1C4B08008D49A1 /* EngineHelperSingleton.m in Sources */,
+				12B592451B1D92D100982834 /* LocalCacheDataPathConstant.m in Sources */,
+				12B592321B1D7BE600982834 /* AccessToken.m in Sources */,
 				1218BDCA1B1C4B08008D49A1 /* NetResponseDataToNSDictionary.m in Sources */,
 				1218BD451B1C3924008D49A1 /* NSDictionary+RequestEncoding.m in Sources */,
 				1218BDD81B1C516E008D49A1 /* NetworkInterfaceMappingSingleton.m in Sources */,
@@ -579,6 +662,7 @@
 				1218BDD41B1C4CDB008D49A1 /* HttpRequestHandleOfMKNetworkKit.m in Sources */,
 				1218BDD31B1C4CDB008D49A1 /* HttpEngineOfMKNetworkKitSingleton.m in Sources */,
 				1218BD481B1C3924008D49A1 /* MKNetworkEngine.m in Sources */,
+				12B592351B1D7BE600982834 /* LoginNetRespondBean.m in Sources */,
 				1218BCFD1B1C2DFF008D49A1 /* NSObject+Serialization.m in Sources */,
 				1218BCFC1B1C2DFF008D49A1 /* NSObject+DeepCopyingSupport.m in Sources */,
 				1218BD051B1C2DFF008D49A1 /* UIPopoverController+Tag.m in Sources */,
@@ -694,6 +778,7 @@
 					"\"../Pods/Headers/Public\"",
 					"\"../Pods/Headers/Public/MBProgressHUD\"",
 				);
+				OTHER_CFLAGS = "-DPRPDEBUG";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

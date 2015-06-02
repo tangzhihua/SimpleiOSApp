@@ -433,8 +433,28 @@
 					"$(PROJECT_DIR)/SimpleiOSApp",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/SimpleiOSApp-bwkdfxhmwpynlfdacbnnrpolqyvk/Build/Products/Debug-iphoneos",
 				);
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/GDChannel\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/JSONKit\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/MQTTKit\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/NSString-UrlEncode\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/RNTimer\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/WEPopover\"",
+					"-DPRPDEBUG",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/CoreLib/CoreLib";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/CoreLib/CoreLib/**";
 			};
 			name = Debug;
 		};
@@ -456,7 +476,7 @@
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/SimpleiOSApp-bwkdfxhmwpynlfdacbnnrpolqyvk/Build/Products/Debug-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/CoreLib/CoreLib";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/CoreLib/CoreLib/**";
 			};
 			name = Release;
 		};

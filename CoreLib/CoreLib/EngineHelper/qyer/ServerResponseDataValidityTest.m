@@ -16,20 +16,19 @@
  */
 - (BOOL)isServerResponseDataValid:(in NSDictionary *)serverResponseDataDictionary errorOUT:(out ErrorBean **)errorOUT {
   
-  NSInteger errorCode = [serverResponseDataDictionary[@"retcode"] integerValue];
-  NSString *errorMessage = serverResponseDataDictionary[@"retmsg"];
-  
-  if (errorCode != 0) {// 服务器端跟客户端商定, 错误码等于0时, 证明本次访问OK
+  id status = serverResponseDataDictionary[@"status"];
+  if (status != nil) {
+    NSInteger errorCode = [serverResponseDataDictionary[@"status"] integerValue];
+    NSString *errorMessage = serverResponseDataDictionary[@"info"];
     
     // 服务器端告知客户端, 本次请求发生错误.
     if (errorOUT != NULL) {
       *errorOUT = [ErrorBean errorBeanWithErrorCode:errorCode errorMessage:errorMessage];
     }
     return NO;
-  } else {
-    
-    // 服务器告知客户端, 本次网络业务请求逻辑上有效
-    return YES;
   }
+  
+  // 服务器告知客户端, 本次网络业务请求逻辑上有效
+  return YES;
 }
 @end

@@ -7,7 +7,10 @@
 //
 
 #import "AppDelegate.h"
-
+ 
+#import "SimpleNetworkEngineSingleton.h"
+#import "LoginNetRequestBean.h"
+#import "LoginNetRespondBean.h"
 
 @interface AppDelegate ()
 
@@ -19,8 +22,18 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   // Override point for customization after application launch.
   [self.window makeKeyAndVisible];
-   
- //test       gggg   的
+  
+  LoginNetRequestBean *netRequestBean = [[LoginNetRequestBean alloc] initWithUsername:@"3252475@qq.com" password:@"123456Hh"];
+  [[SimpleNetworkEngineSingleton sharedInstance] requestDomainBeanWithRequestDomainBean:netRequestBean beginBlock:^{
+    
+  } successedBlock:^(id respondDomainBean) {
+    
+  } failedBlock:^(ErrorBean *error) {
+    
+  } endBlock:^{
+    
+  }];
+  
   return YES;
 }
 

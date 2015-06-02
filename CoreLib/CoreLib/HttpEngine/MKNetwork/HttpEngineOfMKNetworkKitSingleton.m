@@ -96,9 +96,9 @@ static NSString *const TAG = @"HttpEngineOfMKNetworkKitSingleton";
   NSMutableDictionary *httpHeaders = [NSMutableDictionary dictionary];
   //
   
-  httpHeaders[@"Content-Type"] = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", eKLRequestStringBoundary];
-  httpHeaders[@"User-Agent"] = @"";
-  httpHeaders[@"Connection"] = @"Keep-Alive";
+//  httpHeaders[@"Content-Type"] = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", eKLRequestStringBoundary];
+//  httpHeaders[@"User-Agent"] = @"";
+//  httpHeaders[@"Connection"] = @"Keep-Alive";
   
   MKNetworkOperation *netRequestOperation = (MKNetworkOperation *)[self.networkEngine operationWithURLString:urlString params:dataDictionary httpMethod:httpMethod];
   netRequestOperation.queuePriority = netRequestOperationPriority;

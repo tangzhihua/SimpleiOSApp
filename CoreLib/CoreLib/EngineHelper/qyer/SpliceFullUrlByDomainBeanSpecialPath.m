@@ -4,6 +4,6 @@
 
 @implementation SpliceFullUrlByDomainBeanSpecialPath
 - (NSString *)fullUrlByDomainBeanSpecialPath:(NSString *)specialPath {
-  return specialPath;
+  return [NSString stringWithFormat:@"%@/%@", LastMinute_UrlConstant_MainUrl, specialPath];
 }
 @end
