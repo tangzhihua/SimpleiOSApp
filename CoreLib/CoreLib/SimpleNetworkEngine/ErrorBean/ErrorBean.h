@@ -1,9 +1,11 @@
 //
 //  ErrorBean.h
 //
-//  昆仑定义的错误信息模型
+//  CoreLib
 //
-
+//  Created by skyduck on 2015-6-1.
+//  Copyright (c) 2015年 Skyduck. All rights reserved.
+//
 #import <Foundation/Foundation.h>
 
 @interface ErrorBean : NSError

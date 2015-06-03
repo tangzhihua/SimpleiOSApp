@@ -1,10 +1,3 @@
-//
-//  NetRequestHandleNilObject.m
-//  ModelLib
-//
-//  Created by 唐志华 on 14-4-20.
-//  Copyright (c) 2014年 唐志华. All rights reserved.
-//
 
 #import "NetRequestHandleNilObject.h"
 
