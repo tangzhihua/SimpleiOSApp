@@ -145,13 +145,7 @@
 		1218BD7E1B1C3A61008D49A1 /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 		1218BD801B1C3A61008D49A1 /* SimpleNetworkEngineSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleNetworkEngineSingleton.h; sourceTree = "<group>"; };
 		1218BD811B1C3A61008D49A1 /* SimpleNetworkEngineSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleNetworkEngineSingleton.m; sourceTree = "<group>"; };
-		1218BD831B1C3A61008D49A1 /* IDomainBeanRequestPublicParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDomainBeanRequestPublicParams.h; sourceTree = "<group>"; };
 		1218BD841B1C3A61008D49A1 /* IEngineHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IEngineHelper.h; sourceTree = "<group>"; };
-		1218BD851B1C3A61008D49A1 /* INetRequestParamsPackage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INetRequestParamsPackage.h; sourceTree = "<group>"; };
-		1218BD861B1C3A61008D49A1 /* INetResponseDataToNSDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INetResponseDataToNSDictionary.h; sourceTree = "<group>"; };
-		1218BD871B1C3A61008D49A1 /* INetResponseRawEntityDataUnpack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INetResponseRawEntityDataUnpack.h; sourceTree = "<group>"; };
-		1218BD881B1C3A61008D49A1 /* IServerResponseDataValidityTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IServerResponseDataValidityTest.h; sourceTree = "<group>"; };
-		1218BD891B1C3A61008D49A1 /* ISpliceFullUrlByDomainBeanSpecialPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISpliceFullUrlByDomainBeanSpecialPath.h; sourceTree = "<group>"; };
 		1218BD8B1B1C3A61008D49A1 /* Errors_en_US.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Errors_en_US.plist; sourceTree = "<group>"; };
 		1218BD8C1B1C3A61008D49A1 /* Errors_zh_CN.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Errors_zh_CN.plist; sourceTree = "<group>"; };
 		1218BD8D1B1C3A61008D49A1 /* ErrorBean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorBean.h; sourceTree = "<group>"; };
@@ -182,6 +176,12 @@
 		1218BDD21B1C4CDB008D49A1 /* HttpRequestHandleOfMKNetworkKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpRequestHandleOfMKNetworkKit.m; sourceTree = "<group>"; };
 		1218BDD61B1C516E008D49A1 /* NetworkInterfaceMappingSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkInterfaceMappingSingleton.h; sourceTree = "<group>"; };
 		1218BDD71B1C516E008D49A1 /* NetworkInterfaceMappingSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkInterfaceMappingSingleton.m; sourceTree = "<group>"; };
+		1256BD751B1EFEB300869995 /* IDomainBeanRequestPublicParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDomainBeanRequestPublicParams.h; sourceTree = "<group>"; };
+		1256BD761B1EFEB300869995 /* INetRequestParamsPackage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INetRequestParamsPackage.h; sourceTree = "<group>"; };
+		1256BD771B1EFEB300869995 /* INetResponseDataToNSDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INetResponseDataToNSDictionary.h; sourceTree = "<group>"; };
+		1256BD781B1EFEB300869995 /* INetResponseRawEntityDataUnpack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INetResponseRawEntityDataUnpack.h; sourceTree = "<group>"; };
+		1256BD791B1EFEB300869995 /* IServerResponseDataValidityTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IServerResponseDataValidityTest.h; sourceTree = "<group>"; };
+		1256BD7A1B1EFEB300869995 /* ISpliceFullUrlByDomainBeanSpecialPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISpliceFullUrlByDomainBeanSpecialPath.h; sourceTree = "<group>"; };
 		12B592251B1D7BE600982834 /* AccessToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccessToken.h; sourceTree = "<group>"; };
 		12B592261B1D7BE600982834 /* AccessToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccessToken.m; sourceTree = "<group>"; };
 		12B592271B1D7BE600982834 /* LoginDatabaseFieldsConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginDatabaseFieldsConstant.h; sourceTree = "<group>"; };
@@ -402,13 +402,8 @@
 		1218BD821B1C3A61008D49A1 /* EngineHelper */ = {
 			isa = PBXGroup;
 			children = (
-				1218BD831B1C3A61008D49A1 /* IDomainBeanRequestPublicParams.h */,
 				1218BD841B1C3A61008D49A1 /* IEngineHelper.h */,
-				1218BD851B1C3A61008D49A1 /* INetRequestParamsPackage.h */,
-				1218BD861B1C3A61008D49A1 /* INetResponseDataToNSDictionary.h */,
-				1218BD871B1C3A61008D49A1 /* INetResponseRawEntityDataUnpack.h */,
-				1218BD881B1C3A61008D49A1 /* IServerResponseDataValidityTest.h */,
-				1218BD891B1C3A61008D49A1 /* ISpliceFullUrlByDomainBeanSpecialPath.h */,
+				1256BD741B1EFEB300869995 /* SpecificInterfaces */,
 			);
 			path = EngineHelper;
 			sourceTree = "<group>";
@@ -495,6 +490,19 @@
 				12B592241B1D7BE600982834 /* login */,
 			);
 			path = DomainBeanModel;
+			sourceTree = "<group>";
+		};
+		1256BD741B1EFEB300869995 /* SpecificInterfaces */ = {
+			isa = PBXGroup;
+			children = (
+				1256BD751B1EFEB300869995 /* IDomainBeanRequestPublicParams.h */,
+				1256BD761B1EFEB300869995 /* INetRequestParamsPackage.h */,
+				1256BD771B1EFEB300869995 /* INetResponseDataToNSDictionary.h */,
+				1256BD781B1EFEB300869995 /* INetResponseRawEntityDataUnpack.h */,
+				1256BD791B1EFEB300869995 /* IServerResponseDataValidityTest.h */,
+				1256BD7A1B1EFEB300869995 /* ISpliceFullUrlByDomainBeanSpecialPath.h */,
+			);
+			path = SpecificInterfaces;
 			sourceTree = "<group>";
 		};
 		12B592241B1D7BE600982834 /* login */ = {
