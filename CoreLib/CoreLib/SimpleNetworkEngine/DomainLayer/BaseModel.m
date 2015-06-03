@@ -11,7 +11,7 @@
 
 @implementation BaseModel
 
-- (id)initWithDictionary:(NSDictionary*)dictionaryObject {
+- (id)initWithDictionary:(NSDictionary *)dictionaryObject {
   if((self = [super init])) {
     [self setValuesForKeysWithDictionary:dictionaryObject];
   }

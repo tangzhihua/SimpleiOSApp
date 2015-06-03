@@ -59,7 +59,8 @@
  这里的抽象是什么呢, 就是, "请求" 和 "响应", 所有助手函数的代码逻辑都是一样的, 一旦要增加变化时, 就需要修改全部的函数, 这个简直是噩梦.
  
  
- 补充 (20150601) : 增加接口的缓存机制, 也就是说, 请求接口时, 可以指定是否要使用缓存机制, 缓存的key就是传入的参数
+ 补充 (20150601) : 增加接口的缓存机制, 也就是说, 请求接口时, 可以指定是否要使用缓存机制, 缓存的key就是传入的参数.
+ 这是
  
  */
 
@@ -104,13 +105,27 @@ typedef void (^DomainBeanAsyncHttpResponseListenerInUIThreadProgressBlock)(doubl
 
 // --------------------              不带优先级的接口            -------------------------
 
+/// 普通形式(不使用缓存/优先级默认是 NetRequestOperationPriorityNormal)
+- (id<INetRequestHandle>)requestDomainBeanWithRequestDomainBean:(in id)netRequestDomainBean
+                                                 successedBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadSuccessedBlock)successedBlock
+                                                    failedBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadFailedBlock)failedBlock;
+
+/// 配合UI显示的形式(不使用缓存/优先级默认是 NetRequestOperationPriorityNormal)
+- (id<INetRequestHandle>)requestDomainBeanWithRequestDomainBean:(in id)netRequestDomainBean
+                                                     beginBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadBeginBlock)beginBlock
+                                                 successedBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadSuccessedBlock)successedBlock
+                                                    failedBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadFailedBlock)failedBlock
+                                                       endBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadEndBlock)endBlock;
+
 /// 普通形式(优先级默认是 NetRequestOperationPriorityNormal)
 - (id<INetRequestHandle>)requestDomainBeanWithRequestDomainBean:(in id)netRequestDomainBean
+                                                     isUseCache:(in BOOL)isUseCache
                                                  successedBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadSuccessedBlock)successedBlock
                                                     failedBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadFailedBlock)failedBlock;
 
 /// 配合UI显示的形式(优先级默认是 NetRequestOperationPriorityNormal)
 - (id<INetRequestHandle>)requestDomainBeanWithRequestDomainBean:(in id)netRequestDomainBean
+                                                     isUseCache:(in BOOL)isUseCache
                                                      beginBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadBeginBlock)beginBlock
                                                  successedBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadSuccessedBlock)successedBlock
                                                     failedBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadFailedBlock)failedBlock
@@ -118,13 +133,13 @@ typedef void (^DomainBeanAsyncHttpResponseListenerInUIThreadProgressBlock)(doubl
 
 // --------------------               带优先级的接口            -------------------------
 
-/// 普通形式
+/// 普通形式(不使用缓存)
 - (id<INetRequestHandle>)requestDomainBeanWithRequestDomainBean:(in id)netRequestDomainBean
                                     netRequestOperationPriority:(in NetRequestOperationPriority)netRequestOperationPriority
                                                  successedBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadSuccessedBlock)successedBlock
                                                     failedBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadFailedBlock)failedBlock;
 
-/// 配合UI显示的形式
+/// 配合UI显示的形式(不使用缓存)
 - (id<INetRequestHandle>)requestDomainBeanWithRequestDomainBean:(in id)netRequestDomainBean
                                     netRequestOperationPriority:(in NetRequestOperationPriority)netRequestOperationPriority
                                                      beginBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadBeginBlock)beginBlock
@@ -132,6 +147,23 @@ typedef void (^DomainBeanAsyncHttpResponseListenerInUIThreadProgressBlock)(doubl
                                                     failedBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadFailedBlock)failedBlock
                                                        endBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadEndBlock)endBlock;
 
+// --------------------               带缓存/优先级的接口(全能初始化方法)            -------------------------
+
+/// 普通形式
+- (id<INetRequestHandle>)requestDomainBeanWithRequestDomainBean:(in id)netRequestDomainBean
+                                                     isUseCache:(in BOOL)isUseCache
+                                    netRequestOperationPriority:(in NetRequestOperationPriority)netRequestOperationPriority
+                                                 successedBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadSuccessedBlock)successedBlock
+                                                    failedBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadFailedBlock)failedBlock;
+
+/// 配合UI显示的形式
+- (id<INetRequestHandle>)requestDomainBeanWithRequestDomainBean:(in id)netRequestDomainBean
+                                                     isUseCache:(in BOOL)isUseCache
+                                    netRequestOperationPriority:(in NetRequestOperationPriority)netRequestOperationPriority
+                                                     beginBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadBeginBlock)beginBlock
+                                                 successedBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadSuccessedBlock)successedBlock
+                                                    failedBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadFailedBlock)failedBlock
+                                                       endBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadEndBlock)endBlock;
 
 #pragma mark - request file
 - (id<INetRequestHandle>)requestFileWithUrlString:(in NSString *)urlString
@@ -149,4 +181,7 @@ typedef void (^DomainBeanAsyncHttpResponseListenerInUIThreadProgressBlock)(doubl
                                     progressBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadProgressBlock)progressBlock
                                    successedBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadSuccessedBlock)successedBlock
                                       failedBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadFailedBlock)failedBlock;
+
+
+
 @end

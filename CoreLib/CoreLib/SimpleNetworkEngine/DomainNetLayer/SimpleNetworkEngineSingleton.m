@@ -100,49 +100,32 @@ static NSString *const TAG = @"SimpleNetworkEngineSingleton";
   }
 }
 
+
 #pragma mark -
-#pragma mark 对外公开的方法
+#pragma mark - request domainbean (全能方法)
 
-- (id<INetRequestHandle>)requestDomainBeanWithRequestDomainBean:(in id)netRequestDomainBean
-                                                 successedBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadSuccessedBlock)successedBlock
-                                                    failedBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadFailedBlock)failedBlock{
-  return [self requestDomainBeanWithRequestDomainBean:netRequestDomainBean
-                          netRequestOperationPriority:NetRequestOperationPriorityNormal
-                                           beginBlock:nil
-                                       successedBlock:successedBlock
-                                          failedBlock:failedBlock
-                                             endBlock:nil];
-}
 
-/// 新的引擎接口
-- (id<INetRequestHandle>)requestDomainBeanWithRequestDomainBean:(in id)netRequestDomainBean
-                                                     beginBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadBeginBlock)beginBlock
-                                                 successedBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadSuccessedBlock)successedBlock
-                                                    failedBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadFailedBlock)failedBlock
-                                                       endBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadEndBlock)endBlock {
-  return [self requestDomainBeanWithRequestDomainBean:netRequestDomainBean
-                          netRequestOperationPriority:NetRequestOperationPriorityNormal
-                                           beginBlock:beginBlock
-                                       successedBlock:successedBlock
-                                          failedBlock:failedBlock
-                                             endBlock:endBlock];
-}
 
-/// 普通形式
+/**
+ * 发起一个网络接口的请求操作
+ *
+ * @param netRequestDomainBean        : 网络请求业务Bean(作用 : 1.标识想要请求的网络接口. 2.包装接口访问参数)
+ * @param isUseCache                  : 是否要使用缓存, 如果设成YES, 会先读取本地缓存的数据, 本地没有缓存, 会从网络拉取最新的数据
+ * @param netRequestOperationPriority : 本次网络请求发起后, 在请求队列中的优先级别.
+ *
+ * -------------      下面是生命周期的回调块       -------------
+ *
+ * @param beginBlock                  : 开始
+ * @param successedBlock              : 成功
+ * @param failedBlock                 : 失败
+ * @param endBlock                    : 结束
+ *
+ * -------------      下面是生命周期的回调块       -------------
+ *
+ *
+ */
 - (id<INetRequestHandle>)requestDomainBeanWithRequestDomainBean:(in id)netRequestDomainBean
-                                    netRequestOperationPriority:(in NetRequestOperationPriority)netRequestOperationPriority
-                                                 successedBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadSuccessedBlock)successedBlock
-                                                    failedBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadFailedBlock)failedBlock {
-  return [self requestDomainBeanWithRequestDomainBean:netRequestDomainBean
-                          netRequestOperationPriority:NetRequestOperationPriorityNormal
-                                           beginBlock:nil
-                                       successedBlock:successedBlock
-                                          failedBlock:failedBlock
-                                             endBlock:nil];
-}
-
-/// 配合UI显示的形式
-- (id<INetRequestHandle>)requestDomainBeanWithRequestDomainBean:(in id)netRequestDomainBean
+                                                     isUseCache:(in BOOL)isUseCache
                                     netRequestOperationPriority:(in NetRequestOperationPriority)netRequestOperationPriority
                                                      beginBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadBeginBlock)beginBlock
                                                  successedBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadSuccessedBlock)successedBlock
@@ -154,50 +137,61 @@ static NSString *const TAG = @"SimpleNetworkEngineSingleton";
   ErrorBean *requestParamsError = nil;
   
   do {
+    // 入参检测
     if (netRequestDomainBean == nil || successedBlock == NULL || failedBlock == NULL) {
-      requestParamsError = [ErrorBean errorBeanWithErrorCode:ErrorCodeEnum_Client_IllegalArgument errorMessage:@"入参中有空值 netRequestDomainBean == nil || successedBlock == NULL || failedBlock == NULL"];
+      requestParamsError = [ErrorBean errorBeanWithErrorCode:ErrorCodeEnum_Client_IllegalArgument errorMessage:@"方法入参 netRequestDomainBean/successedBlock/failedBlock 不能为空."];
       break;
     }
     
-    // 将 "网络请求业务Bean" 的 完整class name 作为和这个业务Bean对应的"业务接口" 绑定的所有相关的处理算法的唯一识别Key
-    NSString *keyOfDomainBeanHelper = NSStringFromClass([netRequestDomainBean class]);
-    PRPLog(@"\n\n\n\n\n\n\n\n\n-----------------> 请求接口 : %@\n\n\n", keyOfDomainBeanHelper);
+    // "网络请求业务Bean" 作为一个网络接口的唯一标识, 它的类名(字符串格式), 作为跟这个接口有关的DomainBeanHelper的 Key Value 关联.
+    NSString *const netRequestDomainBeanClassString = NSStringFromClass([netRequestDomainBean class]);
     
-    // 这里的设计使用了 "抽象工厂" 设计模式
-    id<IDomainBeanHelper> domainBeanHelper = [EngineHelperSingleton sharedInstance].networkInterfaceMapping[keyOfDomainBeanHelper];
-				
-    // 获取当前业务网络接口, 对应的URL
-    NSString *specialPath = [domainBeanHelper specialUrlPathWithNetRequestBean:netRequestDomainBean];
-    NSString *fullUrlString = [[[EngineHelperSingleton sharedInstance] spliceFullUrlByDomainBeanSpecialPathFunction] fullUrlByDomainBeanSpecialPath:specialPath];
+    PRPLog(@"\n\n\n\n\n\n\n\n\n-----------------> 请求接口 : %@\n\n\n", netRequestDomainBeanClassString);
+    
+    // domainBeanHelper 中包含了跟当前网络接口相关的一组助手方法(这里使用了 "抽象工厂" 设计模式)
+    const id<IDomainBeanHelper> domainBeanHelper = [EngineHelperSingleton sharedInstance].networkInterfaceMapping[netRequestDomainBeanClassString];
+    if (domainBeanHelper == nil) {
+      requestParamsError = [ErrorBean errorBeanWithErrorCode:ErrorCodeEnum_Client_ProgrammingError errorMessage:[NSString stringWithFormat:@"接口 [%@] 找不到与其对应的 domainBeanHelper, 客户端编程错误.", netRequestDomainBeanClassString]];
+      break;
+      break;
+    }
+    
+    // 获取当前网络接口, 对应的URL
+    NSString *const specialPath = [domainBeanHelper specialUrlPathWithNetRequestBean:netRequestDomainBean];
+    NSString *const fullUrlString = [[[EngineHelperSingleton sharedInstance] spliceFullUrlByDomainBeanSpecialPathFunction] fullUrlByDomainBeanSpecialPath:specialPath];
     if ([NSString isEmpty:fullUrlString]) {
-      requestParamsError = [ErrorBean errorBeanWithErrorCode:ErrorCodeEnum_Client_IllegalArgument errorMessage:[NSString stringWithFormat:@"接口 %@ 对应的URL为空.", keyOfDomainBeanHelper]];
+      requestParamsError = [ErrorBean errorBeanWithErrorCode:ErrorCodeEnum_Client_IllegalArgument errorMessage:[NSString stringWithFormat:@"接口 [%@] 对应的 [%@] specialUrlPathWithNetRequestBean 方法返回nil, 客户端编程错误.", netRequestDomainBeanClassString, NSStringFromClass([domainBeanHelper class])]];
       break;
     }
     
-    // 发往服务器的 "数据字典"
-    NSMutableDictionary *dataDictionary = [NSMutableDictionary dictionaryWithCapacity:50];
+    /// 发往服务器的 "数据字典"
+    NSMutableDictionary *const dataDictionary = [NSMutableDictionary dictionaryWithCapacity:50];
     // 公共参数
-    NSDictionary *publicParams = [[[EngineHelperSingleton sharedInstance] domainBeanRequestPublicParamsFunction] publicParamsWithErrorOUT:&requestParamsError];
+    requestParamsError = nil;
+    NSDictionary *const publicParams = [[[EngineHelperSingleton sharedInstance] domainBeanRequestPublicParamsFunction] publicParamsWithErrorOUT:&requestParamsError];
     if (requestParamsError != nil) {
       // 获取公共参数失败
       break;
     }
     [dataDictionary addEntriesFromDictionary:publicParams];
     
-    // 具体接口的参数, 在这里会检测外部调用者传入的 "网络请求业务Bean" 是否有效.
-    // TODO: 一定要保证先填充 "公共参数", 然后再填充 "具体接口的参数", 这是因为有时候具体接口的参数需要覆盖公共参数
+    // 具体接口的参数
+    // 注意 : 一定要保证先填充 "公共参数", 然后再填充 "具体接口的参数", 这是因为有时候具体接口的参数需要覆盖公共参数.
     if ([domainBeanHelper parseNetRequestDomainBeanToDataDictionaryFunction] != nil) {
-      
-      [dataDictionary addEntriesFromDictionary:[[domainBeanHelper parseNetRequestDomainBeanToDataDictionaryFunction] parseNetRequestDomainBeanToDataDictionary:netRequestDomainBean error:&requestParamsError]];
+      requestParamsError = nil;
+      NSDictionary *const privateParams = [[domainBeanHelper parseNetRequestDomainBeanToDataDictionaryFunction] parseNetRequestDomainBeanToDataDictionary:netRequestDomainBean error:&requestParamsError];
       if (requestParamsError != nil) {
-        // 将一个 "网络请求业务Bean" 解析成发往服务器的 "数据字典" 失败, 可能是外部调用者传递的参数无效
+        // 获取具体接口的私有参数失败
         break;
       }
+      [dataDictionary addEntriesFromDictionary:privateParams];
     }
     
-    // 调用网络层接口, 开始HTTP请求
+    // <------------------------------------------------------------------------------------------------------->
+    /// 调用网络层接口, 开始HTTP请求
     id<INetRequestHandle> requestHandle = [[[EngineHelperSingleton sharedInstance] netLayerInterfaceFunction] requestDomainBeanWithUrlString:fullUrlString httpMethod:[domainBeanHelper httpMethod] netRequestOperationPriority:[self netLayerOperationPriorityTransform:netRequestOperationPriority] dataDictionary:dataDictionary successedBlock:^(id<INetRequestIsCancelled> netRequestIsCancelled, NSData *responseData) {
-      // 网络层数据正常返回
+      
+      // 网络层数据正常返回, 进入业务层的解析操作.
       
       // 网络响应业务Bean
       id netRespondBean = nil;
@@ -215,44 +209,45 @@ static NSString *const TAG = @"SimpleNetworkEngineSingleton";
         }
         // ------------------------------------- >>>
         
-        NSData *netRawEntityData = responseData;
+        NSData *const netRawEntityData = responseData;
         if (![netRawEntityData isKindOfClass:[NSData class]] || netRawEntityData.length <= 0) {
-          serverRespondDataError = [ErrorBean errorBeanWithErrorCode:ErrorCodeEnum_Server_NoResponseData errorMessage:@"从服务器端获得的实体数据为空(EntityData)."];
+          serverRespondDataError = [ErrorBean errorBeanWithErrorCode:ErrorCodeEnum_Server_NoResponseData errorMessage:@"从服务器端获得的实体数据为空(EntityData is nil)."];
           break;
         }
-        PRPLog(@"\n\n\n-----------------> 接口 %@ : 返回的 \"实体生数据\" 不为空(netRawEntityData.length=%d)\n\n\n", keyOfDomainBeanHelper, netRawEntityData.length);
+        PRPLog(@"\n\n\n-----------------> 接口 [%@] : 返回的 \"实体生数据\" 不为空(netRawEntityData.length=%d)\n\n\n", netRequestDomainBeanClassString, netRawEntityData.length);
         
-        // 将具体网络引擎层返回的 "原始未加工数据byte[]" 解包成 "可识别数据字符串(一般是utf-8)".
+        // 将网络层返回的 "生数据" 解包成 "可识别数据字符串(一般是utf-8)".
         // 这里要考虑网络传回的原生数据有加密的情况, 比如MD5加密的数据, 可以在这里先解密成可识别的字符串
-        id<INetResponseRawEntityDataUnpack> netResponseRawEntityDataUnpackFunction = [[EngineHelperSingleton sharedInstance] netResponseRawEntityDataUnpackFunction];
+        const id<INetResponseRawEntityDataUnpack> netResponseRawEntityDataUnpackFunction = [[EngineHelperSingleton sharedInstance] netResponseRawEntityDataUnpackFunction];
         // 已经解密的可识别字符串(UTF8, 可能是JSON/XML/其他数据交换协议)
         netUnpackedDataOfUTF8String = [netResponseRawEntityDataUnpackFunction unpackNetResponseRawEntityDataToUTF8String:netRawEntityData];
         if ([NSString isEmpty:netUnpackedDataOfUTF8String]) {
-          serverRespondDataError = [ErrorBean errorBeanWithErrorCode:ErrorCodeEnum_Server_UnpackedResponseDataFailed errorMessage:@"解压缩服务器端返回的 \"实体数据(未解压的NSData类型的数据)\" 失败."];
+          serverRespondDataError = [ErrorBean errorBeanWithErrorCode:ErrorCodeEnum_Server_UnpackedResponseDataFailed errorMessage:@"解包服务器端返回的 \"生数据\" 失败."];
           break;
         }
-        PRPLog(@"\n\n\n-----------------> 接口 %@ : 解密服务器返回的 \"实体生数据\" 成功, 详细数据 =     \n\n%@\n\n\n", keyOfDomainBeanHelper, netUnpackedDataOfUTF8String);
+        PRPLog(@"\n\n\n-----------------> 接口 [%@] : 解包服务器返回的 \"生数据\" 成功, 详细数据 =     \n\n%@\n\n\n", netRequestDomainBeanClassString, netUnpackedDataOfUTF8String);
         
         // 将 "数据交换协议字符串JSON/XML" 解析成 "cocoa 字典 NSDictionary"
         // 警告 : 这里假定服务器和客户端只使用一种 "数据交换协议" 进行通信.
-        id<INetResponseDataToNSDictionary> netResponseDataToNSDictionaryFunction = [[EngineHelperSingleton sharedInstance] netResponseDataToNSDictionaryFunction];
-        NSDictionary *responseDataDictionary = [netResponseDataToNSDictionaryFunction netResponseDataToNSDictionary:netUnpackedDataOfUTF8String];
+        const id<INetResponseDataToNSDictionary> netResponseDataToNSDictionaryFunction = [[EngineHelperSingleton sharedInstance] netResponseDataToNSDictionaryFunction];
+        NSDictionary *const responseDataDictionary = [netResponseDataToNSDictionaryFunction netResponseDataToNSDictionary:netUnpackedDataOfUTF8String];
         if (![responseDataDictionary isKindOfClass:[NSDictionary class]]) {
           serverRespondDataError = [ErrorBean errorBeanWithErrorCode:ErrorCodeEnum_Server_ResponseDataToDictionaryFailed errorMessage:@"服务器返回的数据, 不能被成功解析成 Cocoa NSDictionary."];
           break;
         }
-        PRPLog(@"\n\n\n-----------------> 接口 %@ : 将服务器返回的数据, 解析成数据字典成功, 详细数据 =     \n\n%@\n\n\n", keyOfDomainBeanHelper, responseDataDictionary);
+        PRPLog(@"\n\n\n-----------------> 接口 [%@] : 将服务器返回的数据, 解析成 Cocoa NSDictionary 成功, 详细数据 =     \n\n%@\n\n\n", netRequestDomainBeanClassString, responseDataDictionary);
         
         // 检查服务器返回的数据是否在逻辑上有效(所谓逻辑上有效, 就是看服务器是否返回和客户端约定好的错误码), 如果无效, 要获取服务器返回的错误码和错误描述信息
         // (比如说某次网络请求成功了(http级别的成功 http code是200), 但是服务器那边没有有效的数据给客户端, 所以服务器会返回错误码和描述信息告知客户端访问结果)
-        id<IServerResponseDataValidityTest> serverResponseDataValidityTestFunction = [[EngineHelperSingleton sharedInstance] serverResponseDataValidityTestFunction];
+        const id<IServerResponseDataValidityTest> serverResponseDataValidityTestFunction = [[EngineHelperSingleton sharedInstance] serverResponseDataValidityTestFunction];
+        serverRespondDataError = nil;
         if (![serverResponseDataValidityTestFunction isServerResponseDataValid:responseDataDictionary errorOUT:&serverRespondDataError]) {
-          PRPLog(@"\n\n\n-----------------> 接口 %@ : 服务器端告知客户端, 本次网络业务访问未获取到有效数据(具体情况--> %@\n\n\n", keyOfDomainBeanHelper, serverRespondDataError);
+          PRPLog(@"\n\n\n-----------------> 接口 [%@] : 服务器端告知客户端, 本次网络业务访问未获取到有效数据(具体情况--> %@\n\n\n", netRequestDomainBeanClassString, serverRespondDataError);
           break;
         }
-        PRPLog(@"\n\n\n-----------------> 接口 %@ : 经过检验, 服务器返回的数据逻辑上有效\n\n", keyOfDomainBeanHelper);
+        PRPLog(@"\n\n\n-----------------> 接口 [%@] : 经过检验, 服务器返回的数据逻辑上有效\n\n", netRequestDomainBeanClassString);
         
-        // 将 "数据字典" 直接通过 "KVC" 的方式转成 "业务Bean"
+        // 将 "数据字典" 直接通过 "KVC" 的方式转成 "网络响应业务Bean"
         @try {
           netRespondBean = [[[domainBeanHelper netRespondBeanClass] alloc] initWithDictionary:responseDataDictionary];
         } @catch (NSException *exception) {
@@ -260,19 +255,19 @@ static NSString *const TAG = @"SimpleNetworkEngineSingleton";
           serverRespondDataError = [ErrorBean errorBeanWithErrorCode:ErrorCodeEnum_Server_ParseDictionaryFailedToNetRespondBeanFailed errorMessage:@"将 \"数据字典\" 直接通过 \"KVC\" 的方式转成 \"网络响应业务Bean\" 失败."];
           break;
         }
-        PRPLog(@"\n\n\n-----------------> 接口 %@ : 将 \"数据字典\" 直接通过 \"KVC\" 的方式转成 \"网络响应业务Bean\" 成功.\n\n", keyOfDomainBeanHelper);
+        PRPLog(@"\n\n\n-----------------> 接口 [%@] : 将 \"数据字典\" 直接通过 \"KVC\" 的方式转成 \"网络响应业务Bean\" 成功.\n\n", netRequestDomainBeanClassString);
         
-        // 检查 netRespondBean 有效性.
-        if (![domainBeanHelper isNetRespondBeanValidity:netRespondBean]) {
-          serverRespondDataError = [ErrorBean errorBeanWithErrorCode:ErrorCodeEnum_Server_KeyFieldLose errorMessage:@"服务器返回的数据, 丢失关键字段."];
+        // 检查 netRespondBean 有效性, 在这里要检查服务器返回的数据中, 是否丢失了核心字段.
+        serverRespondDataError = nil;
+        if (![domainBeanHelper isNetRespondBeanValidity:netRespondBean errorOUT:&serverRespondDataError]) {
           break;
         }
-        PRPLog(@"\n\n\n-----------------> 接口 %@ : 经过检验, 创建的网络响应业务Bean %@ 有效\n打印详情:\n%@\n\n\n", keyOfDomainBeanHelper, NSStringFromClass([netRespondBean class]), [netRespondBean description]);
+        PRPLog(@"\n\n\n-----------------> 接口 [%@] : 经过检验, 创建的网络响应业务Bean %@ 有效.\n打印详情:\n%@\n\n\n", netRequestDomainBeanClassString, NSStringFromClass([netRespondBean class]), [netRespondBean description]);
         
         
         // ----------------------------------------------------------------------------
         //
-        PRPLog(@"\n\n\n-----------------> 接口 %@ : 本次网络业务请求, 圆满成功, 哦也!!!\n\n\n\n\n", keyOfDomainBeanHelper);
+        PRPLog(@"\n\n\n-----------------> 接口 [%@] : 本次网络业务请求, 圆满成功, 哦也!!!\n\n\n\n\n", netRequestDomainBeanClassString);
       } while (NO);
       
       // ------------------------------------- >>>
@@ -281,9 +276,9 @@ static NSString *const TAG = @"SimpleNetworkEngineSingleton";
         
         // ------------------------------------- >>>
         // 通知控制层, 本次网络请求结果
-        if (serverRespondDataError == nil) {// 成功
+        if (serverRespondDataError == nil) {// 业务层解析成功
           successedBlock(netRespondBean);
-        } else {// 失败
+        } else {// 业务层解析失败
           failedBlock(serverRespondDataError);
         }
         // ------------------------------------- >>>
@@ -296,7 +291,7 @@ static NSString *const TAG = @"SimpleNetworkEngineSingleton";
         // ------------------------------------- >>>
         
       } else {
-        PRPLog(@"\n\n\n-----------------> 接口 %@ : 网络请求, 已经被取消\n\n\n", keyOfDomainBeanHelper);
+        PRPLog(@"\n\n\n-----------------> 接口 [%@] : 网络请求, 已经被取消.\n\n\n", netRequestDomainBeanClassString);
       }
       // ------------------------------------- >>>
       
@@ -312,16 +307,14 @@ static NSString *const TAG = @"SimpleNetworkEngineSingleton";
       // ------------------------------------- >>>
       
     } failedBlock:^(id<INetRequestIsCancelled> netRequestIsCancelled, NSError *error) {
-      // 发生网络请求错误
-      PRPLog(@"\n\n\n-----------------> 接口 %@ : 网络层访问失败 , 原因-->\n\n%@\n\n\n", keyOfDomainBeanHelper, error.localizedDescription);
+      // 网络层访问失败.
+      PRPLog(@"\n\n\n-----------------> 接口 [%@] : 网络层访问失败 , 原因-->\n\n%@\n\n\n", netRequestDomainBeanClassString, error.localizedDescription);
       
       // ------------------------------------- >>>
       // 通知控制层, 本次网络请求失败
       if (![netRequestIsCancelled isCancell]) {
         
-        ErrorBean *errorBean = [ErrorBean errorBeanWithNSError:error];
-        
-        failedBlock(errorBean);
+        failedBlock([ErrorBean errorBeanWithNSError:error]);
         
         // ------------------------------------- >>>
         // 通知控制层, 本次网络请求彻底完成
@@ -332,20 +325,28 @@ static NSString *const TAG = @"SimpleNetworkEngineSingleton";
       } else {
         
         // 网络请求已经被取消
-        PRPLog(@"\n\n\n-----------------> 接口 %@ : 网络请求, 已经被取消\n\n\n", keyOfDomainBeanHelper);
+        PRPLog(@"\n\n\n-----------------> 接口 [%@] : 网络请求, 已经被取消.\n\n\n", netRequestDomainBeanClassString);
       }
       // ------------------------------------- >>>
       
       
     }];
+    // <------------------------------------------------------------------------------------------------------->
+    
     
     // 发起网络请求成功
     if (beginBlock != NULL) {
-      // 通知控制层, 本次网络请求参数正确, 激活成功
+      // 通知控制层, 本次网络请求参数正确, 开始进行异步网络请求操作.
       beginBlock();
     }
+    
+    // 一切OK.
     return requestHandle;
+    
   } while (NO);
+  
+  
+  
   
   // 发起网络请求失败
   //[[SdkLogCollectionSingleton sharedInstance] recordLogWithTag:TAG methodName:@"requestDomainBeanWithRequestDomainBean" errorBean:requestParamsError];
@@ -358,6 +359,114 @@ static NSString *const TAG = @"SimpleNetworkEngineSingleton";
   
 }
 
+#pragma mark - request domainbean(重载方法群)
+
+// --------------------              不带优先级的接口            -------------------------
+
+/// 普通形式(不使用缓存/优先级默认是 NetRequestOperationPriorityNormal)
+- (id<INetRequestHandle>)requestDomainBeanWithRequestDomainBean:(in id)netRequestDomainBean
+                                                 successedBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadSuccessedBlock)successedBlock
+                                                    failedBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadFailedBlock)failedBlock {
+  return [self requestDomainBeanWithRequestDomainBean:netRequestDomainBean
+                                           isUseCache:NO
+                          netRequestOperationPriority:NetRequestOperationPriorityNormal
+                                           beginBlock:NULL
+                                       successedBlock:successedBlock
+                                          failedBlock:failedBlock
+                                             endBlock:NULL];
+}
+
+/// 配合UI显示的形式(不使用缓存/优先级默认是 NetRequestOperationPriorityNormal)
+- (id<INetRequestHandle>)requestDomainBeanWithRequestDomainBean:(in id)netRequestDomainBean
+                                                     beginBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadBeginBlock)beginBlock
+                                                 successedBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadSuccessedBlock)successedBlock
+                                                    failedBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadFailedBlock)failedBlock
+                                                       endBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadEndBlock)endBlock {
+  return [self requestDomainBeanWithRequestDomainBean:netRequestDomainBean
+                                           isUseCache:NO
+                          netRequestOperationPriority:NetRequestOperationPriorityNormal
+                                           beginBlock:beginBlock
+                                       successedBlock:successedBlock
+                                          failedBlock:failedBlock
+                                             endBlock:endBlock];
+}
+
+/// 普通形式(优先级默认是 NetRequestOperationPriorityNormal)
+- (id<INetRequestHandle>)requestDomainBeanWithRequestDomainBean:(in id)netRequestDomainBean
+                                                     isUseCache:(in BOOL)isUseCache
+                                                 successedBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadSuccessedBlock)successedBlock
+                                                    failedBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadFailedBlock)failedBlock {
+  return [self requestDomainBeanWithRequestDomainBean:netRequestDomainBean
+                                           isUseCache:isUseCache
+                          netRequestOperationPriority:NetRequestOperationPriorityNormal
+                                           beginBlock:NULL
+                                       successedBlock:successedBlock
+                                          failedBlock:failedBlock
+                                             endBlock:NULL];
+}
+
+/// 配合UI显示的形式(优先级默认是 NetRequestOperationPriorityNormal)
+- (id<INetRequestHandle>)requestDomainBeanWithRequestDomainBean:(in id)netRequestDomainBean
+                                                     isUseCache:(in BOOL)isUseCache
+                                                     beginBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadBeginBlock)beginBlock
+                                                 successedBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadSuccessedBlock)successedBlock
+                                                    failedBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadFailedBlock)failedBlock
+                                                       endBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadEndBlock)endBlock {
+  return [self requestDomainBeanWithRequestDomainBean:netRequestDomainBean
+                                           isUseCache:isUseCache
+                          netRequestOperationPriority:NetRequestOperationPriorityNormal
+                                           beginBlock:beginBlock
+                                       successedBlock:successedBlock
+                                          failedBlock:failedBlock
+                                             endBlock:endBlock];
+}
+
+// --------------------               带优先级的接口            -------------------------
+
+/// 普通形式(不使用缓存)
+- (id<INetRequestHandle>)requestDomainBeanWithRequestDomainBean:(in id)netRequestDomainBean
+                                    netRequestOperationPriority:(in NetRequestOperationPriority)netRequestOperationPriority
+                                                 successedBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadSuccessedBlock)successedBlock
+                                                    failedBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadFailedBlock)failedBlock {
+  return [self requestDomainBeanWithRequestDomainBean:netRequestDomainBean
+                                           isUseCache:NO
+                          netRequestOperationPriority:netRequestOperationPriority
+                                           beginBlock:NULL
+                                       successedBlock:successedBlock
+                                          failedBlock:failedBlock
+                                             endBlock:NULL];
+}
+
+/// 配合UI显示的形式(不使用缓存)
+- (id<INetRequestHandle>)requestDomainBeanWithRequestDomainBean:(in id)netRequestDomainBean
+                                    netRequestOperationPriority:(in NetRequestOperationPriority)netRequestOperationPriority
+                                                     beginBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadBeginBlock)beginBlock
+                                                 successedBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadSuccessedBlock)successedBlock
+                                                    failedBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadFailedBlock)failedBlock
+                                                       endBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadEndBlock)endBlock {
+  return [self requestDomainBeanWithRequestDomainBean:netRequestDomainBean
+                                           isUseCache:NO
+                          netRequestOperationPriority:netRequestOperationPriority
+                                           beginBlock:beginBlock
+                                       successedBlock:successedBlock
+                                          failedBlock:failedBlock
+                                             endBlock:endBlock];
+}
+
+// --------------------               带缓存/优先级的接口(全能初始化方法)            -------------------------
+
+/// 普通形式
+- (id<INetRequestHandle>)requestDomainBeanWithRequestDomainBean:(in id)netRequestDomainBean
+                                                     isUseCache:(in BOOL)isUseCache
+                                    netRequestOperationPriority:(in NetRequestOperationPriority)netRequestOperationPriority
+                                                 successedBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadSuccessedBlock)successedBlock
+                                                    failedBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadFailedBlock)failedBlock {
+  return [self requestDomainBeanWithRequestDomainBean:netRequestDomainBean isUseCache:isUseCache beginBlock:NULL successedBlock:successedBlock failedBlock:failedBlock endBlock:NULL];
+}
+
+
+#pragma mark -
+#pragma mark - request file
 - (id<INetRequestHandle>)requestFileWithUrlString:(in NSString *)urlString
                                  downLoadFilePath:(in NSString *)downLoadFilePath
                                     progressBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadProgressBlock)progressBlock
@@ -384,16 +493,22 @@ static NSString *const TAG = @"SimpleNetworkEngineSingleton";
                                    successedBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadSuccessedBlock)successedBlock
                                       failedBlock:(in DomainBeanAsyncHttpResponseListenerInUIThreadFailedBlock)failedBlock {
   return [[[EngineHelperSingleton sharedInstance] netLayerInterfaceFunction] requestFileWithUrlString:urlString httpMethod:httpMethod netRequestOperationPriority:[self netLayerOperationPriorityTransform:netRequestOperationPriority] dataDictionary:dataDictionary isNeedContinuingly:isNeedContinuingly downLoadFilePath:downLoadFilePath progressBlock:^(double progress) {
+    
+    // 向控制层回报下载进度
     if (progressBlock != NULL) {
       progressBlock(progress);
     }
   } successedBlock:^(id<INetRequestIsCancelled> netRequestIsCancelled, NSData *responseData) {
+    
+    // 文件下载成功
     if (![netRequestIsCancelled isCancell]) {
       if (successedBlock != NULL) {
         successedBlock(responseData);
       }
     }
   } failedBlock:^(id<INetRequestIsCancelled> netRequestIsCancelled, NSError *error) {
+    
+    // 文件下载失败
     if (![netRequestIsCancelled isCancell]) {
       if (failedBlock != NULL) {
         failedBlock([ErrorBean errorBeanWithNSError:error]);
@@ -401,4 +516,5 @@ static NSString *const TAG = @"SimpleNetworkEngineSingleton";
     }
   }];
 }
+
 @end
