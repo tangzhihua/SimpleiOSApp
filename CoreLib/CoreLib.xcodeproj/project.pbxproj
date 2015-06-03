@@ -510,6 +510,8 @@
 			children = (
 				12B592251B1D7BE600982834 /* AccessToken.h */,
 				12B592261B1D7BE600982834 /* AccessToken.m */,
+				12B592301B1D7BE600982834 /* UserInfo.h */,
+				12B592311B1D7BE600982834 /* UserInfo.m */,
 				12B592271B1D7BE600982834 /* LoginDatabaseFieldsConstant.h */,
 				12B592281B1D7BE600982834 /* LoginDomainBeanHelper.h */,
 				12B592291B1D7BE600982834 /* LoginDomainBeanHelper.m */,
@@ -519,8 +521,6 @@
 				12B5922D1B1D7BE600982834 /* LoginNetRespondBean.m */,
 				12B5922E1B1D7BE600982834 /* LoginParseDomainBeanToDD.h */,
 				12B5922F1B1D7BE600982834 /* LoginParseDomainBeanToDD.m */,
-				12B592301B1D7BE600982834 /* UserInfo.h */,
-				12B592311B1D7BE600982834 /* UserInfo.m */,
 			);
 			path = login;
 			sourceTree = "<group>";
