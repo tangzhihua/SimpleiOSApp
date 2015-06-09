@@ -18,50 +18,57 @@
   }
 }
 
++ (NSString *)rootDirectoryPath {
+  static NSString *path = nil;
+  static dispatch_once_t pred;
+  dispatch_once(&pred, ^{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    path = paths[0];
+  });
+  return path;
+}
+
 // 项目中图片缓存目录 (可以被清除)
 + (NSString *)thumbnailCachePath {
-  static NSString *_thumbnailCachePath = nil;
-  if (nil == _thumbnailCachePath) {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = paths[0];
-    
-    NSString *fullPath = [documentsDirectory stringByAppendingPathComponent:@"ThumbnailCachePath"];
-    _thumbnailCachePath = [fullPath copy];
-  }
-  
-  NSFileManager *fileManager = [NSFileManager defaultManager];
-  [fileManager createDirectoryAtPath:_thumbnailCachePath withIntermediateDirectories:YES attributes:nil error:NULL];
-  return _thumbnailCachePath;
+  static NSString *path = nil;
+  static dispatch_once_t pred;
+  dispatch_once(&pred, ^{
+    path = [[self rootDirectoryPath] stringByAppendingPathComponent:@"ThumbnailCachePath"];
+  });
+  return path;
 }
 
 // 那些需要始终被保存, 不能由用户进行清除的文件
 + (NSString *)importantDataCachePath {
-  static NSString *_importantDataCachePath = nil;
-  if (nil == _importantDataCachePath) {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = paths[0];
-    
-    NSString *fullPath = [documentsDirectory stringByAppendingPathComponent:@"ImportantDataCache"];
-    _importantDataCachePath = [fullPath copy];
-  }
-  
-  NSFileManager *fileManager = [NSFileManager defaultManager];
-  [fileManager createDirectoryAtPath:_importantDataCachePath withIntermediateDirectories:YES attributes:nil error:NULL];
-  return _importantDataCachePath;
+  static NSString *path = nil;
+  static dispatch_once_t pred;
+  dispatch_once(&pred, ^{
+    path = [[self rootDirectoryPath] stringByAppendingPathComponent:@"ImportantDataCache"];
+  });
+  return path;
 }
 
+// 业务Bean缓存目录(可以被删除)
++ (NSString *)domainbeanCachePath {
+  static NSString *path = nil;
+  static dispatch_once_t pred;
+  dispatch_once(&pred, ^{
+    path = [[self rootDirectoryPath] stringByAppendingPathComponent:@"DomainBeanCache"];
+  });
+  return path;
+}
 
 
 // 能否被用户清空的目录数组(可以从这里获取用户可以直接清空的文件夹路径数组)
 + (NSArray *)directoriesCanBeClearByTheUser {
-  NSArray *directories = [NSArray arrayWithObjects:[self thumbnailCachePath], nil];
+  NSArray *directories = [NSArray arrayWithObjects:[self thumbnailCachePath], [self domainbeanCachePath], nil];
   return directories;
 }
 
 // 创建本地数据缓存目录(一次性全部创建, 不会重复创建)
 + (void)createLocalCacheDirectories {
   // 创建本地数据缓存目录(一次性全部创建, 不会重复创建)
-  NSArray *directories = [NSArray arrayWithObjects:[self thumbnailCachePath], [self importantDataCachePath], nil];
+  NSArray *directories = [NSArray arrayWithObjects:[self thumbnailCachePath], [self importantDataCachePath], [self domainbeanCachePath], nil];
   
   NSFileManager *fileManager = [NSFileManager defaultManager];
   for (NSString *path in directories) {

@@ -1,0 +1,19 @@
+// iOS7 提供了系统内置的 Base64 和 NSData之间相互转换的类别
+// NSString(普通) --> NSData(UTF-8 Encoded) --> NSString(base64 Encoded)
+NSString *normalString = @"123";
+NSData *normalData = [normalString dataUsingEncoding:NSUTF8StringEncoding];
+NSString *base64EncodedString = [normalData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+
+// NSString(base64 Encoded) --> NSData(UTF-8 Decoded) --> NSString(普通)
+normalData = [[NSData alloc] initWithBase64EncodedString:base64EncodedString options:NSDataBase64DecodingIgnoreUnknownCharacters];
+normalString = [[NSString alloc] initWithData:normalData encoding:NSUTF8StringEncoding];
+
+// NSString(普通) --> NSData(UTF-8 Encoded) --> NSData(base64 Encoded) --> NSString(base64 Encoded)
+normalString = @"123";
+normalData = [normalString dataUsingEncoding:NSUTF8StringEncoding];
+NSData *base64EncodedData = [normalData base64EncodedDataWithOptions:NSDataBase64Encoding64CharacterLineLength];
+base64EncodedString = [[NSString alloc] initWithData:base64EncodedData encoding:NSUTF8StringEncoding];
+
+// NSData(base64 Encoded) --> NSData(Decoded) --> NSString(普通)
+normalData = [[NSData alloc] initWithBase64EncodedData:base64EncodedData options:NSDataBase64DecodingIgnoreUnknownCharacters];
+normalString = [[NSString alloc] initWithData:normalData encoding:NSUTF8StringEncoding];

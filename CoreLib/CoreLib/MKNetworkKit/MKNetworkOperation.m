@@ -613,7 +613,11 @@ OSStatus extractIdentityAndTrust(CFDataRef inPKCS12Data,
 -(void) setUsername:(NSString*) username password:(NSString*) password basicAuth:(BOOL) bYesOrNo {
   
   [self setUsername:username password:password];
-  NSString *base64EncodedString = [[[NSString stringWithFormat:@"%@:%@", self.username, self.password] dataUsingEncoding:NSUTF8StringEncoding] base64EncodedString];
+  
+  // NSString(普通) --> NSData(UTF-8 Encoded) --> NSString(base64 Encoded)
+  NSString *normalString = [NSString stringWithFormat:@"%@:%@", self.username, self.password];
+  NSData *normalData = [normalString dataUsingEncoding:NSUTF8StringEncoding];
+  NSString *base64EncodedString = [normalData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
   
   [self setAuthorizationHeaderValue:base64EncodedString forAuthType:@"Basic"];
 }

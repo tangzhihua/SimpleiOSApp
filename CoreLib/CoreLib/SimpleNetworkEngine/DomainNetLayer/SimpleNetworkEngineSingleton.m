@@ -25,19 +25,18 @@
 //
 #import "BaseModel.h"
 
-#import "ErrorBean.h"
-
 // 监控/控制 网络请求的句柄
 #import "INetRequestHandle.h"
 #import "INetRequestIsCancelled.h"
 // 一个实现INetRequestHandle接口的安全空对象
 #import "NetRequestHandleNilObject.h"
 
-
+#import "ErrorBean.h"
 #import "ErrorCodeEnum.h"
 
-
 #import "IEngineHelper.h"
+
+#import "DomainBeanCacheLayerSingleton.h"
 
 @interface SimpleNetworkEngineSingleton()
 
@@ -137,6 +136,9 @@ static NSString *const TAG = @"SimpleNetworkEngineSingleton";
   ErrorBean *requestParamsError = nil;
   
   do {
+    
+    // <------------------------------------------------------------------------------------------------------->
+    
     // 入参检测
     if (netRequestDomainBean == nil || successedBlock == NULL || failedBlock == NULL) {
       requestParamsError = [ErrorBean errorBeanWithErrorCode:ErrorCodeEnum_Client_IllegalArgument errorMessage:@"方法入参 netRequestDomainBean/successedBlock/failedBlock 不能为空."];
@@ -153,7 +155,6 @@ static NSString *const TAG = @"SimpleNetworkEngineSingleton";
     if (domainBeanHelper == nil) {
       requestParamsError = [ErrorBean errorBeanWithErrorCode:ErrorCodeEnum_Client_ProgrammingError errorMessage:[NSString stringWithFormat:@"接口 [%@] 找不到与其对应的 domainBeanHelper, 客户端编程错误.", netRequestDomainBeanClassString]];
       break;
-      break;
     }
     
     // 获取当前网络接口, 对应的URL
@@ -165,7 +166,7 @@ static NSString *const TAG = @"SimpleNetworkEngineSingleton";
     }
     
     /// 发往服务器的 "数据字典"
-    NSMutableDictionary *const dataDictionary = [NSMutableDictionary dictionaryWithCapacity:50];
+    NSMutableDictionary *const requestParams = [NSMutableDictionary dictionaryWithCapacity:50];
     // 公共参数
     requestParamsError = nil;
     NSDictionary *const publicParams = [[[EngineHelperSingleton sharedInstance] domainBeanRequestPublicParamsFunction] publicParamsWithErrorOUT:&requestParamsError];
@@ -173,23 +174,38 @@ static NSString *const TAG = @"SimpleNetworkEngineSingleton";
       // 获取公共参数失败
       break;
     }
-    [dataDictionary addEntriesFromDictionary:publicParams];
+    [requestParams addEntriesFromDictionary:publicParams];
     
     // 具体接口的参数
     // 注意 : 一定要保证先填充 "公共参数", 然后再填充 "具体接口的参数", 这是因为有时候具体接口的参数需要覆盖公共参数.
+    NSDictionary *privateParams = nil;
     if ([domainBeanHelper parseNetRequestDomainBeanToDataDictionaryFunction] != nil) {
       requestParamsError = nil;
-      NSDictionary *const privateParams = [[domainBeanHelper parseNetRequestDomainBeanToDataDictionaryFunction] parseNetRequestDomainBeanToDataDictionary:netRequestDomainBean error:&requestParamsError];
+      privateParams = [[domainBeanHelper parseNetRequestDomainBeanToDataDictionaryFunction] parseNetRequestDomainBeanToDataDictionary:netRequestDomainBean error:&requestParamsError];
       if (requestParamsError != nil) {
         // 获取具体接口的私有参数失败
         break;
       }
-      [dataDictionary addEntriesFromDictionary:privateParams];
+      [requestParams addEntriesFromDictionary:privateParams];
     }
+    // <------------------------------------------------------------------------------------------------------->
+    
+    // <------------------------------------------------------------------------------------------------------->
+    // 业务Bean缓存层
+    if (isUseCache) {
+      id netRespondBeanFromCache = [[DomainBeanCacheLayerSingleton sharedInstance] readNetRespondBeanWithRequestBeanClass:[netRequestDomainBean class] respondBeanClass:[domainBeanHelper netRespondBeanClass] requestParams:privateParams];
+      if (netRespondBeanFromCache != nil) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+          successedBlock(netRespondBeanFromCache);
+        });
+        return [[NetRequestHandleNilObject alloc] init];
+      }
+    }
+    // <------------------------------------------------------------------------------------------------------->
     
     // <------------------------------------------------------------------------------------------------------->
     /// 调用网络层接口, 开始HTTP请求
-    id<INetRequestHandle> requestHandle = [[[EngineHelperSingleton sharedInstance] netLayerInterfaceFunction] requestDomainBeanWithUrlString:fullUrlString httpMethod:[domainBeanHelper httpMethod] netRequestOperationPriority:[self netLayerOperationPriorityTransform:netRequestOperationPriority] dataDictionary:dataDictionary successedBlock:^(id<INetRequestIsCancelled> netRequestIsCancelled, NSData *responseData) {
+    id<INetRequestHandle> requestHandle = [[[EngineHelperSingleton sharedInstance] netLayerInterfaceFunction] requestDomainBeanWithUrlString:fullUrlString httpMethod:[domainBeanHelper httpMethod] netRequestOperationPriority:[self netLayerOperationPriorityTransform:netRequestOperationPriority] dataDictionary:requestParams successedBlock:^(id<INetRequestIsCancelled> netRequestIsCancelled, NSData *responseData) {
       
       // 网络层数据正常返回, 进入业务层的解析操作.
       
@@ -304,6 +320,11 @@ static NSString *const TAG = @"SimpleNetworkEngineSingleton";
         //ErrorBean *errorLogBean = [ErrorBean errorBeanWithErrorCode:serverRespondDataError.errorCode errorMessage:fullErrorLog];
         //[[SdkLogCollectionSingleton sharedInstance] recordLogWithTag:TAG methodName:@"requestDomainBeanWithRequestDomainBean" errorBean:errorLogBean];
       }
+      // ------------------------------------- >>>
+      
+      // ------------------------------------- >>>
+      // 更新缓存
+      [[DomainBeanCacheLayerSingleton sharedInstance] writeNetRespondBeanWithRequestBeanClass:[netRequestDomainBean class] requestParams:privateParams respondData:netUnpackedDataOfUTF8String];
       // ------------------------------------- >>>
       
     } failedBlock:^(id<INetRequestIsCancelled> netRequestIsCancelled, NSError *error) {

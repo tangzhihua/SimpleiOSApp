@@ -3,15 +3,22 @@
 
 #import "LoginParseDomainBeanToDD.h"
 #import "LoginNetRespondBean.h"
+#import "AccessToken.h"
+#import "UserInfo.h"
 
+@implementation LoginDomainBeanHelper {
+  id _parseNetRequestDomainBeanToDataDictionaryFunction;
+}
 
-@implementation LoginDomainBeanHelper
 /**
  * 将当前业务Bean, 解析成跟后台数据接口对应的数据字典
  * @return
  */
 - (id<IParseNetRequestDomainBeanToDataDictionary>)parseNetRequestDomainBeanToDataDictionaryFunction {
-  return [[LoginParseDomainBeanToDD alloc] init];
+  if (_parseNetRequestDomainBeanToDataDictionaryFunction == nil) {
+    _parseNetRequestDomainBeanToDataDictionaryFunction = [[LoginParseDomainBeanToDD alloc] init];
+  }
+  return _parseNetRequestDomainBeanToDataDictionaryFunction;
 }
 
 /**
@@ -38,31 +45,27 @@
 - (BOOL)isNetRespondBeanValidity:(in LoginNetRespondBean *)netRespondBean errorOUT:(out ErrorBean **)errorOUT {
   NSString *errorMessage = nil;
   do {
-//    if ([NSString isEmpty:netRespondBean.uid]) {
-//      errorMessage = @"服务器返回的数据 丢失关键字段 uid.";
-//      break;
-//    }
-//    
-//    if ([NSString isEmpty:netRespondBean.uname]) {
-//      errorMessage = @"服务器返回的数据 丢失关键字段 uname.";
-//      break;
-//    }
-//    
-//    if ([NSString isEmpty:netRespondBean.KL_SSO]) {
-//      errorMessage = @"服务器返回的数据 丢失关键字段 KL_SSO.";
-//      break;
-//    }
-//    
-//    if ([NSString isEmpty:netRespondBean.KL_PERSON]) {
-//      errorMessage = @"服务器返回的数据 丢失关键字段 KL_PERSON.";
-//      break;
-//    }
+    if ([NSString isEmpty:netRespondBean.accessToken.access_token]) {
+      errorMessage = @"服务器返回的数据 丢失关键字段 access_token.";
+      break;
+    }
+    
+    if ([NSString isEmpty:netRespondBean.userInfo.uid]) {
+      errorMessage = @"服务器返回的数据 丢失关键字段 uid.";
+      break;
+    }
+    
+    if ([NSString isEmpty:netRespondBean.userInfo.username]) {
+      errorMessage = @"服务器返回的数据 丢失关键字段 username.";
+      break;
+    }
     
     return YES;
   } while (NO);
   
-  // 丢失核心字段, 记录log
-  //[[SdkLogCollectionSingleton sharedInstance] recordLogWithTag:TAG methodName:@"isNetRespondBeanValidity" errorMessage:errorMessage];
+  if (errorOUT != NULL) {
+    *errorOUT = [ErrorBean errorBeanWithErrorCode:ErrorCodeEnum_Server_KeyFieldLose errorMessage:errorMessage];
+  }
   return NO;
 }
 

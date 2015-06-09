@@ -16,7 +16,8 @@
 + (NSString *)thumbnailCachePath;
 // 那些需要始终被保存, 不能由用户进行清除的文件
 + (NSString *)importantDataCachePath;
- 
+// 业务Bean缓存目录(可以被删除)
++ (NSString *)domainbeanCachePath;
 
 // 返回能被用户清空的文件目录数组(可以从这里获取用户可以直接清空的文件夹路径数组)
 + (NSArray *)directoriesCanBeClearByTheUser;

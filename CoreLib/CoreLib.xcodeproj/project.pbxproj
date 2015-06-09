@@ -25,7 +25,6 @@
 		1218BD281B1C320C008D49A1 /* NSMutableDictionary+SafeSetObjectForKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 1218BD251B1C320C008D49A1 /* NSMutableDictionary+SafeSetObjectForKey.m */; };
 		1218BD2D1B1C3393008D49A1 /* SimpleProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1218BD2A1B1C3393008D49A1 /* SimpleProgressBar.m */; };
 		1218BD2E1B1C3393008D49A1 /* SimpleToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 1218BD2C1B1C3393008D49A1 /* SimpleToast.m */; };
-		1218BD431B1C3924008D49A1 /* NSData+MKBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 1218BD321B1C3924008D49A1 /* NSData+MKBase64.m */; };
 		1218BD441B1C3924008D49A1 /* NSDate+RFC1123.m in Sources */ = {isa = PBXBuildFile; fileRef = 1218BD341B1C3924008D49A1 /* NSDate+RFC1123.m */; };
 		1218BD451B1C3924008D49A1 /* NSDictionary+RequestEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 1218BD361B1C3924008D49A1 /* NSDictionary+RequestEncoding.m */; };
 		1218BD461B1C3924008D49A1 /* NSString+MKNetworkKitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1218BD381B1C3924008D49A1 /* NSString+MKNetworkKitAdditions.m */; };
@@ -47,6 +46,7 @@
 		1218BDD31B1C4CDB008D49A1 /* HttpEngineOfMKNetworkKitSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1218BDD01B1C4CDB008D49A1 /* HttpEngineOfMKNetworkKitSingleton.m */; };
 		1218BDD41B1C4CDB008D49A1 /* HttpRequestHandleOfMKNetworkKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 1218BDD21B1C4CDB008D49A1 /* HttpRequestHandleOfMKNetworkKit.m */; };
 		1218BDD81B1C516E008D49A1 /* NetworkInterfaceMappingSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1218BDD71B1C516E008D49A1 /* NetworkInterfaceMappingSingleton.m */; };
+		12AD362B1B22CAB80008BF1E /* DomainBeanMemoryCacheSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 12AD362A1B22CAB80008BF1E /* DomainBeanMemoryCacheSingleton.m */; };
 		12B592321B1D7BE600982834 /* AccessToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B592261B1D7BE600982834 /* AccessToken.m */; };
 		12B592331B1D7BE600982834 /* LoginDomainBeanHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B592291B1D7BE600982834 /* LoginDomainBeanHelper.m */; };
 		12B592341B1D7BE600982834 /* LoginNetRequestBean.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B5922B1B1D7BE600982834 /* LoginNetRequestBean.m */; };
@@ -58,6 +58,11 @@
 		12B592441B1D92D100982834 /* GlobalDataCacheForMemorySingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B5923F1B1D92D100982834 /* GlobalDataCacheForMemorySingleton.m */; };
 		12B592451B1D92D100982834 /* LocalCacheDataPathConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B592411B1D92D100982834 /* LocalCacheDataPathConstant.m */; };
 		12B592481B1D950C00982834 /* ProjectHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B592471B1D950C00982834 /* ProjectHelper.m */; };
+		12B63D561B1FF0700009C6D9 /* DomainBeanCacheLayerSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B63D551B1FF0700009C6D9 /* DomainBeanCacheLayerSingleton.m */; };
+		12B63D5C1B21823E0009C6D9 /* AppInit.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B63D5B1B21823E0009C6D9 /* AppInit.m */; };
+		12B63D5F1B21931A0009C6D9 /* MKNetworkEngineSingletonForImageDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B63D5E1B21931A0009C6D9 /* MKNetworkEngineSingletonForImageDownload.m */; };
+		12B63D631B21A8140009C6D9 /* DomainBeanDiskCacheSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B63D621B21A8140009C6D9 /* DomainBeanDiskCacheSingleton.m */; };
+		12B63D661B21A9720009C6D9 /* DomainBeanCacheModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B63D651B21A9720009C6D9 /* DomainBeanCacheModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,8 +127,6 @@
 		1218BD2A1B1C3393008D49A1 /* SimpleProgressBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleProgressBar.m; sourceTree = "<group>"; };
 		1218BD2B1B1C3393008D49A1 /* SimpleToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleToast.h; sourceTree = "<group>"; };
 		1218BD2C1B1C3393008D49A1 /* SimpleToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleToast.m; sourceTree = "<group>"; };
-		1218BD311B1C3924008D49A1 /* NSData+MKBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MKBase64.h"; sourceTree = "<group>"; };
-		1218BD321B1C3924008D49A1 /* NSData+MKBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MKBase64.m"; sourceTree = "<group>"; };
 		1218BD331B1C3924008D49A1 /* NSDate+RFC1123.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+RFC1123.h"; sourceTree = "<group>"; };
 		1218BD341B1C3924008D49A1 /* NSDate+RFC1123.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+RFC1123.m"; sourceTree = "<group>"; };
 		1218BD351B1C3924008D49A1 /* NSDictionary+RequestEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+RequestEncoding.h"; sourceTree = "<group>"; };
@@ -176,12 +179,16 @@
 		1218BDD21B1C4CDB008D49A1 /* HttpRequestHandleOfMKNetworkKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpRequestHandleOfMKNetworkKit.m; sourceTree = "<group>"; };
 		1218BDD61B1C516E008D49A1 /* NetworkInterfaceMappingSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkInterfaceMappingSingleton.h; sourceTree = "<group>"; };
 		1218BDD71B1C516E008D49A1 /* NetworkInterfaceMappingSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkInterfaceMappingSingleton.m; sourceTree = "<group>"; };
+		1246C9851B26EB6F00711C6F /* iOS7提供了Base64 和NSData之间进行转换的新的类别 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "iOS7提供了Base64 和NSData之间进行转换的新的类别"; sourceTree = "<group>"; };
 		1256BD751B1EFEB300869995 /* IDomainBeanRequestPublicParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDomainBeanRequestPublicParams.h; sourceTree = "<group>"; };
 		1256BD761B1EFEB300869995 /* INetRequestParamsPackage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INetRequestParamsPackage.h; sourceTree = "<group>"; };
 		1256BD771B1EFEB300869995 /* INetResponseDataToNSDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INetResponseDataToNSDictionary.h; sourceTree = "<group>"; };
 		1256BD781B1EFEB300869995 /* INetResponseRawEntityDataUnpack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INetResponseRawEntityDataUnpack.h; sourceTree = "<group>"; };
 		1256BD791B1EFEB300869995 /* IServerResponseDataValidityTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IServerResponseDataValidityTest.h; sourceTree = "<group>"; };
 		1256BD7A1B1EFEB300869995 /* ISpliceFullUrlByDomainBeanSpecialPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISpliceFullUrlByDomainBeanSpecialPath.h; sourceTree = "<group>"; };
+		12AD36291B22CAB80008BF1E /* DomainBeanMemoryCacheSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DomainBeanMemoryCacheSingleton.h; sourceTree = "<group>"; };
+		12AD362A1B22CAB80008BF1E /* DomainBeanMemoryCacheSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DomainBeanMemoryCacheSingleton.m; sourceTree = "<group>"; };
+		12AD362C1B2337990008BF1E /* IDomainBeanCacheControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDomainBeanCacheControl.h; sourceTree = "<group>"; };
 		12B592251B1D7BE600982834 /* AccessToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccessToken.h; sourceTree = "<group>"; };
 		12B592261B1D7BE600982834 /* AccessToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccessToken.m; sourceTree = "<group>"; };
 		12B592271B1D7BE600982834 /* LoginDatabaseFieldsConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginDatabaseFieldsConstant.h; sourceTree = "<group>"; };
@@ -205,6 +212,17 @@
 		12B592411B1D92D100982834 /* LocalCacheDataPathConstant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalCacheDataPathConstant.m; sourceTree = "<group>"; };
 		12B592461B1D950C00982834 /* ProjectHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectHelper.h; sourceTree = "<group>"; };
 		12B592471B1D950C00982834 /* ProjectHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectHelper.m; sourceTree = "<group>"; };
+		12B63D541B1FF0700009C6D9 /* DomainBeanCacheLayerSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DomainBeanCacheLayerSingleton.h; sourceTree = "<group>"; };
+		12B63D551B1FF0700009C6D9 /* DomainBeanCacheLayerSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DomainBeanCacheLayerSingleton.m; sourceTree = "<group>"; };
+		12B63D5A1B21823E0009C6D9 /* AppInit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppInit.h; sourceTree = "<group>"; };
+		12B63D5B1B21823E0009C6D9 /* AppInit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppInit.m; sourceTree = "<group>"; };
+		12B63D5D1B21931A0009C6D9 /* MKNetworkEngineSingletonForImageDownload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKNetworkEngineSingletonForImageDownload.h; sourceTree = "<group>"; };
+		12B63D5E1B21931A0009C6D9 /* MKNetworkEngineSingletonForImageDownload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKNetworkEngineSingletonForImageDownload.m; sourceTree = "<group>"; };
+		12B63D601B21A2E90009C6D9 /* iOSSQLiteErrorCode.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = iOSSQLiteErrorCode.txt; sourceTree = "<group>"; };
+		12B63D611B21A8140009C6D9 /* DomainBeanDiskCacheSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DomainBeanDiskCacheSingleton.h; sourceTree = "<group>"; };
+		12B63D621B21A8140009C6D9 /* DomainBeanDiskCacheSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DomainBeanDiskCacheSingleton.m; sourceTree = "<group>"; };
+		12B63D641B21A9720009C6D9 /* DomainBeanCacheModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DomainBeanCacheModel.h; sourceTree = "<group>"; };
+		12B63D651B21A9720009C6D9 /* DomainBeanCacheModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DomainBeanCacheModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,6 +266,7 @@
 		1218BCC21B1C2B61008D49A1 /* CoreLib */ = {
 			isa = PBXGroup;
 			children = (
+				12B63D591B21823E0009C6D9 /* AppInit */,
 				12B5923B1B1D92D100982834 /* GlobalDataCache */,
 				1218BDD51B1C516E008D49A1 /* DomainBeanModel */,
 				1218BD9A1B1C4503008D49A1 /* EngineHelper */,
@@ -305,6 +324,7 @@
 				1218BCF61B1C2DFF008D49A1 /* UIPopoverController+Tag.m */,
 				1218BCF71B1C2DFF008D49A1 /* UIView+Screenshot.h */,
 				1218BCF81B1C2DFF008D49A1 /* UIView+Screenshot.m */,
+				1246C9851B26EB6F00711C6F /* iOS7提供了Base64 和NSData之间进行转换的新的类别 */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -344,8 +364,6 @@
 		1218BD301B1C3924008D49A1 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				1218BD311B1C3924008D49A1 /* NSData+MKBase64.h */,
-				1218BD321B1C3924008D49A1 /* NSData+MKBase64.m */,
 				1218BD331B1C3924008D49A1 /* NSDate+RFC1123.h */,
 				1218BD341B1C3924008D49A1 /* NSDate+RFC1123.m */,
 				1218BD351B1C3924008D49A1 /* NSDictionary+RequestEncoding.h */,
@@ -370,6 +388,7 @@
 		1218BD791B1C3A61008D49A1 /* SimpleNetworkEngine */ = {
 			isa = PBXGroup;
 			children = (
+				12B63D531B1FF0700009C6D9 /* DomainBeanCacheLayer */,
 				1218BD7A1B1C3A61008D49A1 /* DomainLayer */,
 				1218BD7F1B1C3A61008D49A1 /* DomainNetLayer */,
 				1218BD901B1C3A61008D49A1 /* NetLayer */,
@@ -472,6 +491,8 @@
 		1218BDCE1B1C4CDB008D49A1 /* MKNetwork */ = {
 			isa = PBXGroup;
 			children = (
+				12B63D5D1B21931A0009C6D9 /* MKNetworkEngineSingletonForImageDownload.h */,
+				12B63D5E1B21931A0009C6D9 /* MKNetworkEngineSingletonForImageDownload.m */,
 				1218BDCF1B1C4CDB008D49A1 /* HttpEngineOfMKNetworkKitSingleton.h */,
 				1218BDD01B1C4CDB008D49A1 /* HttpEngineOfMKNetworkKitSingleton.m */,
 				1218BDD11B1C4CDB008D49A1 /* HttpRequestHandleOfMKNetworkKit.h */,
@@ -536,6 +557,32 @@
 				12B592411B1D92D100982834 /* LocalCacheDataPathConstant.m */,
 			);
 			path = GlobalDataCache;
+			sourceTree = "<group>";
+		};
+		12B63D531B1FF0700009C6D9 /* DomainBeanCacheLayer */ = {
+			isa = PBXGroup;
+			children = (
+				12B63D601B21A2E90009C6D9 /* iOSSQLiteErrorCode.txt */,
+				12AD362C1B2337990008BF1E /* IDomainBeanCacheControl.h */,
+				12AD36291B22CAB80008BF1E /* DomainBeanMemoryCacheSingleton.h */,
+				12AD362A1B22CAB80008BF1E /* DomainBeanMemoryCacheSingleton.m */,
+				12B63D611B21A8140009C6D9 /* DomainBeanDiskCacheSingleton.h */,
+				12B63D621B21A8140009C6D9 /* DomainBeanDiskCacheSingleton.m */,
+				12B63D541B1FF0700009C6D9 /* DomainBeanCacheLayerSingleton.h */,
+				12B63D551B1FF0700009C6D9 /* DomainBeanCacheLayerSingleton.m */,
+				12B63D641B21A9720009C6D9 /* DomainBeanCacheModel.h */,
+				12B63D651B21A9720009C6D9 /* DomainBeanCacheModel.m */,
+			);
+			path = DomainBeanCacheLayer;
+			sourceTree = "<group>";
+		};
+		12B63D591B21823E0009C6D9 /* AppInit */ = {
+			isa = PBXGroup;
+			children = (
+				12B63D5A1B21823E0009C6D9 /* AppInit.h */,
+				12B63D5B1B21823E0009C6D9 /* AppInit.m */,
+			);
+			path = AppInit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -628,6 +675,7 @@
 			files = (
 				1218BD971B1C3A61008D49A1 /* SimpleNetworkEngineSingleton.m in Sources */,
 				1218BD031B1C2DFF008D49A1 /* UIImage+animatedGIF.m in Sources */,
+				12AD362B1B22CAB80008BF1E /* DomainBeanMemoryCacheSingleton.m in Sources */,
 				1218BD4A1B1C3924008D49A1 /* MKReachability.m in Sources */,
 				12B592341B1D7BE600982834 /* LoginNetRequestBean.m in Sources */,
 				1218BD981B1C3A61008D49A1 /* ErrorBean.m in Sources */,
@@ -643,16 +691,19 @@
 				1218BD1B1B1C30BD008D49A1 /* PRPDebug.m in Sources */,
 				1218BD461B1C3924008D49A1 /* NSString+MKNetworkKitAdditions.m in Sources */,
 				1218BCFF1B1C2DFF008D49A1 /* NSString+isEmpty.m in Sources */,
+				12B63D5C1B21823E0009C6D9 /* AppInit.m in Sources */,
+				12B63D561B1FF0700009C6D9 /* DomainBeanCacheLayerSingleton.m in Sources */,
 				1218BD011B1C2DFF008D49A1 /* UIColor+HexConvert.m in Sources */,
 				1218BDCD1B1C4B08008D49A1 /* SpliceFullUrlByDomainBeanSpecialPath.m in Sources */,
 				1218BD281B1C320C008D49A1 /* NSMutableDictionary+SafeSetObjectForKey.m in Sources */,
+				12B63D661B21A9720009C6D9 /* DomainBeanCacheModel.m in Sources */,
 				12B592331B1D7BE600982834 /* LoginDomainBeanHelper.m in Sources */,
 				1218BDCB1B1C4B08008D49A1 /* NetResponseRawEntityDataUnpack.m in Sources */,
 				12B592361B1D7BE600982834 /* LoginParseDomainBeanToDD.m in Sources */,
 				12B5923A1B1D857700982834 /* UrlConstantForThisProject.m in Sources */,
 				1218BD991B1C3A61008D49A1 /* NetRequestHandleNilObject.m in Sources */,
+				12B63D5F1B21931A0009C6D9 /* MKNetworkEngineSingletonForImageDownload.m in Sources */,
 				12B592431B1D92D100982834 /* GlobalDataCacheForDisk.m in Sources */,
-				1218BD431B1C3924008D49A1 /* NSData+MKBase64.m in Sources */,
 				1218BDC81B1C4B08008D49A1 /* DomainBeanRequestPublicParams.m in Sources */,
 				1218BDC91B1C4B08008D49A1 /* NetRequestParamsPackage.m in Sources */,
 				12B592481B1D950C00982834 /* ProjectHelper.m in Sources */,
@@ -671,6 +722,7 @@
 				1218BDD31B1C4CDB008D49A1 /* HttpEngineOfMKNetworkKitSingleton.m in Sources */,
 				1218BD481B1C3924008D49A1 /* MKNetworkEngine.m in Sources */,
 				12B592351B1D7BE600982834 /* LoginNetRespondBean.m in Sources */,
+				12B63D631B21A8140009C6D9 /* DomainBeanDiskCacheSingleton.m in Sources */,
 				1218BCFD1B1C2DFF008D49A1 /* NSObject+Serialization.m in Sources */,
 				1218BCFC1B1C2DFF008D49A1 /* NSObject+DeepCopyingSupport.m in Sources */,
 				1218BD051B1C2DFF008D49A1 /* UIPopoverController+Tag.m in Sources */,

@@ -4,7 +4,7 @@
 
 @implementation BaseModel
 
-- (id)initWithDictionary:(NSDictionary *)dictionaryObject {
+- (instancetype)initWithDictionary:(NSDictionary *)dictionaryObject {
   if((self = [super init])) {
     [self setValuesForKeysWithDictionary:dictionaryObject];
   }

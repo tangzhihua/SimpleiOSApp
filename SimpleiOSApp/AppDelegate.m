@@ -7,32 +7,40 @@
 //
 
 #import "AppDelegate.h"
- 
+
 #import "SimpleNetworkEngineSingleton.h"
 #import "LoginNetRequestBean.h"
 #import "LoginNetRespondBean.h"
 
-@interface AppDelegate ()
+#import "AppInit.h"
 
-@end
+ 
 
 @implementation AppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+  
+  // TODO:初始化app, 一定要首先调用, 且只调用一次
+  [AppInit initApp];
+ 
+  
   // Override point for customization after application launch.
   [self.window makeKeyAndVisible];
   
-  LoginNetRequestBean *netRequestBean = [[LoginNetRequestBean alloc] initWithUsername:@"3252475@qq.com" password:@"123456Hh"];
-  [[SimpleNetworkEngineSingleton sharedInstance] requestDomainBeanWithRequestDomainBean:netRequestBean beginBlock:^{
-    
-  } successedBlock:^(id respondDomainBean) {
-    
-  } failedBlock:^(ErrorBean *error) {
-    
-  } endBlock:^{
-    
-  }];
+  
+//  LoginNetRequestBean *netRequestBean = [[LoginNetRequestBean alloc] initWithUsername:@"3252475@qq.com" password:@"123456Hh"];
+//  id<INetRequestHandle> netRequestHandle = [[SimpleNetworkEngineSingleton sharedInstance] requestDomainBeanWithRequestDomainBean:netRequestBean isUseCache:YES beginBlock:^{
+//    
+//  } successedBlock:^(id respondDomainBean) {
+//    
+//  } failedBlock:^(ErrorBean *error) {
+//    
+//  } endBlock:^{
+//    
+//  }];
+  
+ 
   
   return YES;
 }

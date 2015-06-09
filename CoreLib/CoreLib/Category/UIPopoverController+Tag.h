@@ -2,7 +2,7 @@
 //  UIPopoverController+Tag.h
 //  ModelLib
 //
-//  Created by 王珊珊 on 14-6-4.
+//  Created by 唐志华 on 14-6-4.
 //  Copyright (c) 2014年 唐志华. All rights reserved.
 //
 
