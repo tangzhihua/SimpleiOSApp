@@ -63,6 +63,11 @@
 		12B63D5F1B21931A0009C6D9 /* MKNetworkEngineSingletonForImageDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B63D5E1B21931A0009C6D9 /* MKNetworkEngineSingletonForImageDownload.m */; };
 		12B63D631B21A8140009C6D9 /* DomainBeanDiskCacheSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B63D621B21A8140009C6D9 /* DomainBeanDiskCacheSingleton.m */; };
 		12B63D661B21A9720009C6D9 /* DomainBeanCacheModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B63D651B21A9720009C6D9 /* DomainBeanCacheModel.m */; };
+		12C3437F1B2821BD00EB4480 /* FavorListDomainBeanHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C343781B2821BD00EB4480 /* FavorListDomainBeanHelper.m */; };
+		12C343801B2821BD00EB4480 /* FavorListNetRequestBean.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C3437A1B2821BD00EB4480 /* FavorListNetRequestBean.m */; };
+		12C343811B2821BD00EB4480 /* FavorListNetRespondBean.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C3437C1B2821BD00EB4480 /* FavorListNetRespondBean.m */; };
+		12C343821B2821BD00EB4480 /* FavorListParseDomainBeanToDD.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C3437E1B2821BD00EB4480 /* FavorListParseDomainBeanToDD.m */; };
+		12C343851B28233900EB4480 /* DiscountDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C343841B28233900EB4480 /* DiscountDetail.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -223,6 +228,17 @@
 		12B63D621B21A8140009C6D9 /* DomainBeanDiskCacheSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DomainBeanDiskCacheSingleton.m; sourceTree = "<group>"; };
 		12B63D641B21A9720009C6D9 /* DomainBeanCacheModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DomainBeanCacheModel.h; sourceTree = "<group>"; };
 		12B63D651B21A9720009C6D9 /* DomainBeanCacheModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DomainBeanCacheModel.m; sourceTree = "<group>"; };
+		12C343761B2821BD00EB4480 /* FavorListDatabaseFieldsConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavorListDatabaseFieldsConstant.h; sourceTree = "<group>"; };
+		12C343771B2821BD00EB4480 /* FavorListDomainBeanHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavorListDomainBeanHelper.h; sourceTree = "<group>"; };
+		12C343781B2821BD00EB4480 /* FavorListDomainBeanHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavorListDomainBeanHelper.m; sourceTree = "<group>"; };
+		12C343791B2821BD00EB4480 /* FavorListNetRequestBean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavorListNetRequestBean.h; sourceTree = "<group>"; };
+		12C3437A1B2821BD00EB4480 /* FavorListNetRequestBean.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavorListNetRequestBean.m; sourceTree = "<group>"; };
+		12C3437B1B2821BD00EB4480 /* FavorListNetRespondBean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavorListNetRespondBean.h; sourceTree = "<group>"; };
+		12C3437C1B2821BD00EB4480 /* FavorListNetRespondBean.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavorListNetRespondBean.m; sourceTree = "<group>"; };
+		12C3437D1B2821BD00EB4480 /* FavorListParseDomainBeanToDD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavorListParseDomainBeanToDD.h; sourceTree = "<group>"; };
+		12C3437E1B2821BD00EB4480 /* FavorListParseDomainBeanToDD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavorListParseDomainBeanToDD.m; sourceTree = "<group>"; };
+		12C343831B28233900EB4480 /* DiscountDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscountDetail.h; sourceTree = "<group>"; };
+		12C343841B28233900EB4480 /* DiscountDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscountDetail.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -504,11 +520,12 @@
 		1218BDD51B1C516E008D49A1 /* DomainBeanModel */ = {
 			isa = PBXGroup;
 			children = (
+				12B592241B1D7BE600982834 /* login */,
+				12C343751B2821BD00EB4480 /* favor_list */,
 				12B592381B1D857700982834 /* UrlConstantForThisProject.h */,
 				12B592391B1D857700982834 /* UrlConstantForThisProject.m */,
 				1218BDD61B1C516E008D49A1 /* NetworkInterfaceMappingSingleton.h */,
 				1218BDD71B1C516E008D49A1 /* NetworkInterfaceMappingSingleton.m */,
-				12B592241B1D7BE600982834 /* login */,
 			);
 			path = DomainBeanModel;
 			sourceTree = "<group>";
@@ -583,6 +600,24 @@
 				12B63D5B1B21823E0009C6D9 /* AppInit.m */,
 			);
 			path = AppInit;
+			sourceTree = "<group>";
+		};
+		12C343751B2821BD00EB4480 /* favor_list */ = {
+			isa = PBXGroup;
+			children = (
+				12C343831B28233900EB4480 /* DiscountDetail.h */,
+				12C343841B28233900EB4480 /* DiscountDetail.m */,
+				12C343761B2821BD00EB4480 /* FavorListDatabaseFieldsConstant.h */,
+				12C343771B2821BD00EB4480 /* FavorListDomainBeanHelper.h */,
+				12C343781B2821BD00EB4480 /* FavorListDomainBeanHelper.m */,
+				12C343791B2821BD00EB4480 /* FavorListNetRequestBean.h */,
+				12C3437A1B2821BD00EB4480 /* FavorListNetRequestBean.m */,
+				12C3437B1B2821BD00EB4480 /* FavorListNetRespondBean.h */,
+				12C3437C1B2821BD00EB4480 /* FavorListNetRespondBean.m */,
+				12C3437D1B2821BD00EB4480 /* FavorListParseDomainBeanToDD.h */,
+				12C3437E1B2821BD00EB4480 /* FavorListParseDomainBeanToDD.m */,
+			);
+			path = favor_list;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -679,10 +714,12 @@
 				1218BD4A1B1C3924008D49A1 /* MKReachability.m in Sources */,
 				12B592341B1D7BE600982834 /* LoginNetRequestBean.m in Sources */,
 				1218BD981B1C3A61008D49A1 /* ErrorBean.m in Sources */,
+				12C3437F1B2821BD00EB4480 /* FavorListDomainBeanHelper.m in Sources */,
 				1218BD2D1B1C3393008D49A1 /* SimpleProgressBar.m in Sources */,
 				1218BD961B1C3A61008D49A1 /* BaseModel.m in Sources */,
 				1218BD061B1C2DFF008D49A1 /* UIView+Screenshot.m in Sources */,
 				1218BD001B1C2DFF008D49A1 /* UIAlertView+Blocks.m in Sources */,
+				12C343851B28233900EB4480 /* DiscountDetail.m in Sources */,
 				1218BD2E1B1C3393008D49A1 /* SimpleToast.m in Sources */,
 				1218BD441B1C3924008D49A1 /* NSDate+RFC1123.m in Sources */,
 				1218BD471B1C3924008D49A1 /* UIImageView+MKNetworkKitAdditions.m in Sources */,
@@ -690,6 +727,7 @@
 				1218BD271B1C320C008D49A1 /* NSDictionary+SafeObjectForKey.m in Sources */,
 				1218BD1B1B1C30BD008D49A1 /* PRPDebug.m in Sources */,
 				1218BD461B1C3924008D49A1 /* NSString+MKNetworkKitAdditions.m in Sources */,
+				12C343801B2821BD00EB4480 /* FavorListNetRequestBean.m in Sources */,
 				1218BCFF1B1C2DFF008D49A1 /* NSString+isEmpty.m in Sources */,
 				12B63D5C1B21823E0009C6D9 /* AppInit.m in Sources */,
 				12B63D561B1FF0700009C6D9 /* DomainBeanCacheLayerSingleton.m in Sources */,
@@ -700,11 +738,13 @@
 				12B592331B1D7BE600982834 /* LoginDomainBeanHelper.m in Sources */,
 				1218BDCB1B1C4B08008D49A1 /* NetResponseRawEntityDataUnpack.m in Sources */,
 				12B592361B1D7BE600982834 /* LoginParseDomainBeanToDD.m in Sources */,
+				12C343821B2821BD00EB4480 /* FavorListParseDomainBeanToDD.m in Sources */,
 				12B5923A1B1D857700982834 /* UrlConstantForThisProject.m in Sources */,
 				1218BD991B1C3A61008D49A1 /* NetRequestHandleNilObject.m in Sources */,
 				12B63D5F1B21931A0009C6D9 /* MKNetworkEngineSingletonForImageDownload.m in Sources */,
 				12B592431B1D92D100982834 /* GlobalDataCacheForDisk.m in Sources */,
 				1218BDC81B1C4B08008D49A1 /* DomainBeanRequestPublicParams.m in Sources */,
+				12C343811B2821BD00EB4480 /* FavorListNetRespondBean.m in Sources */,
 				1218BDC91B1C4B08008D49A1 /* NetRequestParamsPackage.m in Sources */,
 				12B592481B1D950C00982834 /* ProjectHelper.m in Sources */,
 				1218BD041B1C2DFF008D49A1 /* UIImage+ImageCompression.m in Sources */,
@@ -784,7 +824,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -820,7 +860,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

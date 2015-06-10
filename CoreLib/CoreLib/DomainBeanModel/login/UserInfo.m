@@ -17,11 +17,6 @@ static NSString *const kNSCodingField_phone     = @"phone";
 
 @implementation UserInfo
 
-- (NSString *)description {
-  return descriptionForDebug(self);
-}
-
-
 #pragma mark -
 #pragma mark - 实现 NSCoding 接口
 

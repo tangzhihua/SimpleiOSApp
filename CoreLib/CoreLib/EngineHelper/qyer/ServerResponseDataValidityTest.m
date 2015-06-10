@@ -19,13 +19,16 @@
   id status = serverResponseDataDictionary[@"status"];
   if (status != nil) {
     NSInteger errorCode = [serverResponseDataDictionary[@"status"] integerValue];
-    NSString *errorMessage = serverResponseDataDictionary[@"info"];
-    
-    // 服务器端告知客户端, 本次请求发生错误.
-    if (errorOUT != NULL) {
-      *errorOUT = [ErrorBean errorBeanWithErrorCode:errorCode errorMessage:errorMessage];
+    if (errorCode != 1) {
+      NSString *errorMessage = serverResponseDataDictionary[@"info"];
+ 
+      // 服务器端告知客户端, 本次请求发生错误.
+      if (errorOUT != NULL) {
+        *errorOUT = [ErrorBean errorBeanWithErrorCode:errorCode errorMessage:errorMessage];
+      }
+      return NO;
     }
-    return NO;
+    
   }
   
   // 服务器告知客户端, 本次网络业务请求逻辑上有效

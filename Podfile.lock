@@ -1,28 +1,27 @@
 PODS:
   - GDChannel (0.6.0):
     - MQTTKit (~> 0.1.0)
-  - JSONKit (1.5pre)
+  - Mantle (2.0.2):
+    - Mantle/extobjc (= 2.0.2)
+  - Mantle/extobjc (2.0.2)
   - MBProgressHUD (0.9.1)
   - MQTTKit (0.1.0)
   - NSString-UrlEncode (1.1.0)
   - RNTimer (0.0.1)
-  - WEPopover (1.0.0)
 
 DEPENDENCIES:
   - GDChannel (~> 0.5)
-  - JSONKit (~> 1.5pre)
+  - Mantle (~> 2.0.2)
   - MBProgressHUD (~> 0.9.1)
   - NSString-UrlEncode (~> 1.1.0)
   - RNTimer (~> 0.0.1)
-  - WEPopover (~> 1.0.0)
 
 SPEC CHECKSUMS:
   GDChannel: 021418a45a287d9f3629b4aeefbdc457a7684fe3
-  JSONKit: bae313ce6a6c444f40489a6c0b023f399888871f
+  Mantle: 967fd31ea0220890b2e76589198996b534bb3fb1
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   MQTTKit: a4e6b8aa92db1aeae917d2b773fd72a7749937c4
   NSString-UrlEncode: 9f7bf066d98c4e6ac664ae92a215037224ad43f7
   RNTimer: d4109a8a977d8d7ac81a1115bd4abdfa3e71841b
-  WEPopover: 615c27637d1763731cf7c51a9385ff1f25ff4816
 
 COCOAPODS: 0.37.2

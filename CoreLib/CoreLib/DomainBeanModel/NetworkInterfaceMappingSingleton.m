@@ -5,7 +5,9 @@
 #import "LoginNetRequestBean.h"
 #import "LoginDomainBeanHelper.h"
 
-
+// 我的收藏
+#import "FavorListNetRequestBean.h"
+#import "FavorListDomainBeanHelper.h"
 
 @implementation NetworkInterfaceMappingSingleton
 #pragma mark -
@@ -47,6 +49,11 @@
    * 登录
    */
   _networkInterfaceMapping[NSStringFromClass([LoginNetRequestBean class])] = [[LoginDomainBeanHelper alloc] init];
+  
+  /**
+   * 我的收藏
+   */
+  _networkInterfaceMapping[NSStringFromClass([FavorListNetRequestBean class])] = [[FavorListDomainBeanHelper alloc] init];
   
 }
 @end

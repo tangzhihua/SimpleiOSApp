@@ -12,11 +12,6 @@ static NSString *const kNSCodingField_scope        = @"scope";
 
 @implementation AccessToken
 
-- (NSString *)description {
-	return descriptionForDebug(self);
-}
-
-
 #pragma mark -
 #pragma mark - 实现 NSCoding 接口
 

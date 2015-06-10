@@ -4,9 +4,10 @@
 
 @implementation BaseModel
 
-- (instancetype)initWithDictionary:(NSDictionary *)dictionaryObject {
+- (instancetype)initWithDictionary:(NSDictionary *)dictionaryValue {
   if((self = [super init])) {
-    [self setValuesForKeysWithDictionary:dictionaryObject];
+
+    [self setValuesForKeysWithDictionary:dictionaryValue];
   }
   return self;
 }
@@ -15,6 +16,7 @@
 	return YES;
 }
 
+#pragma mark - NSCoding
 - (id)initWithCoder:(NSCoder *)decoder {
 	return self;
 }
@@ -23,20 +25,25 @@
 	// do nothing.
 }
 
+#pragma mark - NSMutableCopying
+
 - (id)mutableCopyWithZone:(NSZone *)zone {
   // subclass implementation should do a deep mutable copy
   // this class doesn't have any ivars so this is ok
-	BaseModel *newModel = [[BaseModel allocWithZone:zone] init];
-	return newModel;
+  BaseModel *newModel = [[BaseModel allocWithZone:zone] init];
+  return newModel;
 }
 
-- (id)copyWithZone:(NSZone *)zone {
+#pragma mark - NSCopying
+
+- (instancetype)copyWithZone:(NSZone *)zone {
   // subclass implementation should do a deep mutable copy
   // this class doesn't have any ivars so this is ok
-	BaseModel *newModel = [[BaseModel allocWithZone:zone] init];
-	return newModel;
+  BaseModel *newModel = [[BaseModel allocWithZone:zone] init];
+  return newModel;
 }
 
+#pragma mark - NSKeyValueCoding
 - (id)valueForUndefinedKey:(NSString *)key {
   // subclass implementation should provide correct key value mappings for custom keys
   PRPLog(@"Undefined Key: %@", key);
@@ -48,6 +55,7 @@
   PRPLog(@"Undefined Key: %@", key);
 }
 
+#pragma mark - NSObject
 - (NSString *)description {
 	return descriptionForDebug(self);
 }

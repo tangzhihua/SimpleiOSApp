@@ -45,11 +45,17 @@ typedef NS_ENUM(NSInteger, ErrorCodeEnum) {
   
   
   /// 和服务器约定好的错误码, 联网成功, 但是服务器那边发生了错误, 服务器要告知客户端错误的详细信息
-  ErrorCodeEnum_Server_Custom_Error = 3000,
-  ErrorCodeEnum_Server_Failed    = 3001,     // "操作失败"
-  ErrorCodeEnum_Server_Exception = 3002,     // "处理异常"
-  ErrorCodeEnum_Server_NoResult  = 3003,     // "无结果返回"
-  ErrorCodeEnum_Server_NeedLogin = 3004,     // "需要登录"
+  ErrorCodeEnum_Server_Custom_Error = 20000,
+  ErrorCodeEnum_Server_invalid_client = 20001,     //
+  ErrorCodeEnum_Server_invalid_request = 20002,     //
+  ErrorCodeEnum_Server_invalid_token = 20003,     //
+  ErrorCodeEnum_Server_expired_token = 20004,     //
+  ErrorCodeEnum_Server_insufficient_scope = 20005,     //
+  ErrorCodeEnum_Server_unsupported_grant_type = 20006,     //
+  ErrorCodeEnum_Server_unauthorized_client = 20007,     //
+  ErrorCodeEnum_Server_invalid_grant = 20008,     //
+  ErrorCodeEnum_Server_invalid_scope = 20009,     //
+ 
 };
 
 

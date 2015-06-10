@@ -15,5 +15,6 @@ NSString *const LastMinute_UrlConstant_MainPtah = @"";
 //
 NSString *const LastMinute_UrlConstant_SpecialPath_TOKEN_URL = @"access_token";
 // 用户登录
-NSString *const LastMinute_UrlConstant_SpecialPath_LOGIN = @"user/login";
- 
+NSString *const LastMinute_UrlConstant_SpecialPath_login = @"user/login";
+// 获取收藏列表
+NSString *const LastMinute_UrlConstant_SpecialPath_favor_list = @"lastminute/favor_list";

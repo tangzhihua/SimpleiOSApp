@@ -100,7 +100,7 @@ typedef void (^DomainBeanAsyncHttpResponseListenerInUIThreadProgressBlock)(doubl
  */
 @interface SimpleNetworkEngineSingleton : NSObject
 
-+ (SimpleNetworkEngineSingleton *) sharedInstance;
++ (instancetype) sharedInstance;
 
 #pragma mark - request domainbean
 

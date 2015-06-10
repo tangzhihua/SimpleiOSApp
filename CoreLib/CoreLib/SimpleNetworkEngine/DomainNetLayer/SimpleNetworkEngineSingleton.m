@@ -70,11 +70,11 @@ static NSString *const TAG = @"SimpleNetworkEngineSingleton";
   return self;
 }
 
-+ (SimpleNetworkEngineSingleton *)sharedInstance {
-  static SimpleNetworkEngineSingleton *singletonInstance = nil;
-  static dispatch_once_t pred;
-  dispatch_once(&pred, ^{singletonInstance = [[self alloc] initSingleton];});
-  return singletonInstance;
++ (instancetype)sharedInstance {
+  static id sharedInstance;
+  static dispatch_once_t once;
+  dispatch_once(&once, ^{sharedInstance = [[self alloc] initSingleton];});
+  return sharedInstance;
 }
 
 #pragma mark -
@@ -324,7 +324,10 @@ static NSString *const TAG = @"SimpleNetworkEngineSingleton";
       
       // ------------------------------------- >>>
       // 更新缓存
-      [[DomainBeanCacheLayerSingleton sharedInstance] writeNetRespondBeanWithRequestBeanClass:[netRequestDomainBean class] requestParams:privateParams respondData:netUnpackedDataOfUTF8String];
+      if (isUseCache) {
+        [[DomainBeanCacheLayerSingleton sharedInstance] writeNetRespondBeanWithRequestBeanClass:[netRequestDomainBean class] requestParams:privateParams respondData:netUnpackedDataOfUTF8String];
+      }
+      
       // ------------------------------------- >>>
       
     } failedBlock:^(id<INetRequestIsCancelled> netRequestIsCancelled, NSError *error) {

@@ -15,6 +15,7 @@
 
 #import "PRPDebug.h"
 #import <objc/runtime.h>
+#import "BaseModel.h"
 
 NSString *descriptionForDebug(id object) {
   unsigned int outCount = 0;
@@ -22,7 +23,7 @@ NSString *descriptionForDebug(id object) {
   
   NSMutableArray *mutableParameterComponents = [NSMutableArray arrayWithObject:@"\n\n\n"];
   
-  // 当前类
+  /***********************               当前类                 ******************************/
   Class currentClass = [object class];
   objc_property_t *properties = class_copyPropertyList(currentClass, &outCount);
   // 类名
@@ -46,12 +47,13 @@ NSString *descriptionForDebug(id object) {
   
   free(properties);
   [mutableParameterComponents addObject:[NSString stringWithFormat:@"\r\r ----------------------  %@ ----------------------\r\r", NSStringFromClass(currentClass)]];
+  /******************************************************************************************/
   
   
-  // 父类
+  /***********************                父类                 ******************************/
   currentClass = [object superclass];
   
-  if (currentClass != [NSObject class]) {
+  if (currentClass != [NSObject class] && currentClass != [BaseModel class]) {
     //
     properties = class_copyPropertyList(currentClass, &outCount);
     // 类名
@@ -76,7 +78,7 @@ NSString *descriptionForDebug(id object) {
     free(properties);
     [mutableParameterComponents addObject:[NSString stringWithFormat:@"\r\r ----------------------  %@ ----------------------\r", NSStringFromClass(currentClass)]];
   }
-  
+  /******************************************************************************************/
   
   
   

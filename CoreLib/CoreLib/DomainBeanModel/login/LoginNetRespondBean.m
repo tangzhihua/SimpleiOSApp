@@ -13,6 +13,7 @@ static NSString *const kNSCodingField_UserInfo    = @"UserInfo";
 @end
 
 @implementation LoginNetRespondBean
+
 - (AccessToken *)accessToken {
   if (_accessToken == nil) {
     _accessToken = [[AccessToken alloc] init];
@@ -20,12 +21,6 @@ static NSString *const kNSCodingField_UserInfo    = @"UserInfo";
   
   return _accessToken;
 }
-
-//
-- (NSString *)description {
-  return descriptionForDebug(self);
-}
-
 
 #pragma mark -
 #pragma mark - 实现 NSCoding 接口

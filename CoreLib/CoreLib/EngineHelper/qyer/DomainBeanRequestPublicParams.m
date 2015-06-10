@@ -3,6 +3,11 @@
 #import "ErrorCodeEnum.h"
 #import "ErrorBean.h"
 
+#import "GlobalDataCacheForMemorySingleton.h"
+#import "LoginNetRespondBean.h"
+#import "AccessToken.h"
+#import "UserInfo.h"
+
 @implementation DomainBeanRequestPublicParams
 - (NSDictionary *)publicParamsWithErrorOUT:(ErrorBean **)errorOUT {
   NSString *errorMessage = nil;
@@ -18,8 +23,11 @@
     publicParams[@"track_app_channel"] = @"UMENG_CHANNEL_VALUE";
     publicParams[@"track_device_info"] = @"m7cdtu";
     publicParams[@"track_os"] = @"Android4.2.2";
-    publicParams[@"track_user_id"] = @"";
-    publicParams[@"oauth_token"] = @"";
+    if ([GlobalDataCacheForMemorySingleton sharedInstance].latestLoginNetRespondBean != nil) {
+      publicParams[@"track_user_id"] = [GlobalDataCacheForMemorySingleton sharedInstance].latestLoginNetRespondBean.userInfo.uid;
+      publicParams[@"oauth_token"] = [GlobalDataCacheForMemorySingleton sharedInstance].latestLoginNetRespondBean.accessToken.access_token;
+    }
+    
     publicParams[@"app_installtime"] = @"1433163722985";
     
     return publicParams;
