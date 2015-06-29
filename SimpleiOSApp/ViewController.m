@@ -8,15 +8,25 @@
 
 #import "ViewController.h"
 
+// ReactiveCocoa
+#import <ReactiveCocoa/ReactiveCocoa.h>
+
+
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *outputLabel;
+@property (weak, nonatomic) IBOutlet UITextField *inputTextField;
 
 @end
 
 @implementation ViewController
 
+
 - (void)viewDidLoad {
   [super viewDidLoad];
   // Do any additional setup after loading the view, typically from a nib.
+  
+ 
+  RAC(self.outputLabel, text, @"收到nil时就显示我") = self.inputTextField.rac_textSignal;
 }
 
 - (void)didReceiveMemoryWarning {

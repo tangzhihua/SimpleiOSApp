@@ -68,6 +68,7 @@
 		12C343811B2821BD00EB4480 /* FavorListNetRespondBean.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C3437C1B2821BD00EB4480 /* FavorListNetRespondBean.m */; };
 		12C343821B2821BD00EB4480 /* FavorListParseDomainBeanToDD.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C3437E1B2821BD00EB4480 /* FavorListParseDomainBeanToDD.m */; };
 		12C343851B28233900EB4480 /* DiscountDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C343841B28233900EB4480 /* DiscountDetail.m */; };
+		12D6859A1B2AE876001DA176 /* LoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D685991B2AE876001DA176 /* LoginManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -239,6 +240,8 @@
 		12C3437E1B2821BD00EB4480 /* FavorListParseDomainBeanToDD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavorListParseDomainBeanToDD.m; sourceTree = "<group>"; };
 		12C343831B28233900EB4480 /* DiscountDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscountDetail.h; sourceTree = "<group>"; };
 		12C343841B28233900EB4480 /* DiscountDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscountDetail.m; sourceTree = "<group>"; };
+		12D685981B2AE876001DA176 /* LoginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginManager.h; sourceTree = "<group>"; };
+		12D685991B2AE876001DA176 /* LoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -566,6 +569,8 @@
 		12B5923B1B1D92D100982834 /* GlobalDataCache */ = {
 			isa = PBXGroup;
 			children = (
+				12D685981B2AE876001DA176 /* LoginManager.h */,
+				12D685991B2AE876001DA176 /* LoginManager.m */,
 				12B5923C1B1D92D100982834 /* GlobalDataCacheForDisk.h */,
 				12B5923D1B1D92D100982834 /* GlobalDataCacheForDisk.m */,
 				12B5923E1B1D92D100982834 /* GlobalDataCacheForMemorySingleton.h */,
@@ -723,6 +728,7 @@
 				1218BD2E1B1C3393008D49A1 /* SimpleToast.m in Sources */,
 				1218BD441B1C3924008D49A1 /* NSDate+RFC1123.m in Sources */,
 				1218BD471B1C3924008D49A1 /* UIImageView+MKNetworkKitAdditions.m in Sources */,
+				12D6859A1B2AE876001DA176 /* LoginManager.m in Sources */,
 				1218BD1C1B1C30BD008D49A1 /* SimpleFolderTools.m in Sources */,
 				1218BD271B1C320C008D49A1 /* NSDictionary+SafeObjectForKey.m in Sources */,
 				1218BD1B1B1C30BD008D49A1 /* PRPDebug.m in Sources */,

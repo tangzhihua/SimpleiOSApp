@@ -19,6 +19,8 @@
 
 #import "GlobalDataCacheForMemorySingleton.h"
 
+#import "LoginViewController.h"
+
 @implementation AppDelegate
 
 - (void)testLogin {
@@ -53,14 +55,16 @@
   // TODO:初始化app, 一定要首先调用, 且只调用一次
   [AppInit initApp];
  
-  
-  // Override point for customization after application launch.
-  [self.window makeKeyAndVisible];
-  
-  
-  [self testLogin];
-  
  
+ 
+  self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+  LoginViewController *rootView = [[LoginViewController alloc] init];
+  rootView.title = @"登录";
+  
+  self.navController = [[UINavigationController alloc] init];
+  [self.navController pushViewController:rootView animated:YES];
+  [self.window addSubview:self.navController.view];
+  [self.window makeKeyAndVisible];
   
   return YES;
 }

@@ -23,4 +23,6 @@
 //
 #import "ProjectHelper.h"
 
+//
+#import <ReactiveCocoa/ReactiveCocoa.h>
 #endif
