@@ -1,4 +1,28 @@
 PODS:
+  - AFNetworking (2.5.4):
+    - AFNetworking/NSURLConnection (= 2.5.4)
+    - AFNetworking/NSURLSession (= 2.5.4)
+    - AFNetworking/Reachability (= 2.5.4)
+    - AFNetworking/Security (= 2.5.4)
+    - AFNetworking/Serialization (= 2.5.4)
+    - AFNetworking/UIKit (= 2.5.4)
+  - AFNetworking-RACExtensions (0.1.8):
+    - AFNetworking (~> 2.5.3)
+    - ReactiveCocoa (~> 2.0)
+  - AFNetworking/NSURLConnection (2.5.4):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.5.4):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.5.4)
+  - AFNetworking/Security (2.5.4)
+  - AFNetworking/Serialization (2.5.4)
+  - AFNetworking/UIKit (2.5.4):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
   - GDChannel (0.6.0):
     - MQTTKit (~> 0.1.0)
   - Mantle (2.0.2):
@@ -19,6 +43,8 @@ PODS:
   - RNTimer (0.0.1)
 
 DEPENDENCIES:
+  - AFNetworking (~> 2.5.4)
+  - AFNetworking-RACExtensions (~> 0.1.8)
   - GDChannel (~> 0.5)
   - Mantle (~> 2.0.2)
   - MBProgressHUD (~> 0.9.1)
@@ -28,6 +54,8 @@ DEPENDENCIES:
   - RNTimer (~> 0.0.1)
 
 SPEC CHECKSUMS:
+  AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
+  AFNetworking-RACExtensions: a043c6b492fa892395ceb9d20bc4c94e96e08a57
   GDChannel: 021418a45a287d9f3629b4aeefbdc457a7684fe3
   Mantle: 967fd31ea0220890b2e76589198996b534bb3fb1
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad

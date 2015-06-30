@@ -18,17 +18,12 @@
 
 @interface LoginManager : NSObject
 
-
-// 标志 是否处于登录中 的状态位.
-@property (nonatomic, assign, readonly) BOOL isLoggingIn;
-
-
 // 用户登录成功后, 服务器返回的 "用户信息", 可以通过判断这个属性是否为空来判断当前是否有用户处于登录状态
 @property (nonatomic, readonly, strong) LoginNetRespondBean *latestLoginNetRespondBean;
 
 
 /// 通过下面两个方法来设置上面的只读属性
-- (RACSignal *)createLoginSignalWithNetRequestBean:(LoginNetRequestBean *)loginNetRequestBean;
+- (RACSignal *)signalForLoginWithLoginNetRequestBean:(LoginNetRequestBean *)loginNetRequestBean;
 
 - (void)logout;
 

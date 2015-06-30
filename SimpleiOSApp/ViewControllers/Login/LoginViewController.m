@@ -53,31 +53,48 @@
   = [validPasswordSignal map:^id(NSNumber *isPasswordValid) {
     return isPasswordValid.boolValue ? [UIColor clearColor] : [UIColor yellowColor];
   }];
-  
-  // 判断是否处于登录中的信号
-  
+
   // 控制 "登录按钮" 的 enabled 状态
-  RAC(self.loginButton, enabled)
-  = [RACSignal combineLatest:@[validUsernameSignal, validPasswordSignal, RACObserve([LoginManager sharedInstance], isLoggingIn)]
-                      reduce:^id(NSNumber *isUsernameValid, NSNumber *isPasswordValid, NSNumber *isLoggingIn){
-                        return @(isUsernameValid.boolValue && isPasswordValid.boolValue && !isLoggingIn.boolValue);
+  RACSignal *loginButtonEnabledSignal
+  = [RACSignal combineLatest:@[validUsernameSignal, validPasswordSignal]
+                      reduce:^id(NSNumber *isUsernameValid, NSNumber *isPasswordValid){
+                        return @(isUsernameValid.boolValue && isPasswordValid.boolValue);
                       }];
   
-  // 控制 网络等待提示框的显示关闭
-  [RACObserve([LoginManager sharedInstance], isLoggingIn) subscribeNext:^(NSNumber *isLoggingIn) {
-    if (isLoggingIn.boolValue) {
+  // 点击 "登录按钮" 之后的事件流
+  RACCommand *loginCommand
+  = [[RACCommand alloc] initWithEnabled:loginButtonEnabledSignal signalBlock:^RACSignal *(id input) {
+    LoginNetRequestBean *loginNetRequestBean
+    = [[LoginNetRequestBean alloc] initWithUsername:self.usernameTextField.text
+                                           password:self.passwordTextField.text];
+    
+    // 注意 : 如果在这里直接订阅loginSignal的结果的话, 就不需要订阅loginCommand了, 但是我感觉这种做法有悖响应流的设计
+    //       应该形成一个从上到下的响应流, 而不应该从中间就开始处理结果, 不过从command订阅很麻烦, 目前还没有好办法
+    //       正常的流程请参考 RegisterViewController
+    // 登录信号
+    RACSignal *loginSignal = [[LoginManager sharedInstance] signalForLoginWithLoginNetRequestBean:loginNetRequestBean];
+    [loginSignal subscribeNext:^(LoginNetRespondBean *loginNetRespondBean) {
+      // 登录成功
+      [SimpleToast showWithText:@"登录成功" duration:1.0];
+    } error:^(NSError *error) {
+      // 登录失败
+      [SimpleToast showWithText:error.localizedDescription duration:1.5];
+    }];
+    return loginSignal;
+  }];
+  
+  // 监控command是否正在执行中
+  [loginCommand.executing subscribeNext:^(NSNumber *isExecuting) {
+    if (isExecuting.boolValue) {
       [SimpleProgressBar show];
+      self.registerButton.enabled = NO;
     } else {
       [SimpleProgressBar dismiss];
+      self.registerButton.enabled = YES;
     }
   }];
   
-  // 控制 "注册按钮" 的 enabled 状态
-  RAC(self.registerButton, enabled)
-  = [RACObserve([LoginManager sharedInstance], isLoggingIn) map:^id(NSNumber *isLoggingIn) {
-    return @(!isLoggingIn.boolValue);
-  }];
-  
+  self.loginButton.rac_command = loginCommand;
   
   // 点击 "注册按钮" 之后的事件流
   [[self.registerButton rac_signalForControlEvents:UIControlEventTouchUpInside]
@@ -89,26 +106,7 @@
      [self.navigationController pushViewController:registerViewController animated:YES];
    }];
   
-  // 点击 "登录按钮" 之后的事件流
-  [[self.loginButton rac_signalForControlEvents:UIControlEventTouchUpInside]
-   subscribeNext:^(id x) {
-     @strongify(self);
-     LoginNetRequestBean *loginNetRequestBean
-     = [[LoginNetRequestBean alloc] initWithUsername:self.usernameTextField.text
-                                            password:self.passwordTextField.text];
-     
-     // 登录信号
-     [[[LoginManager sharedInstance] createLoginSignalWithNetRequestBean:loginNetRequestBean]
-      subscribeNext:^(LoginNetRespondBean *loginNetRespondBean) {
-        // 登录成功
-        [SimpleToast showWithText:@"登录成功" duration:1.0];
-      } error:^(NSError *error) {
-        // 登录失败
-        [SimpleToast showWithText:error.localizedDescription duration:1.5];
-      }];
-   }];
-  
-  
+    
   
 }
 

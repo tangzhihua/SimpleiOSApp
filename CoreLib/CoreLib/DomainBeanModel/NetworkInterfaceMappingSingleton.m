@@ -5,6 +5,10 @@
 #import "LoginNetRequestBean.h"
 #import "LoginDomainBeanHelper.h"
 
+// 收藏
+#import "RegistNetRequestBean.h"
+#import "RegistDomainBeanHelper.h"
+
 // 我的收藏
 #import "FavorListNetRequestBean.h"
 #import "FavorListDomainBeanHelper.h"
@@ -50,6 +54,11 @@
    */
   _networkInterfaceMapping[NSStringFromClass([LoginNetRequestBean class])] = [[LoginDomainBeanHelper alloc] init];
   
+  /**
+   * 注册
+   */
+  _networkInterfaceMapping[NSStringFromClass([RegistNetRequestBean class])] = [[RegistDomainBeanHelper alloc] init];
+
   /**
    * 我的收藏
    */

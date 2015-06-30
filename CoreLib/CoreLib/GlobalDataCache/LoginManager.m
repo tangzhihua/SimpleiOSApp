@@ -5,16 +5,13 @@
 @interface LoginManager ()
 // 注意 : 如果重写 setter=setLoggingIn: 会导致 isLoggingIn 属性KVO失效
 //@property (nonatomic, assign, setter=setLoggingIn:, readwrite) BOOL isLoggingIn;
-@property (nonatomic, assign, readwrite) BOOL isLoggingIn;
+//@property (nonatomic, assign, readwrite) BOOL isLoggingIn;
 
 @end
 
 @implementation LoginManager {
   dispatch_queue_t _syncQueue;
 }
-
-@synthesize isLoggingIn = _isLoggingIn;
-
 
 #pragma mark -
 #pragma mark 单例方法群
@@ -53,13 +50,10 @@
   
 }
 
-- (RACSignal *)createLoginSignalWithNetRequestBean:(LoginNetRequestBean *)loginNetRequestBean {
-  @weakify(self);
+- (RACSignal *)signalForLoginWithLoginNetRequestBean:(LoginNetRequestBean *)loginNetRequestBean {
+
   return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
     
-    @strongify(self);
-    
-    self.isLoggingIn = YES;
     __block id<INetRequestHandle> netRequestHandleForLoing;
     double delayInSeconds = 2.0;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
@@ -76,7 +70,6 @@
     
     
     return [RACDisposable disposableWithBlock:^{
-      self.isLoggingIn = NO;
       [netRequestHandleForLoing cancel];
     }];
   }];
