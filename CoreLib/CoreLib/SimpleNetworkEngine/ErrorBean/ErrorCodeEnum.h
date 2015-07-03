@@ -42,6 +42,8 @@ typedef NS_ENUM(NSInteger, ErrorCodeEnum) {
   ErrorCodeEnum_Server_ParseDictionaryFailedToNetRespondBeanFailed = 2004,
   // 本次网络返回的数据, 丢失关键字段(也可能是服务器和客户端数据协议发生变化, 导致和本地NetRespondBean不匹配)
   ErrorCodeEnum_Server_KeyFieldLose = 2004,
+  // 没有结果集(比如查询某个列表, 如果服务器没有目标数据, 引擎也会处理成功请求失败, 并告知业务层调用者, 没有结果集)
+  ErrorCodeEnum_Server_NoResult = 2005,
   
   
   /// 和服务器约定好的错误码, 联网成功, 但是服务器那边发生了错误, 服务器要告知客户端错误的详细信息

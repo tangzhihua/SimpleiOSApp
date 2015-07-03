@@ -7,6 +7,7 @@
 //@property (nonatomic, assign, setter=setLoggingIn:, readwrite) BOOL isLoggingIn;
 //@property (nonatomic, assign, readwrite) BOOL isLoggingIn;
 
+@property (nonatomic, readwrite, strong) LoginNetRespondBean *latestLoginNetRespondBean;
 @end
 
 @implementation LoginManager {
@@ -47,28 +48,24 @@
 #pragma mark -
 
 - (void)logout {
-  
+  self.latestLoginNetRespondBean = nil;
 }
 
 - (RACSignal *)signalForLoginWithLoginNetRequestBean:(LoginNetRequestBean *)loginNetRequestBean {
-
+  
   return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
     
-    __block id<INetRequestHandle> netRequestHandleForLoing;
-    double delayInSeconds = 2.0;
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-      netRequestHandleForLoing
-      = [[SimpleNetworkEngineSingleton sharedInstance] requestDomainBeanWithRequestDomainBean:loginNetRequestBean isUseCache:NO successedBlock:^(id respondDomainBean) {
-        [subscriber sendNext:respondDomainBean];
-        [subscriber sendCompleted];
-      } failedBlock:^(ErrorBean *error) {
-        [subscriber sendError:error];
-      }];
-    });
-    
-    
-    
+    id<INetRequestHandle> netRequestHandleForLoing
+    = [[SimpleNetworkEngineSingleton sharedInstance] requestDomainBeanWithRequestDomainBean:loginNetRequestBean successedBlock:^(id respondDomainBean) {
+      
+      self.latestLoginNetRespondBean = respondDomainBean;
+      
+      [subscriber sendNext:respondDomainBean];
+      [subscriber sendCompleted];
+    } failedBlock:^(ErrorBean *error) {
+      [subscriber sendError:error];
+    }];
+
     return [RACDisposable disposableWithBlock:^{
       [netRequestHandleForLoing cancel];
     }];

@@ -17,19 +17,25 @@
 
 #import "RegisterViewController.h"
 
+#import "FavoritesViewController.h"
+
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UIButton *registerButton;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
-
+ 
 @end
 
 @implementation LoginViewController
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-
+  
+  // test
+  self.usernameTextField.text = @"3252475@qq.com";
+  self.passwordTextField.text = @"123456Hh";
+  //
   @weakify(self);
   
   // 判断用户输入的 "用户名" 和 "密码" 是否有效的信号
@@ -53,7 +59,7 @@
   = [validPasswordSignal map:^id(NSNumber *isPasswordValid) {
     return isPasswordValid.boolValue ? [UIColor clearColor] : [UIColor yellowColor];
   }];
-
+  
   // 控制 "登录按钮" 的 enabled 状态
   RACSignal *loginButtonEnabledSignal
   = [RACSignal combineLatest:@[validUsernameSignal, validPasswordSignal]
@@ -67,20 +73,7 @@
     LoginNetRequestBean *loginNetRequestBean
     = [[LoginNetRequestBean alloc] initWithUsername:self.usernameTextField.text
                                            password:self.passwordTextField.text];
-    
-    // 注意 : 如果在这里直接订阅loginSignal的结果的话, 就不需要订阅loginCommand了, 但是我感觉这种做法有悖响应流的设计
-    //       应该形成一个从上到下的响应流, 而不应该从中间就开始处理结果, 不过从command订阅很麻烦, 目前还没有好办法
-    //       正常的流程请参考 RegisterViewController
-    // 登录信号
-    RACSignal *loginSignal = [[LoginManager sharedInstance] signalForLoginWithLoginNetRequestBean:loginNetRequestBean];
-    [loginSignal subscribeNext:^(LoginNetRespondBean *loginNetRespondBean) {
-      // 登录成功
-      [SimpleToast showWithText:@"登录成功" duration:1.0];
-    } error:^(NSError *error) {
-      // 登录失败
-      [SimpleToast showWithText:error.localizedDescription duration:1.5];
-    }];
-    return loginSignal;
+    return [[[LoginManager sharedInstance] signalForLoginWithLoginNetRequestBean:loginNetRequestBean] materialize];
   }];
   
   // 监控command是否正在执行中
@@ -92,6 +85,21 @@
       [SimpleProgressBar dismiss];
       self.registerButton.enabled = YES;
     }
+  }];
+  
+  // 从command订阅执行结果
+  [loginCommand.executionSignals subscribeNext:^(RACSignal *subscribeSignal) {
+    [[[subscribeSignal dematerialize] deliverOn:[RACScheduler mainThreadScheduler]] subscribeNext:^(LoginNetRespondBean *loginNetRespondBean) {
+      // 注册成功
+      [SimpleToast showWithText:@"登录成功" duration:1.5f];
+      
+      FavoritesViewController *favoritesViewController = [[FavoritesViewController alloc] init];
+      favoritesViewController.title = @"收藏";
+      [self.navigationController pushViewController:favoritesViewController animated:YES];
+    } error:^(NSError *error) {
+      // 注册失败
+      [SimpleToast showWithText:error.localizedDescription duration:1.5f];
+    }];
   }];
   
   self.loginButton.rac_command = loginCommand;
@@ -106,8 +114,11 @@
      [self.navigationController pushViewController:registerViewController animated:YES];
    }];
   
-    
   
+  
+}
+- (IBAction)cancelLoginButtonOnClickListener:(id)sender {
+ 
 }
 
 - (void)didReceiveMemoryWarning {

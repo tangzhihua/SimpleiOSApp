@@ -15,6 +15,12 @@
 		120589AC1B1AFE7F00190A1C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 120589AA1B1AFE7F00190A1C /* LaunchScreen.xib */; };
 		120589B81B1AFE7F00190A1C /* SimpleiOSAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 120589B71B1AFE7F00190A1C /* SimpleiOSAppTests.m */; };
 		1218BCDB1B1C2C62008D49A1 /* libCoreLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1218BCDA1B1C2C62008D49A1 /* libCoreLib.a */; };
+		128468351B42D7B0009F3E72 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 128468331B42D7B0009F3E72 /* FavoritesViewController.m */; };
+		128468361B42D7B0009F3E72 /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 128468341B42D7B0009F3E72 /* FavoritesViewController.xib */; };
+		128468391B438295009F3E72 /* FavoritesViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 128468381B438295009F3E72 /* FavoritesViewModel.m */; };
+		128468421B43CF3D009F3E72 /* FavoritTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 128468401B43CF3D009F3E72 /* FavoritTableViewCell.m */; };
+		128468431B43CF3D009F3E72 /* FavoritTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 128468411B43CF3D009F3E72 /* FavoritTableViewCell.xib */; };
+		128468461B43CF7D009F3E72 /* FavoritTableViewCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 128468451B43CF7D009F3E72 /* FavoritTableViewCellViewModel.m */; };
 		12918B861B40DAFD00F94601 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12918B841B40DAFD00F94601 /* RegisterViewController.m */; };
 		12918B871B40DAFD00F94601 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12918B851B40DAFD00F94601 /* RegisterViewController.xib */; };
 		12B63D581B2148FC0009C6D9 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 12B63D571B2148FC0009C6D9 /* libsqlite3.0.dylib */; };
@@ -707,6 +713,16 @@
 		120589B61B1AFE7F00190A1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		120589B71B1AFE7F00190A1C /* SimpleiOSAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SimpleiOSAppTests.m; sourceTree = "<group>"; };
 		1218BCDA1B1C2C62008D49A1 /* libCoreLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCoreLib.a; path = "../../Library/Developer/Xcode/DerivedData/SimpleiOSApp-bwkdfxhmwpynlfdacbnnrpolqyvk/Build/Products/Debug-iphoneos/libCoreLib.a"; sourceTree = "<group>"; };
+		128468321B42D7B0009F3E72 /* FavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesViewController.h; sourceTree = "<group>"; };
+		128468331B42D7B0009F3E72 /* FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesViewController.m; sourceTree = "<group>"; };
+		128468341B42D7B0009F3E72 /* FavoritesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoritesViewController.xib; sourceTree = "<group>"; };
+		128468371B438295009F3E72 /* FavoritesViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesViewModel.h; sourceTree = "<group>"; };
+		128468381B438295009F3E72 /* FavoritesViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesViewModel.m; sourceTree = "<group>"; };
+		1284683F1B43CF3D009F3E72 /* FavoritTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritTableViewCell.h; sourceTree = "<group>"; };
+		128468401B43CF3D009F3E72 /* FavoritTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritTableViewCell.m; sourceTree = "<group>"; };
+		128468411B43CF3D009F3E72 /* FavoritTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoritTableViewCell.xib; sourceTree = "<group>"; };
+		128468441B43CF7D009F3E72 /* FavoritTableViewCellViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritTableViewCellViewModel.h; sourceTree = "<group>"; };
+		128468451B43CF7D009F3E72 /* FavoritTableViewCellViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritTableViewCellViewModel.m; sourceTree = "<group>"; };
 		12918B831B40DAFD00F94601 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		12918B841B40DAFD00F94601 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		12918B851B40DAFD00F94601 /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
@@ -1471,6 +1487,53 @@
 				120589B61B1AFE7F00190A1C /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1284682F1B42D786009F3E72 /* MyFavorites */ = {
+			isa = PBXGroup;
+			children = (
+				1284683D1B43CD63009F3E72 /* View */,
+				1284683E1B43CD7B009F3E72 /* ViewModel */,
+			);
+			path = MyFavorites;
+			sourceTree = "<group>";
+		};
+		128468301B42D786009F3E72 /* MyNotifies */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MyNotifies;
+			sourceTree = "<group>";
+		};
+		128468311B42D786009F3E72 /* MyOrders */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MyOrders;
+			sourceTree = "<group>";
+		};
+		1284683D1B43CD63009F3E72 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1284683F1B43CF3D009F3E72 /* FavoritTableViewCell.h */,
+				128468401B43CF3D009F3E72 /* FavoritTableViewCell.m */,
+				128468411B43CF3D009F3E72 /* FavoritTableViewCell.xib */,
+				128468321B42D7B0009F3E72 /* FavoritesViewController.h */,
+				128468331B42D7B0009F3E72 /* FavoritesViewController.m */,
+				128468341B42D7B0009F3E72 /* FavoritesViewController.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		1284683E1B43CD7B009F3E72 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				128468371B438295009F3E72 /* FavoritesViewModel.h */,
+				128468381B438295009F3E72 /* FavoritesViewModel.m */,
+				128468441B43CF7D009F3E72 /* FavoritTableViewCellViewModel.h */,
+				128468451B43CF7D009F3E72 /* FavoritTableViewCellViewModel.m */,
+			);
+			name = ViewModel;
 			sourceTree = "<group>";
 		};
 		12918B821B40DADE00F94601 /* Register */ = {
@@ -2262,6 +2325,9 @@
 		12D6858D1B2AE49C001DA176 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				1284682F1B42D786009F3E72 /* MyFavorites */,
+				128468301B42D786009F3E72 /* MyNotifies */,
+				128468311B42D786009F3E72 /* MyOrders */,
 				12918B821B40DADE00F94601 /* Register */,
 				12D6858E1B2AE49C001DA176 /* About */,
 				12D6858F1B2AE49C001DA176 /* Feedback */,
@@ -2423,6 +2489,7 @@
 				12D683F81B2ADA1D001DA176 /* myOrder_thinLine.png in Resources */,
 				12D683661B2ADA1D001DA176 /* btn_setting.png in Resources */,
 				12D685791B2ADA1D001DA176 /* x_cell_bottom@2x.png in Resources */,
+				128468361B42D7B0009F3E72 /* FavoritesViewController.xib in Resources */,
 				12D6851C1B2ADA1D001DA176 /* list_tab_right@2x.png in Resources */,
 				12D685511B2ADA1D001DA176 /* perperty_today_new@2x.png in Resources */,
 				12D6835D1B2ADA1D001DA176 /* btn_register.png in Resources */,
@@ -2434,6 +2501,7 @@
 				12D685201B2ADA1D001DA176 /* main_bg480@2x.png in Resources */,
 				12D683171B2ADA1D001DA176 /* bg_cell_remind_highlight.png in Resources */,
 				12D683A31B2ADA1D001DA176 /* fillOrder_numberMiddle.png in Resources */,
+				128468431B43CF3D009F3E72 /* FavoritTableViewCell.xib in Resources */,
 				12D6835C1B2ADA1D001DA176 /* btn_more_share_highlight.png in Resources */,
 				12D6857F1B2ADA1D001DA176 /* x_cell_only_highlighted@2x.png in Resources */,
 				12D6850C1B2ADA1D001DA176 /* lastminute_error_default_logo@2x.png in Resources */,
@@ -3118,9 +3186,13 @@
 			files = (
 				12918B861B40DAFD00F94601 /* RegisterViewController.m in Sources */,
 				12D685961B2AE4CC001DA176 /* LoginViewController.m in Sources */,
+				128468391B438295009F3E72 /* FavoritesViewModel.m in Sources */,
+				128468351B42D7B0009F3E72 /* FavoritesViewController.m in Sources */,
 				120589A41B1AFE7E00190A1C /* ViewController.m in Sources */,
 				120589A11B1AFE7E00190A1C /* AppDelegate.m in Sources */,
+				128468461B43CF7D009F3E72 /* FavoritTableViewCellViewModel.m in Sources */,
 				1205899E1B1AFE7E00190A1C /* main.m in Sources */,
+				128468421B43CF3D009F3E72 /* FavoritTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3250,6 +3322,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Wenyi Gu (NNYXP49MD9)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -3283,6 +3356,7 @@
 					"-DPRPDEBUG",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6ce9f4dd-41fb-4493-9736-547bd25c3dc3";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/CoreLib/CoreLib/**";
 			};
@@ -3294,6 +3368,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Wenyi Gu (NNYXP49MD9)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -3307,6 +3382,7 @@
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/SimpleiOSApp-bwkdfxhmwpynlfdacbnnrpolqyvk/Build/Products/Debug-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6ce9f4dd-41fb-4493-9736-547bd25c3dc3";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/CoreLib/CoreLib/**";
 			};

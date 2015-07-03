@@ -3,7 +3,7 @@
 #import "ErrorCodeEnum.h"
 #import "ErrorBean.h"
 
-#import "GlobalDataCacheForMemorySingleton.h"
+#import "LoginManager.h"
 #import "LoginNetRespondBean.h"
 #import "AccessToken.h"
 #import "UserInfo.h"
@@ -23,9 +23,9 @@
     publicParams[@"track_app_channel"] = @"UMENG_CHANNEL_VALUE";
     publicParams[@"track_device_info"] = @"m7cdtu";
     publicParams[@"track_os"] = @"Android4.2.2";
-    if ([GlobalDataCacheForMemorySingleton sharedInstance].latestLoginNetRespondBean != nil) {
-      publicParams[@"track_user_id"] = [GlobalDataCacheForMemorySingleton sharedInstance].latestLoginNetRespondBean.userInfo.uid;
-      publicParams[@"oauth_token"] = [GlobalDataCacheForMemorySingleton sharedInstance].latestLoginNetRespondBean.accessToken.access_token;
+    if ([LoginManager sharedInstance].latestLoginNetRespondBean != nil) {
+      publicParams[@"track_user_id"] = [LoginManager sharedInstance].latestLoginNetRespondBean.userInfo.uid;
+      publicParams[@"oauth_token"] = [LoginManager sharedInstance].latestLoginNetRespondBean.accessToken.access_token;
     }
     
     publicParams[@"app_installtime"] = @"1433163722985";

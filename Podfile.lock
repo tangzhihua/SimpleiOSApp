@@ -38,9 +38,12 @@ PODS:
   - ReactiveCocoa/no-arc (2.5)
   - ReactiveCocoa/UI (2.5):
     - ReactiveCocoa/Core
+  - ReactiveTableViewBinding (1.0):
+    - ReactiveCocoa (~> 2.4)
   - ReactiveViewModel (0.3):
     - ReactiveCocoa (~> 2.4)
   - RNTimer (0.0.1)
+  - SSKeychain (1.2.3)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5.4)
@@ -50,8 +53,10 @@ DEPENDENCIES:
   - MBProgressHUD (~> 0.9.1)
   - NSString-UrlEncode (~> 1.1.0)
   - ReactiveCocoa (~> 2.5)
+  - ReactiveTableViewBinding (~> 1.0)
   - ReactiveViewModel (~> 0.3)
   - RNTimer (~> 0.0.1)
+  - SSKeychain
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
@@ -62,7 +67,9 @@ SPEC CHECKSUMS:
   MQTTKit: a4e6b8aa92db1aeae917d2b773fd72a7749937c4
   NSString-UrlEncode: 9f7bf066d98c4e6ac664ae92a215037224ad43f7
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
+  ReactiveTableViewBinding: f925165a270dc51a3bc02ace494a2f212ae04498
   ReactiveViewModel: 58918dcbcec2d3151195ab1ed9163c57a8163999
   RNTimer: d4109a8a977d8d7ac81a1115bd4abdfa3e71841b
+  SSKeychain: 3f42991739c6c60a9cf1bbd4dff6c0d3694bcf3d
 
 COCOAPODS: 0.37.2

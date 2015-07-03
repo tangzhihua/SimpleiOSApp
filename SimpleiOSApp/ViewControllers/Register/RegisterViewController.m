@@ -11,6 +11,8 @@
 #import "RegistNetRequestBean.h"
 #import "RegistNetRespondBean.h"
 #import "SimpleNetworkEngineSingleton.h"
+#import "SimpleNetworkEngineSingleton+RACSupport.h"
+
 #import "NetRequestHandleNilObject.h"
 #import "SimpleProgressBar.h"
 #import "SimpleToast.h"
@@ -23,7 +25,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *confirmCheckBox;
 @property (weak, nonatomic) IBOutlet UIButton *registerButton;
 
-@property (nonatomic, strong) id<INetRequestHandle> netRequestHandleForRegister;
 @end
 
 @implementation RegisterViewController
@@ -98,8 +99,13 @@
   // 点击 "注册按钮" 之后的事件流
   RACCommand *registerCommand
   = [[RACCommand alloc] initWithEnabled:registerButtonEnabledSignal signalBlock:^RACSignal *(id input) {
-    RegistNetRequestBean *registNetRequestBean = [[RegistNetRequestBean alloc] initWithEmail:self.emailTextField.text username:self.usernameTextField.text password:self.passwordTextField.text];
-    return [[self signalForRegisterWithRegistNetRequestBean:registNetRequestBean] materialize];
+    @strongify(self);
+    RegistNetRequestBean *registNetRequestBean
+    = [[RegistNetRequestBean alloc] initWithEmail:self.emailTextField.text
+                                         username:self.usernameTextField.text
+                                         password:self.passwordTextField.text];
+    
+    return [[[SimpleNetworkEngineSingleton sharedInstance] signalForNetRequestDomainBean:registNetRequestBean] materialize];
   }];
   
   // 监控command是否正在执行中
@@ -115,9 +121,10 @@
   [registerCommand.executionSignals subscribeNext:^(RACSignal *subscribeSignal) {
     [[[subscribeSignal dematerialize] deliverOn:[RACScheduler mainThreadScheduler]] subscribeNext:^(RegistNetRespondBean *registNetRespondBean) {
       // 注册成功
+      [SimpleToast showWithText:@"注册成功" duration:1.5f];
     } error:^(NSError *error) {
       // 注册失败
-      NSLog(@"");
+      [SimpleToast showWithText:error.localizedDescription duration:1.5f];
     }];
   }];
   
@@ -141,29 +148,6 @@
 
 - (BOOL)isValidPassword:(NSString *)password {
   return password.length >= 6;
-}
-
-- (RACSignal *)signalForRegisterWithRegistNetRequestBean:(RegistNetRequestBean *)registNetRequestBean {
-  
-  @weakify(self)
-  return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-    @strongify(self);
-    
-    //
-    self.netRequestHandleForRegister
-    = [[SimpleNetworkEngineSingleton sharedInstance] requestDomainBeanWithRequestDomainBean:registNetRequestBean isUseCache:NO successedBlock:^(id respondDomainBean) {
-      [subscriber sendNext:respondDomainBean];
-      [subscriber sendCompleted];
-    } failedBlock:^(ErrorBean *error) {
-      [subscriber sendError:error];
-    }];
-    
-    //
-    return [RACDisposable disposableWithBlock:^{
-      @strongify(self);
-      [self.netRequestHandleForRegister cancel];
-    }];
-  }];
 }
 
 @end

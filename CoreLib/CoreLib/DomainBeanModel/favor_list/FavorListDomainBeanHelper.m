@@ -41,7 +41,20 @@
  * @return
  */
 - (BOOL)isNetRespondBeanValidity:(in FavorListNetRespondBean *)netRespondBean errorOUT:(out ErrorBean **)errorOUT {
-  return YES;
+  NSString *errorMessage = nil;
+  do {
+    if (netRespondBean.discountDetailList.count <= 0) {
+      errorMessage = @"用户没有收藏记录.";
+      break;
+    }
+    
+    return YES;
+  } while (NO);
+  
+  if (errorOUT != NULL) {
+    *errorOUT = [ErrorBean errorBeanWithErrorCode:ErrorCodeEnum_Server_NoResult errorMessage:errorMessage];
+  }
+  return NO;
 }
 
 /**

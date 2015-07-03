@@ -46,6 +46,7 @@
 		1218BDD31B1C4CDB008D49A1 /* HttpEngineOfMKNetworkKitSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1218BDD01B1C4CDB008D49A1 /* HttpEngineOfMKNetworkKitSingleton.m */; };
 		1218BDD41B1C4CDB008D49A1 /* HttpRequestHandleOfMKNetworkKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 1218BDD21B1C4CDB008D49A1 /* HttpRequestHandleOfMKNetworkKit.m */; };
 		1218BDD81B1C516E008D49A1 /* NetworkInterfaceMappingSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1218BDD71B1C516E008D49A1 /* NetworkInterfaceMappingSingleton.m */; };
+		1284683C1B438388009F3E72 /* SimpleNetworkEngineSingleton+RACSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 1284683B1B438388009F3E72 /* SimpleNetworkEngineSingleton+RACSupport.m */; };
 		12918B921B412ADB00F94601 /* RegistDomainBeanHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 12918B8B1B412ADB00F94601 /* RegistDomainBeanHelper.m */; };
 		12918B931B412ADB00F94601 /* RegistNetRequestBean.m in Sources */ = {isa = PBXBuildFile; fileRef = 12918B8D1B412ADB00F94601 /* RegistNetRequestBean.m */; };
 		12918B941B412ADB00F94601 /* RegistNetRespondBean.m in Sources */ = {isa = PBXBuildFile; fileRef = 12918B8F1B412ADB00F94601 /* RegistNetRespondBean.m */; };
@@ -196,6 +197,8 @@
 		1256BD781B1EFEB300869995 /* INetResponseRawEntityDataUnpack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INetResponseRawEntityDataUnpack.h; sourceTree = "<group>"; };
 		1256BD791B1EFEB300869995 /* IServerResponseDataValidityTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IServerResponseDataValidityTest.h; sourceTree = "<group>"; };
 		1256BD7A1B1EFEB300869995 /* ISpliceFullUrlByDomainBeanSpecialPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISpliceFullUrlByDomainBeanSpecialPath.h; sourceTree = "<group>"; };
+		1284683A1B438388009F3E72 /* SimpleNetworkEngineSingleton+RACSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SimpleNetworkEngineSingleton+RACSupport.h"; sourceTree = "<group>"; };
+		1284683B1B438388009F3E72 /* SimpleNetworkEngineSingleton+RACSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SimpleNetworkEngineSingleton+RACSupport.m"; sourceTree = "<group>"; };
 		12918B891B412ADB00F94601 /* RegistDatabaseFieldsConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistDatabaseFieldsConstant.h; sourceTree = "<group>"; };
 		12918B8A1B412ADB00F94601 /* RegistDomainBeanHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistDomainBeanHelper.h; sourceTree = "<group>"; };
 		12918B8B1B412ADB00F94601 /* RegistDomainBeanHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistDomainBeanHelper.m; sourceTree = "<group>"; };
@@ -446,6 +449,8 @@
 			children = (
 				1218BD801B1C3A61008D49A1 /* SimpleNetworkEngineSingleton.h */,
 				1218BD811B1C3A61008D49A1 /* SimpleNetworkEngineSingleton.m */,
+				1284683A1B438388009F3E72 /* SimpleNetworkEngineSingleton+RACSupport.h */,
+				1284683B1B438388009F3E72 /* SimpleNetworkEngineSingleton+RACSupport.m */,
 			);
 			path = DomainNetLayer;
 			sourceTree = "<group>";
@@ -746,6 +751,7 @@
 				1218BD971B1C3A61008D49A1 /* SimpleNetworkEngineSingleton.m in Sources */,
 				1218BD031B1C2DFF008D49A1 /* UIImage+animatedGIF.m in Sources */,
 				12AD362B1B22CAB80008BF1E /* DomainBeanMemoryCacheSingleton.m in Sources */,
+				1284683C1B438388009F3E72 /* SimpleNetworkEngineSingleton+RACSupport.m in Sources */,
 				1218BD4A1B1C3924008D49A1 /* MKReachability.m in Sources */,
 				12B592341B1D7BE600982834 /* LoginNetRequestBean.m in Sources */,
 				1218BD981B1C3A61008D49A1 /* ErrorBean.m in Sources */,

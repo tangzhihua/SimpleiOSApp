@@ -7,56 +7,20 @@
 //
 
 #import "AppDelegate.h"
-
-#import "SimpleNetworkEngineSingleton.h"
-#import "LoginNetRequestBean.h"
-#import "LoginNetRespondBean.h"
-
+ 
 #import "AppInit.h"
 
-#import "FavorListNetRequestBean.h"
-#import "FavorListNetRespondBean.h"
-
-#import "GlobalDataCacheForMemorySingleton.h"
 
 #import "LoginViewController.h"
+ 
 
 @implementation AppDelegate
 
-- (void)testLogin {
-  LoginNetRequestBean *netRequestBean = [[LoginNetRequestBean alloc] initWithUsername:@"3252475@qq.com" password:@"123456Hh"];
-  id<INetRequestHandle> netRequestHandle = [[SimpleNetworkEngineSingleton sharedInstance] requestDomainBeanWithRequestDomainBean:netRequestBean isUseCache:NO beginBlock:^{
-    
-  } successedBlock:^(LoginNetRespondBean *respondDomainBean) {
-    NSLog(@"%@", [respondDomainBean description]);
-    [[GlobalDataCacheForMemorySingleton sharedInstance] noteSignInSuccessfulInfoWithLatestLoginNetRespondBean:respondDomainBean usernameForLastSuccessfulLogon:@"3252475@qq.com" passwordForLastSuccessfulLogon:@"123456Hh"];
-    [self testFavorList];
-  } failedBlock:^(ErrorBean *error) {
-    
-  } endBlock:^{
-    
-  }];
-}
-- (void)testFavorList {
-  FavorListNetRequestBean *netRequestBean = [[FavorListNetRequestBean alloc] initWithIsShowPay:YES isShowSupplier:YES];
-  id<INetRequestHandle> netRequestHandle = [[SimpleNetworkEngineSingleton sharedInstance] requestDomainBeanWithRequestDomainBean:netRequestBean isUseCache:NO beginBlock:^{
-    
-  } successedBlock:^(FavorListNetRespondBean *respondDomainBean) {
-    NSLog(@"%@", [respondDomainBean description]);
-    
-  } failedBlock:^(ErrorBean *error) {
-    
-  } endBlock:^{
-    
-  }];
-}
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   
   // TODO:初始化app, 一定要首先调用, 且只调用一次
   [AppInit initApp];
- 
- 
- 
+  
   self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
   LoginViewController *rootView = [[LoginViewController alloc] init];
   rootView.title = @"登录";
