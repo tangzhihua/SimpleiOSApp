@@ -17,6 +17,14 @@
 #import "DeleteFavorNetRequestBean.h"
 #import "DeleteFavorDomainBeanHelper.h"
 
+// 我的订单
+#import "AppGetUserOrderFormListNetRequestBean.h"
+#import "AppGetUserOrderFormListDomainBeanHelper.h"
+
+// 删除订单
+#import "DeleteOrderNetRequestBean.h"
+#import "DeleteOrderDomainBeanHelper.h"
+
 @implementation NetworkInterfaceMappingSingleton
 #pragma mark -
 #pragma mark Singleton Implementation
@@ -73,5 +81,14 @@
    */
   _networkInterfaceMapping[NSStringFromClass([DeleteFavorNetRequestBean class])] = [[DeleteFavorDomainBeanHelper alloc] init];
   
+  /**
+   * 我的订单
+   */
+  _networkInterfaceMapping[NSStringFromClass([AppGetUserOrderFormListNetRequestBean class])] = [[AppGetUserOrderFormListDomainBeanHelper alloc] init];
+  
+  /**
+   * 删除订单
+   */
+  _networkInterfaceMapping[NSStringFromClass([DeleteOrderNetRequestBean class])] = [[DeleteOrderDomainBeanHelper alloc] init];
 }
 @end

@@ -21,4 +21,7 @@ extern NSString *const LastMinute_UrlConstant_SpecialPath_register;
 extern NSString *const LastMinute_UrlConstant_SpecialPath_favor_list;
 // 删除收藏
 extern NSString *const LastMinute_UrlConstant_SpecialPath_del_favor;
- 
+// 根据uid获取order list
+extern NSString *const LastMinute_UrlConstant_SpecialPath_app_get_userorderformlist;
+// 删除订单
+extern NSString *const LastMinute_UrlConstant_SpecialPath_app_post_del_orderform;

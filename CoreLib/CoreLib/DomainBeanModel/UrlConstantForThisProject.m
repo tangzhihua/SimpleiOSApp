@@ -22,3 +22,7 @@ NSString *const LastMinute_UrlConstant_SpecialPath_register = @"user/register";
 NSString *const LastMinute_UrlConstant_SpecialPath_favor_list = @"lastminute/favor_list";
 // 删除收藏
 NSString *const LastMinute_UrlConstant_SpecialPath_del_favor = @"lastminute/del_favor";
+// 根据uid获取order list
+NSString *const LastMinute_UrlConstant_SpecialPath_app_get_userorderformlist = @"lastminute/app_get_userorderformlist";
+// 删除订单
+NSString *const LastMinute_UrlConstant_SpecialPath_app_post_del_orderform = @"lastminute/app_post_del_orderform";

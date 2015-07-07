@@ -17,6 +17,7 @@
 
 #import "RegisterViewController.h"
 
+#import "OrdersViewController.h"
 #import "FavoritesViewController.h"
 
 @interface LoginViewController ()
@@ -24,7 +25,11 @@
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UIButton *registerButton;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
- 
+
+@property (weak, nonatomic) IBOutlet UIButton *myOrder;
+@property (weak, nonatomic) IBOutlet UIButton *myFavorites;
+@property (weak, nonatomic) IBOutlet UIButton *myNotifies;
+
 @end
 
 @implementation LoginViewController
@@ -93,9 +98,7 @@
       // 注册成功
       [SimpleToast showWithText:@"登录成功" duration:1.5f];
       
-      FavoritesViewController *favoritesViewController = [[FavoritesViewController alloc] init];
-      favoritesViewController.title = @"收藏";
-      [self.navigationController pushViewController:favoritesViewController animated:YES];
+      
     } error:^(NSError *error) {
       // 注册失败
       [SimpleToast showWithText:error.localizedDescription duration:1.5f];
@@ -114,11 +117,45 @@
      [self.navigationController pushViewController:registerViewController animated:YES];
    }];
   
-  
-  
-}
-- (IBAction)cancelLoginButtonOnClickListener:(id)sender {
- 
+  /************************                  test                ******************************/
+  [[self.myOrder rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+    @strongify(self);
+    LoginNetRequestBean *loginNetRequestBean
+    = [[LoginNetRequestBean alloc] initWithUsername:self.usernameTextField.text
+                                           password:self.passwordTextField.text];
+    [[[LoginManager sharedInstance] signalForLoginWithLoginNetRequestBean:loginNetRequestBean] subscribeNext:^(id x) {
+      OrdersViewController *controller = [[OrdersViewController alloc] init];
+      controller.title = @"我的订单";
+      [self.navigationController pushViewController:controller animated:YES];
+    } error:^(NSError *error) {
+      
+    }];
+  }];
+  [[self.myFavorites rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+    @strongify(self);
+    LoginNetRequestBean *loginNetRequestBean
+    = [[LoginNetRequestBean alloc] initWithUsername:self.usernameTextField.text
+                                           password:self.passwordTextField.text];
+    [[[LoginManager sharedInstance] signalForLoginWithLoginNetRequestBean:loginNetRequestBean] subscribeNext:^(id x) {
+      FavoritesViewController *contrllor = [[FavoritesViewController alloc] init];
+      contrllor.title = @"我的收藏";
+      [self.navigationController pushViewController:contrllor animated:YES];
+    } error:^(NSError *error) {
+      
+    }];
+  }];
+  [[self.myNotifies rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+    @strongify(self);
+    LoginNetRequestBean *loginNetRequestBean
+    = [[LoginNetRequestBean alloc] initWithUsername:self.usernameTextField.text
+                                           password:self.passwordTextField.text];
+    [[[LoginManager sharedInstance] signalForLoginWithLoginNetRequestBean:loginNetRequestBean] subscribeNext:^(id x) {
+      
+    } error:^(NSError *error) {
+      
+    }];
+  }];
+  /************************                  test                ******************************/
 }
 
 - (void)didReceiveMemoryWarning {

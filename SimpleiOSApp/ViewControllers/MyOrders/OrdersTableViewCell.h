@@ -10,7 +10,7 @@
 #import "CEReactiveView.h"
 
 
-@interface FavoritTableViewCell : UITableViewCell <CEReactiveView>
+@interface OrdersTableViewCell : UITableViewCell <CEReactiveView>
 
 - (void)bindViewModel:(id)viewModel;
 

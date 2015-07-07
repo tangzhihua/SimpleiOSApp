@@ -7,17 +7,25 @@
 //
 
 #import "FavoritesViewModel.h"
-#import "FavorListNetRespondBean.h"
+
+//
 #import "SimpleNetworkEngineSingleton+RACSupport.h"
 #import "SimpleNetworkEngineSingleton.h"
+//
+#import "SimpleToast.h"
+
+//
 #import "FavorListNetRequestBean.h"
 #import "FavorListNetRespondBean.h"
-#import "SimpleToast.h"
-#import "FavoritTableViewCellViewModel.h"
-#import "SimpleNetworkEngineSingleton.h"
-#import "SimpleNetworkEngineSingleton+RACSupport.h"
+
+//
 #import "DeleteFavorNetRequestBean.h"
 #import "DeleteFavorNetRespondBean.h"
+
+//
+#import "FavoritTableViewCellViewModel.h"
+
+
 
 @interface FavoritesViewModel () <SkyduckCEObservableMutableArrayRemoveDelegate>
 @property (nonatomic, readwrite, strong) CEObservableMutableArray *cellViewModelList;

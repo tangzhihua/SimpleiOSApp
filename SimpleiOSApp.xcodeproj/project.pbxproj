@@ -23,6 +23,14 @@
 		128468461B43CF7D009F3E72 /* FavoritTableViewCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 128468451B43CF7D009F3E72 /* FavoritTableViewCellViewModel.m */; };
 		12918B861B40DAFD00F94601 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12918B841B40DAFD00F94601 /* RegisterViewController.m */; };
 		12918B871B40DAFD00F94601 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12918B851B40DAFD00F94601 /* RegisterViewController.xib */; };
+		12A91B401B4B793D008E33EE /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A91B3E1B4B793D008E33EE /* FeedbackViewController.m */; };
+		12A91B411B4B793D008E33EE /* FeedbackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12A91B3F1B4B793D008E33EE /* FeedbackViewController.xib */; };
+		12A91B451B4B7F14008E33EE /* OrdersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A91B431B4B7F14008E33EE /* OrdersViewController.m */; };
+		12A91B461B4B7F14008E33EE /* OrdersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12A91B441B4B7F14008E33EE /* OrdersViewController.xib */; };
+		12A91B4B1B4B81FF008E33EE /* OrdersViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A91B4A1B4B81FF008E33EE /* OrdersViewModel.m */; };
+		12A91B4E1B4B823F008E33EE /* OrdersTableViewCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A91B4D1B4B823F008E33EE /* OrdersTableViewCellViewModel.m */; };
+		12A91B551B4BA297008E33EE /* OrdersTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A91B531B4BA297008E33EE /* OrdersTableViewCell.m */; };
+		12A91B561B4BA297008E33EE /* OrdersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12A91B541B4BA297008E33EE /* OrdersTableViewCell.xib */; };
 		12B63D581B2148FC0009C6D9 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 12B63D571B2148FC0009C6D9 /* libsqlite3.0.dylib */; };
 		12C188F71B1B096E00FD3CE4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12C188F61B1B096E00FD3CE4 /* UIKit.framework */; };
 		12C188F91B1B097A00FD3CE4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12C188F81B1B097A00FD3CE4 /* Foundation.framework */; };
@@ -726,6 +734,19 @@
 		12918B831B40DAFD00F94601 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		12918B841B40DAFD00F94601 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		12918B851B40DAFD00F94601 /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		12A91B3D1B4B793D008E33EE /* FeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackViewController.h; sourceTree = "<group>"; };
+		12A91B3E1B4B793D008E33EE /* FeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackViewController.m; sourceTree = "<group>"; };
+		12A91B3F1B4B793D008E33EE /* FeedbackViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedbackViewController.xib; sourceTree = "<group>"; };
+		12A91B421B4B7F14008E33EE /* OrdersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrdersViewController.h; sourceTree = "<group>"; };
+		12A91B431B4B7F14008E33EE /* OrdersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrdersViewController.m; sourceTree = "<group>"; };
+		12A91B441B4B7F14008E33EE /* OrdersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrdersViewController.xib; sourceTree = "<group>"; };
+		12A91B491B4B81FF008E33EE /* OrdersViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrdersViewModel.h; sourceTree = "<group>"; };
+		12A91B4A1B4B81FF008E33EE /* OrdersViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrdersViewModel.m; sourceTree = "<group>"; };
+		12A91B4C1B4B823F008E33EE /* OrdersTableViewCellViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrdersTableViewCellViewModel.h; sourceTree = "<group>"; };
+		12A91B4D1B4B823F008E33EE /* OrdersTableViewCellViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrdersTableViewCellViewModel.m; sourceTree = "<group>"; };
+		12A91B521B4BA297008E33EE /* OrdersTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrdersTableViewCell.h; sourceTree = "<group>"; };
+		12A91B531B4BA297008E33EE /* OrdersTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrdersTableViewCell.m; sourceTree = "<group>"; };
+		12A91B541B4BA297008E33EE /* OrdersTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrdersTableViewCell.xib; sourceTree = "<group>"; };
 		12B63D571B2148FC0009C6D9 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		12C188F61B1B096E00FD3CE4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		12C188F81B1B097A00FD3CE4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -1508,6 +1529,8 @@
 		128468311B42D786009F3E72 /* MyOrders */ = {
 			isa = PBXGroup;
 			children = (
+				12A91B481B4B7F38008E33EE /* View */,
+				12A91B471B4B7F27008E33EE /* ViewModel */,
 			);
 			path = MyOrders;
 			sourceTree = "<group>";
@@ -1544,6 +1567,40 @@
 				12918B851B40DAFD00F94601 /* RegisterViewController.xib */,
 			);
 			path = Register;
+			sourceTree = "<group>";
+		};
+		12A91B3C1B4B790E008E33EE /* Feedback */ = {
+			isa = PBXGroup;
+			children = (
+				12A91B3D1B4B793D008E33EE /* FeedbackViewController.h */,
+				12A91B3E1B4B793D008E33EE /* FeedbackViewController.m */,
+				12A91B3F1B4B793D008E33EE /* FeedbackViewController.xib */,
+			);
+			path = Feedback;
+			sourceTree = "<group>";
+		};
+		12A91B471B4B7F27008E33EE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				12A91B491B4B81FF008E33EE /* OrdersViewModel.h */,
+				12A91B4A1B4B81FF008E33EE /* OrdersViewModel.m */,
+				12A91B4C1B4B823F008E33EE /* OrdersTableViewCellViewModel.h */,
+				12A91B4D1B4B823F008E33EE /* OrdersTableViewCellViewModel.m */,
+			);
+			name = ViewModel;
+			sourceTree = "<group>";
+		};
+		12A91B481B4B7F38008E33EE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				12A91B521B4BA297008E33EE /* OrdersTableViewCell.h */,
+				12A91B531B4BA297008E33EE /* OrdersTableViewCell.m */,
+				12A91B541B4BA297008E33EE /* OrdersTableViewCell.xib */,
+				12A91B421B4B7F14008E33EE /* OrdersViewController.h */,
+				12A91B431B4B7F14008E33EE /* OrdersViewController.m */,
+				12A91B441B4B7F14008E33EE /* OrdersViewController.xib */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		12D6805C1B2ADA1B001DA176 /* images-1.0 */ = {
@@ -2325,12 +2382,12 @@
 		12D6858D1B2AE49C001DA176 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				12A91B3C1B4B790E008E33EE /* Feedback */,
 				1284682F1B42D786009F3E72 /* MyFavorites */,
 				128468301B42D786009F3E72 /* MyNotifies */,
 				128468311B42D786009F3E72 /* MyOrders */,
 				12918B821B40DADE00F94601 /* Register */,
 				12D6858E1B2AE49C001DA176 /* About */,
-				12D6858F1B2AE49C001DA176 /* Feedback */,
 				12D685901B2AE49C001DA176 /* Login */,
 				12D685911B2AE49C001DA176 /* Settings */,
 				12D685921B2AE49C001DA176 /* Share */,
@@ -2343,13 +2400,6 @@
 			children = (
 			);
 			path = About;
-			sourceTree = "<group>";
-		};
-		12D6858F1B2AE49C001DA176 /* Feedback */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Feedback;
 			sourceTree = "<group>";
 		};
 		12D685901B2AE49C001DA176 /* Login */ = {
@@ -2633,6 +2683,7 @@
 				12D683AB1B2ADA1D001DA176 /* func_closeBtn.png in Resources */,
 				12D683551B2ADA1D001DA176 /* btn_login_new.png in Resources */,
 				12D684DB1B2ADA1D001DA176 /* fillOrder_numberMiddle@2x.png in Resources */,
+				12A91B461B4B7F14008E33EE /* OrdersViewController.xib in Resources */,
 				12D684071B2ADA1D001DA176 /* order_lijizhifu_btn_highlighted.png in Resources */,
 				12D683251B2ADA1D001DA176 /* bg_related.png in Resources */,
 				12D683F21B2ADA1D001DA176 /* myOrder_dashLine.png in Resources */,
@@ -2869,6 +2920,7 @@
 				12D684D71B2ADA1D001DA176 /* fillOrder_comfirmBg_highlighted@2x.png in Resources */,
 				12D684D61B2ADA1D001DA176 /* fillOrder_comfirmBg@2x.png in Resources */,
 				12D683461B2ADA1D001DA176 /* btn_collect_highlight.png in Resources */,
+				12A91B411B4B793D008E33EE /* FeedbackViewController.xib in Resources */,
 				12D6841D1B2ADA1D001DA176 /* place_holder_small.png in Resources */,
 				12D683FA1B2ADA1D001DA176 /* nav_btn_like.png in Resources */,
 				12D683E91B2ADA1D001DA176 /* main_bg480.png in Resources */,
@@ -3094,6 +3146,7 @@
 				12D684161B2ADA1D001DA176 /* page_control_dot_selected.png in Resources */,
 				12D684A71B2ADA1D001DA176 /* btn_tab_poi@2x.png in Resources */,
 				12D683F11B2ADA1D001DA176 /* more_shadow_bottom.png in Resources */,
+				12A91B561B4BA297008E33EE /* OrdersTableViewCell.xib in Resources */,
 				12D684151B2ADA1D001DA176 /* page_control_dot.png in Resources */,
 				12D683391B2ADA1D001DA176 /* btn_actionsheet_message.png in Resources */,
 				12D6839F1B2ADA1D001DA176 /* fillOrder_comfirmBg_highlighted.png in Resources */,
@@ -3184,13 +3237,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12A91B551B4BA297008E33EE /* OrdersTableViewCell.m in Sources */,
 				12918B861B40DAFD00F94601 /* RegisterViewController.m in Sources */,
 				12D685961B2AE4CC001DA176 /* LoginViewController.m in Sources */,
 				128468391B438295009F3E72 /* FavoritesViewModel.m in Sources */,
+				12A91B4B1B4B81FF008E33EE /* OrdersViewModel.m in Sources */,
+				12A91B451B4B7F14008E33EE /* OrdersViewController.m in Sources */,
 				128468351B42D7B0009F3E72 /* FavoritesViewController.m in Sources */,
 				120589A41B1AFE7E00190A1C /* ViewController.m in Sources */,
 				120589A11B1AFE7E00190A1C /* AppDelegate.m in Sources */,
 				128468461B43CF7D009F3E72 /* FavoritTableViewCellViewModel.m in Sources */,
+				12A91B4E1B4B823F008E33EE /* OrdersTableViewCellViewModel.m in Sources */,
+				12A91B401B4B793D008E33EE /* FeedbackViewController.m in Sources */,
 				1205899E1B1AFE7E00190A1C /* main.m in Sources */,
 				128468421B43CF3D009F3E72 /* FavoritTableViewCell.m in Sources */,
 			);

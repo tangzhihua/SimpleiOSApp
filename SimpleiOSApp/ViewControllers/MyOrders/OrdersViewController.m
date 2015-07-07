@@ -1,29 +1,28 @@
 
-#import "FavoritesViewController.h"
-#import "FavoritesViewModel.h"
+#import "OrdersViewController.h"
+#import "OrdersViewModel.h"
 #import "SimpleProgressBar.h"
 #import "SimpleToast.h"
 #import "CETableViewBindingHelper.h"
 #import "FavorListNetRespondBean.h"
 
-@interface FavoritesViewController () <UITableViewDelegate>
+@interface OrdersViewController () <UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *noResultLogoImageView;
-@property (weak, nonatomic) IBOutlet UITableView *favoritesListView;
+@property (weak, nonatomic) IBOutlet UITableView *ordersListView;
 
-@property (nonatomic, strong) FavoritesViewModel *viewModel;
-
+@property (nonatomic, strong) OrdersViewModel *viewModel;
 @end
 
-@implementation FavoritesViewController
+@implementation OrdersViewController
 
 - (void)viewDidLoad {
   [super viewDidLoad];
   // Do any additional setup after loading the view from its nib.
   
-  self.viewModel = [[FavoritesViewModel alloc] init];
+  self.viewModel = [[OrdersViewModel alloc] init];
   
   // 显示 网络等待提示框
-  [self.viewModel.requestFavorListCommand.executing subscribeNext:^(NSNumber *isExecuting) {
+  [self.viewModel.requestOrderListCommand.executing subscribeNext:^(NSNumber *isExecuting) {
     if (isExecuting.boolValue) {
       [SimpleProgressBar show];
     } else {
@@ -32,21 +31,22 @@
   }];
   
   // 如果拉取用户收藏列表失败的话, 就隐藏ListView控件
-  RAC(self.favoritesListView, hidden) = [self.viewModel.requestFavorListCommand.errors map:^id(id value) {
+  RAC(self.ordersListView, hidden) = [self.viewModel.requestOrderListCommand.errors map:^id(id value) {
     return @YES;
   }];
   
-  RAC(self.noResultLogoImageView, hidden) = [RACObserve(self.favoritesListView, hidden) not];
+  RAC(self.noResultLogoImageView, hidden) = [RACObserve(self.ordersListView, hidden) not];
   
-  [self.viewModel.requestFavorListCommand.errors subscribeNext:^(NSError *error) {
+  [self.viewModel.requestOrderListCommand.errors subscribeNext:^(NSError *error) {
     [SimpleToast showWithText:error.localizedDescription duration:1.5f];
   }];
   
   UINib *nib = [UINib nibWithNibName:@"FavoritTableViewCell" bundle:nil];
-  [CETableViewBindingHelper bindingHelperForTableView:self.favoritesListView
+  [CETableViewBindingHelper bindingHelperForTableView:self.ordersListView
                                          sourceSignal:RACObserve(self.viewModel, cellViewModelList)
-                                     selectionCommand:self.viewModel.favorListViewSelectedCommand
+                                     selectionCommand:nil
                                          templateCell:nib].delegate = self;
+
 }
 
 - (void)didReceiveMemoryWarning {
