@@ -13,6 +13,10 @@
 #import "FavorListNetRequestBean.h"
 #import "FavorListDomainBeanHelper.h"
 
+// 删除收藏
+#import "DeleteFavorNetRequestBean.h"
+#import "DeleteFavorDomainBeanHelper.h"
+
 @implementation NetworkInterfaceMappingSingleton
 #pragma mark -
 #pragma mark Singleton Implementation
@@ -63,6 +67,11 @@
    * 我的收藏
    */
   _networkInterfaceMapping[NSStringFromClass([FavorListNetRequestBean class])] = [[FavorListDomainBeanHelper alloc] init];
+  
+  /**
+   * 删除收藏
+   */
+  _networkInterfaceMapping[NSStringFromClass([DeleteFavorNetRequestBean class])] = [[DeleteFavorDomainBeanHelper alloc] init];
   
 }
 @end

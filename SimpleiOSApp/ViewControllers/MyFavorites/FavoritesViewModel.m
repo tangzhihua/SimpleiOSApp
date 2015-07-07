@@ -14,13 +14,17 @@
 #import "FavorListNetRespondBean.h"
 #import "SimpleToast.h"
 #import "FavoritTableViewCellViewModel.h"
+#import "SimpleNetworkEngineSingleton.h"
+#import "SimpleNetworkEngineSingleton+RACSupport.h"
+#import "DeleteFavorNetRequestBean.h"
+#import "DeleteFavorNetRespondBean.h"
 
-
-@interface FavoritesViewModel () <CEObservableMutableArrayDelegate>
+@interface FavoritesViewModel () <SkyduckCEObservableMutableArrayRemoveDelegate>
 @property (nonatomic, readwrite, strong) CEObservableMutableArray *cellViewModelList;
 @property (nonatomic, readwrite, strong) RACCommand *requestFavorListCommand;
 
 @property (nonatomic, readwrite, strong) RACCommand *favorListViewSelectedCommand;
+
 @end
 @implementation FavoritesViewModel
 - (id)init {
@@ -34,7 +38,7 @@
   
   @weakify(self);
   self.cellViewModelList = [[CEObservableMutableArray alloc] init];
-  
+  self.cellViewModelList.delegateForRemoved = self;
   
   self.requestFavorListCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
     FavorListNetRequestBean *netRequestBean = [[FavorListNetRequestBean alloc] initWithIsShowPay:YES isShowSupplier:YES];
@@ -43,22 +47,29 @@
   
   [[self.requestFavorListCommand execute:nil] subscribeNext:^(FavorListNetRespondBean *favorListNetRespondBean) {
     @strongify(self);
+
+    // 构建数据源
     for (id obj in favorListNetRespondBean.discountDetailList) {
       FavoritTableViewCellViewModel *cellViewModel = [[FavoritTableViewCellViewModel alloc] initWithDiscountDetailModel:obj];
       [self.cellViewModelList addObject:cellViewModel];
     }
-    
-    // 注意 : CEObservableMutableArray->delegate 会在调用
-    // CETableViewBindingHelper bindingHelperForTableView 时被设置成nil
-    // 所以要注意, 最好使用时设置
-    self.cellViewModelList.delegate = self;
+
   }];
   
+  // 点击事件
+  self.favorListViewSelectedCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+    NSLog(@"");
+    return [RACSignal empty];
+  }];
+  
+
 }
 
-#pragma mark - CEObservableMutableArrayDelegate
-/// invoked when an item is removed from the aray
-- (void)array:(CEObservableMutableArray *)array didRemoveItemAtIndex:(NSUInteger) index {
-  
+#pragma mark - SkyduckCEObservableMutableArrayRemoveDelegate
+- (void)removedObject:(FavoritTableViewCellViewModel *)obj {
+  DeleteFavorNetRequestBean *netRequestBean = [[DeleteFavorNetRequestBean alloc] initWithID:obj.ID];
+  [[[SimpleNetworkEngineSingleton sharedInstance] signalForNetRequestDomainBean:netRequestBean] subscribeError:^(NSError *error) {
+    NSLog(@"%@", error.localizedDescription);
+  }];
 }
 @end

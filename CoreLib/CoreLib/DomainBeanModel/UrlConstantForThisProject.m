@@ -20,3 +20,5 @@ NSString *const LastMinute_UrlConstant_SpecialPath_login = @"user/login";
 NSString *const LastMinute_UrlConstant_SpecialPath_register = @"user/register";
 // 获取收藏列表
 NSString *const LastMinute_UrlConstant_SpecialPath_favor_list = @"lastminute/favor_list";
+// 删除收藏
+NSString *const LastMinute_UrlConstant_SpecialPath_del_favor = @"lastminute/del_favor";

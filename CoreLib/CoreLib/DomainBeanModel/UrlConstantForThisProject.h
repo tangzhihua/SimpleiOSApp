@@ -19,3 +19,6 @@ extern NSString *const LastMinute_UrlConstant_SpecialPath_login;
 extern NSString *const LastMinute_UrlConstant_SpecialPath_register;
 // 获取收藏列表
 extern NSString *const LastMinute_UrlConstant_SpecialPath_favor_list;
+// 删除收藏
+extern NSString *const LastMinute_UrlConstant_SpecialPath_del_favor;
+ 

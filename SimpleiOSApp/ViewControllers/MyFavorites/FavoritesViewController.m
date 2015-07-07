@@ -43,6 +43,8 @@
     return @YES;
   }];
   
+  RAC(self.noResultLogoImageView, hidden) = [RACObserve(self.favoritesListView, hidden) not];
+  
   [self.viewModel.requestFavorListCommand.errors subscribeNext:^(NSError *error) {
     [SimpleToast showWithText:error.localizedDescription duration:1.5f];
   }];
@@ -59,7 +61,7 @@
   // Dispose of any resources that can be recreated.
 }
 
-#pragma mark -
+#pragma mark - UITableViewDelegate
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView
            editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
   return  UITableViewCellEditingStyleDelete;

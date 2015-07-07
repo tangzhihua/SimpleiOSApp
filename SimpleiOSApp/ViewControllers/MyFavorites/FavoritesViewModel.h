@@ -18,4 +18,5 @@
 @property (nonatomic, readonly, strong) RACCommand *requestFavorListCommand;
 
 @property (nonatomic, readonly, strong) RACCommand *favorListViewSelectedCommand;
+
 @end

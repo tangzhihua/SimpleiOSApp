@@ -4,7 +4,7 @@
 @interface DiscountDetail : BaseModel
 
 //
-@property (nonatomic, copy) NSString *ID;
+@property (nonatomic, copy) NSNumber *ID;
 // 折扣封图
 @property (nonatomic, copy) NSString *pic;
 // 折扣title

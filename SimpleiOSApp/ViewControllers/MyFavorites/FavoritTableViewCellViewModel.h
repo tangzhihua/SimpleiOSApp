@@ -10,6 +10,8 @@
  
 @class DiscountDetail;
 @interface FavoritTableViewCellViewModel : NSObject
+
+@property (nonatomic, readonly, copy) NSNumber *ID;
 @property (nonatomic, readonly, copy) NSString *title;
 @property (nonatomic, readonly, copy) NSString *price;
 @property (nonatomic, readonly, copy) NSString *endDate;

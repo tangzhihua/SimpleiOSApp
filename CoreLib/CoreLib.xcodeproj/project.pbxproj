@@ -73,6 +73,10 @@
 		12C343811B2821BD00EB4480 /* FavorListNetRespondBean.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C3437C1B2821BD00EB4480 /* FavorListNetRespondBean.m */; };
 		12C343821B2821BD00EB4480 /* FavorListParseDomainBeanToDD.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C3437E1B2821BD00EB4480 /* FavorListParseDomainBeanToDD.m */; };
 		12C343851B28233900EB4480 /* DiscountDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C343841B28233900EB4480 /* DiscountDetail.m */; };
+		12CEB6411B490B6400CEF710 /* DeleteFavorDomainBeanHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CEB63A1B490B6400CEF710 /* DeleteFavorDomainBeanHelper.m */; };
+		12CEB6421B490B6400CEF710 /* DeleteFavorNetRequestBean.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CEB63C1B490B6400CEF710 /* DeleteFavorNetRequestBean.m */; };
+		12CEB6431B490B6400CEF710 /* DeleteFavorNetRespondBean.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CEB63E1B490B6400CEF710 /* DeleteFavorNetRespondBean.m */; };
+		12CEB6441B490B6400CEF710 /* DeleteFavorParseDomainBeanToDD.m in Sources */ = {isa = PBXBuildFile; fileRef = 12CEB6401B490B6400CEF710 /* DeleteFavorParseDomainBeanToDD.m */; };
 		12D6859A1B2AE876001DA176 /* LoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D685991B2AE876001DA176 /* LoginManager.m */; };
 /* End PBXBuildFile section */
 
@@ -256,6 +260,15 @@
 		12C3437E1B2821BD00EB4480 /* FavorListParseDomainBeanToDD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavorListParseDomainBeanToDD.m; sourceTree = "<group>"; };
 		12C343831B28233900EB4480 /* DiscountDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscountDetail.h; sourceTree = "<group>"; };
 		12C343841B28233900EB4480 /* DiscountDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscountDetail.m; sourceTree = "<group>"; };
+		12CEB6381B490B6400CEF710 /* DeleteFavorDatabaseFieldsConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeleteFavorDatabaseFieldsConstant.h; sourceTree = "<group>"; };
+		12CEB6391B490B6400CEF710 /* DeleteFavorDomainBeanHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeleteFavorDomainBeanHelper.h; sourceTree = "<group>"; };
+		12CEB63A1B490B6400CEF710 /* DeleteFavorDomainBeanHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteFavorDomainBeanHelper.m; sourceTree = "<group>"; };
+		12CEB63B1B490B6400CEF710 /* DeleteFavorNetRequestBean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeleteFavorNetRequestBean.h; sourceTree = "<group>"; };
+		12CEB63C1B490B6400CEF710 /* DeleteFavorNetRequestBean.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteFavorNetRequestBean.m; sourceTree = "<group>"; };
+		12CEB63D1B490B6400CEF710 /* DeleteFavorNetRespondBean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeleteFavorNetRespondBean.h; sourceTree = "<group>"; };
+		12CEB63E1B490B6400CEF710 /* DeleteFavorNetRespondBean.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteFavorNetRespondBean.m; sourceTree = "<group>"; };
+		12CEB63F1B490B6400CEF710 /* DeleteFavorParseDomainBeanToDD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeleteFavorParseDomainBeanToDD.h; sourceTree = "<group>"; };
+		12CEB6401B490B6400CEF710 /* DeleteFavorParseDomainBeanToDD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteFavorParseDomainBeanToDD.m; sourceTree = "<group>"; };
 		12D685981B2AE876001DA176 /* LoginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginManager.h; sourceTree = "<group>"; };
 		12D685991B2AE876001DA176 /* LoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -541,6 +554,7 @@
 		1218BDD51B1C516E008D49A1 /* DomainBeanModel */ = {
 			isa = PBXGroup;
 			children = (
+				12CEB6371B490B6400CEF710 /* del_favor */,
 				12918B881B412ADB00F94601 /* regist */,
 				12B592241B1D7BE600982834 /* login */,
 				12C343751B2821BD00EB4480 /* favor_list */,
@@ -660,6 +674,22 @@
 			path = favor_list;
 			sourceTree = "<group>";
 		};
+		12CEB6371B490B6400CEF710 /* del_favor */ = {
+			isa = PBXGroup;
+			children = (
+				12CEB6381B490B6400CEF710 /* DeleteFavorDatabaseFieldsConstant.h */,
+				12CEB6391B490B6400CEF710 /* DeleteFavorDomainBeanHelper.h */,
+				12CEB63A1B490B6400CEF710 /* DeleteFavorDomainBeanHelper.m */,
+				12CEB63B1B490B6400CEF710 /* DeleteFavorNetRequestBean.h */,
+				12CEB63C1B490B6400CEF710 /* DeleteFavorNetRequestBean.m */,
+				12CEB63D1B490B6400CEF710 /* DeleteFavorNetRespondBean.h */,
+				12CEB63E1B490B6400CEF710 /* DeleteFavorNetRespondBean.m */,
+				12CEB63F1B490B6400CEF710 /* DeleteFavorParseDomainBeanToDD.h */,
+				12CEB6401B490B6400CEF710 /* DeleteFavorParseDomainBeanToDD.m */,
+			);
+			path = del_favor;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -776,7 +806,9 @@
 				12918B941B412ADB00F94601 /* RegistNetRespondBean.m in Sources */,
 				12B63D561B1FF0700009C6D9 /* DomainBeanCacheLayerSingleton.m in Sources */,
 				1218BD011B1C2DFF008D49A1 /* UIColor+HexConvert.m in Sources */,
+				12CEB6431B490B6400CEF710 /* DeleteFavorNetRespondBean.m in Sources */,
 				1218BDCD1B1C4B08008D49A1 /* SpliceFullUrlByDomainBeanSpecialPath.m in Sources */,
+				12CEB6421B490B6400CEF710 /* DeleteFavorNetRequestBean.m in Sources */,
 				1218BD281B1C320C008D49A1 /* NSMutableDictionary+SafeSetObjectForKey.m in Sources */,
 				12B63D661B21A9720009C6D9 /* DomainBeanCacheModel.m in Sources */,
 				12B592331B1D7BE600982834 /* LoginDomainBeanHelper.m in Sources */,
@@ -797,6 +829,7 @@
 				12B592441B1D92D100982834 /* GlobalDataCacheForMemorySingleton.m in Sources */,
 				1218BDC71B1C4B08008D49A1 /* EngineHelperSingleton.m in Sources */,
 				12B592451B1D92D100982834 /* LocalCacheDataPathConstant.m in Sources */,
+				12CEB6411B490B6400CEF710 /* DeleteFavorDomainBeanHelper.m in Sources */,
 				12B592321B1D7BE600982834 /* AccessToken.m in Sources */,
 				1218BDCA1B1C4B08008D49A1 /* NetResponseDataToNSDictionary.m in Sources */,
 				1218BD451B1C3924008D49A1 /* NSDictionary+RequestEncoding.m in Sources */,
@@ -805,6 +838,7 @@
 				1218BDD41B1C4CDB008D49A1 /* HttpRequestHandleOfMKNetworkKit.m in Sources */,
 				1218BDD31B1C4CDB008D49A1 /* HttpEngineOfMKNetworkKitSingleton.m in Sources */,
 				1218BD481B1C3924008D49A1 /* MKNetworkEngine.m in Sources */,
+				12CEB6441B490B6400CEF710 /* DeleteFavorParseDomainBeanToDD.m in Sources */,
 				12918B931B412ADB00F94601 /* RegistNetRequestBean.m in Sources */,
 				12B592351B1D7BE600982834 /* LoginNetRespondBean.m in Sources */,
 				12B63D631B21A8140009C6D9 /* DomainBeanDiskCacheSingleton.m in Sources */,

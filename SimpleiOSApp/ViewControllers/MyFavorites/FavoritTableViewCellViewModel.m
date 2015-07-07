@@ -13,6 +13,7 @@
 @implementation FavoritTableViewCellViewModel
 - (instancetype)initWithDiscountDetailModel:(DiscountDetail *)discountDetailModel {
   if ((self = [super init])) {
+    _ID = [discountDetailModel.ID copy];
     _title = [discountDetailModel.title copy];
     _price = [discountDetailModel.price copy];
     _endDate = [discountDetailModel.end_date copy];
