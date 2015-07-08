@@ -5,7 +5,7 @@
 #import "SimpleToast.h"
 #import "CETableViewBindingHelper.h"
 #import "FavorListNetRespondBean.h"
-
+#import "CEObservableMutableArray.h"
 @interface OrdersViewController () <UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *noResultLogoImageView;
 @property (weak, nonatomic) IBOutlet UITableView *ordersListView;
@@ -41,11 +41,11 @@
     [SimpleToast showWithText:error.localizedDescription duration:1.5f];
   }];
   
-  UINib *nib = [UINib nibWithNibName:@"FavoritTableViewCell" bundle:nil];
-  [CETableViewBindingHelper bindingHelperForTableView:self.ordersListView
-                                         sourceSignal:RACObserve(self.viewModel, cellViewModelList)
-                                     selectionCommand:nil
-                                         templateCell:nib].delegate = self;
+  UINib *nib = [UINib nibWithNibName:@"OrdersTableViewCell" bundle:nil];
+//  [CETableViewBindingHelper bindingHelperForTableView:self.ordersListView
+//                                         sourceSignal:RACObserve(self.viewModel, cellViewModelList)
+//                                     selectionCommand:nil
+//                                         templateCell:nib].delegate = self;
 
 }
 

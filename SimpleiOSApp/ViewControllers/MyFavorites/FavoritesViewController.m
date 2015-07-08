@@ -45,7 +45,7 @@
   UINib *nib = [UINib nibWithNibName:@"FavoritTableViewCell" bundle:nil];
   [CETableViewBindingHelper bindingHelperForTableView:self.favoritesListView
                                          sourceSignal:RACObserve(self.viewModel, cellViewModelList)
-                                     selectionCommand:self.viewModel.favorListViewSelectedCommand
+                                selectionCommandArray:@[self.viewModel.favorListViewSelectedCommand]
                                          templateCell:nib].delegate = self;
 }
 

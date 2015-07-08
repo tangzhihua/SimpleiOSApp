@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *endDateLabel;
 
+@property (weak, nonatomic) IBOutlet UIButton *clickButton;
 
 @end
 
@@ -25,6 +26,26 @@
   self.titleLabel.text = viewModel.title;
   self.priceLabel.text = viewModel.price;
   self.endDateLabel.text = viewModel.endDate;
+  
+  @weakify(self);
+  [[self.clickButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+    @strongify(self);
+    
+    // 20150708 skyduck 如果设置了TabelView支持左滑删除的话, 那么当左滑时,
+    // 会同时响应删除滑动事件和按钮的点击事件, 可以使用 isEditing 来进行判断.
+    if (!self.isEditing) {
+      [[self.selectionArray firstObject] execute:viewModel];
+    }
+    
+  }];
+  
+  
+ 
 }
 
+- (BOOL)isOneselfHandleSelectionCommand {
+  return YES;
+}
+
+ 
 @end

@@ -14,9 +14,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ICG-go-hvc">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ICG-go-hvc">
                         <rect key="frame" x="9" y="10" width="302" height="59"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <gestureRecognizers/>
                         <state key="normal" backgroundImage="bg_collect_cell.png">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
@@ -37,7 +38,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="endDate" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="r1w-Co-enc">
-                        <rect key="frame" x="164" y="51" width="117.99999994750334" height="12"/>
+                        <rect key="frame" x="163.99999994750334" y="51" width="118" height="12"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.58823529411764708" green="0.58823529411764708" blue="0.58823529411764708" alpha="1" colorSpace="calibratedRGB"/>
@@ -51,6 +52,7 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
+                <outlet property="clickButton" destination="ICG-go-hvc" id="0Lv-SV-WRF"/>
                 <outlet property="endDateLabel" destination="r1w-Co-enc" id="0TS-86-Xt1"/>
                 <outlet property="priceLabel" destination="Iqf-HS-17U" id="6wP-EY-1B3"/>
                 <outlet property="titleLabel" destination="Jka-72-TYI" id="qiL-4P-T7o"/>

@@ -65,8 +65,8 @@
   }];
   
   // 点击事件
-  self.favorListViewSelectedCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
-    NSLog(@"");
+  self.favorListViewSelectedCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(FavoritTableViewCellViewModel *input) {
+    [SimpleToast showWithText:input.title duration:1.5f];
     return [RACSignal empty];
   }];
   

@@ -7,11 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CEReactiveView.h"
+#import "CETableViewCell.h"
 
-
-@interface FavoritTableViewCell : UITableViewCell <CEReactiveView>
-
-- (void)bindViewModel:(id)viewModel;
+@interface FavoritTableViewCell : CETableViewCell
 
 @end

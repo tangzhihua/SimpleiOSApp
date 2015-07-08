@@ -1,10 +1,3 @@
-//
-//  OrdersViewModel.m
-//  SimpleiOSApp
-//
-//  Created by skyduck on 15/7/7.
-//  Copyright (c) 2015年 Skyduck. All rights reserved.
-//
 
 #import "OrdersViewModel.h"
 
@@ -52,12 +45,17 @@
   [[self.requestOrderListCommand execute:nil] subscribeNext:^(AppGetUserOrderFormListNetRespondBean *netRespondBean) {
     @strongify(self);
     
-    // 构建数据源
-//    for (id obj in favorListNetRespondBean.discountDetailList) {
-//      FavoritTableViewCellViewModel *cellViewModel = [[FavoritTableViewCellViewModel alloc] initWithDiscountDetailModel:obj];
-//      [self.cellViewModelList addObject:cellViewModel];
-//    }
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyyMMdd.HH:mm:ss"];
+    NSString *timestamp = [dateFormatter stringFromDate:netRespondBean.server_time];
     
+    // 构建数据源
+    for (id obj in netRespondBean.orderList) {
+      OrdersTableViewCellViewModel *cellViewModel
+      = [[OrdersTableViewCellViewModel alloc] initWithOrderInfoModel:obj];
+      [self.cellViewModelList addObject:cellViewModel];
+    }
+
   }];
   
   // 点击事件
