@@ -6,12 +6,8 @@
 //  Copyright (c) 2014 Colin Eberhardt. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "CEReactiveView.h"
+#import "CETableViewCell.h"
 
-
-@interface OrdersTableViewCell : UITableViewCell <CEReactiveView>
-
-- (void)bindViewModel:(id)viewModel;
+@interface OrdersTableViewCell : CETableViewCell
 
 @end

@@ -57,6 +57,7 @@ typedef NS_ENUM(NSInteger, PayTypeTagEnum) {
 };
 
 @interface OrderInfo : BaseModel
+
 /** 订单ID & 订单号 **/
 @property (nonatomic, copy) NSString *orderId;
 /** 购买数量 **/
@@ -116,7 +117,7 @@ typedef NS_ENUM(NSInteger, PayTypeTagEnum) {
  */
 @property (nonatomic, copy) NSString *itBPayTime;
 /** 单房差总额，如果没有，则返回"0" */
-@property (nonatomic, copy) NSString *room_price_total;
+@property (nonatomic, copy) NSNumber *room_price_total;
 /** 支付宝传参 */
 @property (nonatomic, copy) NSString *qyer_des;
 

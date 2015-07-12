@@ -25,6 +25,8 @@
 //
 #import "FavoritTableViewCellViewModel.h"
 
+//
+#import "DiscountDetail.h"
 
 
 @interface FavoritesViewModel () <SkyduckCEObservableMutableArrayRemoveDelegate>
@@ -75,7 +77,8 @@
 
 #pragma mark - SkyduckCEObservableMutableArrayRemoveDelegate
 - (void)removedObject:(FavoritTableViewCellViewModel *)obj {
-  DeleteFavorNetRequestBean *netRequestBean = [[DeleteFavorNetRequestBean alloc] initWithID:obj.ID];
+  DeleteFavorNetRequestBean *netRequestBean
+  = [[DeleteFavorNetRequestBean alloc] initWithID:obj.discountDetailModel.ID];
   [[[SimpleNetworkEngineSingleton sharedInstance] signalForNetRequestDomainBean:netRequestBean] subscribeError:^(NSError *error) {
     NSLog(@"%@", error.localizedDescription);
   }];

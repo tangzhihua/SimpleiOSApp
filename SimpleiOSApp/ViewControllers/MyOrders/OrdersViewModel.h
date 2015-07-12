@@ -15,6 +15,8 @@
 @property (nonatomic, readonly, strong) CEObservableMutableArray *cellViewModelList;
 // 请求订单列表
 @property (nonatomic, readonly, strong) RACCommand *requestOrderListCommand;
+// 跳转订单详情界面
+@property (nonatomic, readonly, strong) RACCommand *orderDetailCommand;
 // 立即支付
 @property (nonatomic, readonly, strong) RACCommand *payCommand;
 @end

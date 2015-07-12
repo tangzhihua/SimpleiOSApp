@@ -21,7 +21,7 @@ NSString *descriptionForDebug(id object) {
   unsigned int outCount = 0;
   int i = 0;
   
-  NSMutableArray *mutableParameterComponents = [NSMutableArray arrayWithObject:@"\n\n\n"];
+  NSMutableArray *mutableParameterComponents = [NSMutableArray arrayWithObject:@"\r\r\r"];
   
   /***********************               当前类                 ******************************/
   Class currentClass = [object class];

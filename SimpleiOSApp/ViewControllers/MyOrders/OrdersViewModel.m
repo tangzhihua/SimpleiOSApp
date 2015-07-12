@@ -19,6 +19,8 @@
 @property (nonatomic, readwrite, strong) CEObservableMutableArray *cellViewModelList;
 // 请求订单列表
 @property (nonatomic, readwrite, strong) RACCommand *requestOrderListCommand;
+// 跳转订单详情界面
+@property (nonatomic, readwrite, strong) RACCommand *orderDetailCommand;
 // 立即支付
 @property (nonatomic, readwrite, strong) RACCommand *payCommand;
 
@@ -48,6 +50,7 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyyMMdd.HH:mm:ss"];
     NSString *timestamp = [dateFormatter stringFromDate:netRespondBean.server_time];
+    NSLog(@"%@", timestamp);
     
     // 构建数据源
     for (id obj in netRespondBean.orderList) {
@@ -55,12 +58,18 @@
       = [[OrdersTableViewCellViewModel alloc] initWithOrderInfoModel:obj];
       [self.cellViewModelList addObject:cellViewModel];
     }
-
+    
   }];
   
-  // 点击事件
-  self.payCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
-    NSLog(@"");
+  // 跳转订单详情界面
+  self.orderDetailCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(OrdersTableViewCellViewModel *viewModel) {
+    [SimpleToast showWithText:viewModel.orderTitle duration:1.5f];
+    return [RACSignal empty];
+  }];
+  
+  // 立即支付
+  self.payCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(OrdersTableViewCellViewModel *viewModel) {
+    [SimpleToast showWithText:viewModel.orderTitle duration:1.5f];
     return [RACSignal empty];
   }];
   
@@ -69,10 +78,10 @@
 
 #pragma mark - SkyduckCEObservableMutableArrayRemoveDelegate
 - (void)removedObject:(OrdersTableViewCellViewModel *)obj {
-//  DeleteFavorNetRequestBean *netRequestBean = [[DeleteFavorNetRequestBean alloc] initWithID:obj.ID];
-//  [[[SimpleNetworkEngineSingleton sharedInstance] signalForNetRequestDomainBean:netRequestBean] subscribeError:^(NSError *error) {
-//    NSLog(@"%@", error.localizedDescription);
-//  }];
+  //  DeleteFavorNetRequestBean *netRequestBean = [[DeleteFavorNetRequestBean alloc] initWithID:obj.ID];
+  //  [[[SimpleNetworkEngineSingleton sharedInstance] signalForNetRequestDomainBean:netRequestBean] subscribeError:^(NSError *error) {
+  //    NSLog(@"%@", error.localizedDescription);
+  //  }];
 }
 
 @end

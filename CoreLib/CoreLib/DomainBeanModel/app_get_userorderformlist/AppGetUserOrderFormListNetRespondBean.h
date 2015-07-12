@@ -6,6 +6,6 @@
 @property (nonatomic, assign) NSInteger counts;
 @property (nonatomic, readonly, strong) NSDate *server_time;
 
-// 我的订单列表
+// 我的订单列表(OrderInfo)
 @property (nonatomic, readonly, strong) NSArray *orderList;
 @end

@@ -42,10 +42,10 @@
   }];
   
   UINib *nib = [UINib nibWithNibName:@"OrdersTableViewCell" bundle:nil];
-//  [CETableViewBindingHelper bindingHelperForTableView:self.ordersListView
-//                                         sourceSignal:RACObserve(self.viewModel, cellViewModelList)
-//                                     selectionCommand:nil
-//                                         templateCell:nib].delegate = self;
+  [CETableViewBindingHelper bindingHelperForTableView:self.ordersListView
+                                         sourceSignal:RACObserve(self.viewModel, cellViewModelList)
+                                selectionCommandArray:@[self.viewModel.orderDetailCommand, self.viewModel.payCommand]
+                                         templateCell:nib].delegate = self;
 
 }
 
