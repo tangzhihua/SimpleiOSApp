@@ -46,6 +46,14 @@
 		1218BDD31B1C4CDB008D49A1 /* HttpEngineOfMKNetworkKitSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1218BDD01B1C4CDB008D49A1 /* HttpEngineOfMKNetworkKitSingleton.m */; };
 		1218BDD41B1C4CDB008D49A1 /* HttpRequestHandleOfMKNetworkKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 1218BDD21B1C4CDB008D49A1 /* HttpRequestHandleOfMKNetworkKit.m */; };
 		1218BDD81B1C516E008D49A1 /* NetworkInterfaceMappingSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1218BDD71B1C516E008D49A1 /* NetworkInterfaceMappingSingleton.m */; };
+		124700C21B53C213001CA2DE /* DeleteSubscribeDomainBeanHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 124700BB1B53C213001CA2DE /* DeleteSubscribeDomainBeanHelper.m */; };
+		124700C31B53C213001CA2DE /* DeleteSubscribeNetRequestBean.m in Sources */ = {isa = PBXBuildFile; fileRef = 124700BD1B53C213001CA2DE /* DeleteSubscribeNetRequestBean.m */; };
+		124700C41B53C213001CA2DE /* DeleteSubscribeNetRespondBean.m in Sources */ = {isa = PBXBuildFile; fileRef = 124700BF1B53C213001CA2DE /* DeleteSubscribeNetRespondBean.m */; };
+		124700C51B53C213001CA2DE /* DeleteSubscribeParseDomainBeanToDD.m in Sources */ = {isa = PBXBuildFile; fileRef = 124700C11B53C213001CA2DE /* DeleteSubscribeParseDomainBeanToDD.m */; };
+		124700D21B53C456001CA2DE /* Subscribe.m in Sources */ = {isa = PBXBuildFile; fileRef = 124700C81B53C456001CA2DE /* Subscribe.m */; };
+		124700D31B53C456001CA2DE /* SubscribeListDomainBeanHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 124700CB1B53C456001CA2DE /* SubscribeListDomainBeanHelper.m */; };
+		124700D41B53C456001CA2DE /* SubscribeListNetRequestBean.m in Sources */ = {isa = PBXBuildFile; fileRef = 124700CD1B53C456001CA2DE /* SubscribeListNetRequestBean.m */; };
+		124700D51B53C456001CA2DE /* SubscribeListNetRespondBean.m in Sources */ = {isa = PBXBuildFile; fileRef = 124700CF1B53C456001CA2DE /* SubscribeListNetRespondBean.m */; };
 		1284683C1B438388009F3E72 /* SimpleNetworkEngineSingleton+RACSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 1284683B1B438388009F3E72 /* SimpleNetworkEngineSingleton+RACSupport.m */; };
 		12918B921B412ADB00F94601 /* RegistDomainBeanHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 12918B8B1B412ADB00F94601 /* RegistDomainBeanHelper.m */; };
 		12918B931B412ADB00F94601 /* RegistNetRequestBean.m in Sources */ = {isa = PBXBuildFile; fileRef = 12918B8D1B412ADB00F94601 /* RegistNetRequestBean.m */; };
@@ -208,6 +216,24 @@
 		1218BDD61B1C516E008D49A1 /* NetworkInterfaceMappingSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkInterfaceMappingSingleton.h; sourceTree = "<group>"; };
 		1218BDD71B1C516E008D49A1 /* NetworkInterfaceMappingSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkInterfaceMappingSingleton.m; sourceTree = "<group>"; };
 		1246C9851B26EB6F00711C6F /* iOS7提供了Base64 和NSData之间进行转换的新的类别 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "iOS7提供了Base64 和NSData之间进行转换的新的类别"; sourceTree = "<group>"; };
+		124700B91B53C213001CA2DE /* DeleteSubscribeDatabaseFieldsConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeleteSubscribeDatabaseFieldsConstant.h; sourceTree = "<group>"; };
+		124700BA1B53C213001CA2DE /* DeleteSubscribeDomainBeanHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeleteSubscribeDomainBeanHelper.h; sourceTree = "<group>"; };
+		124700BB1B53C213001CA2DE /* DeleteSubscribeDomainBeanHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteSubscribeDomainBeanHelper.m; sourceTree = "<group>"; };
+		124700BC1B53C213001CA2DE /* DeleteSubscribeNetRequestBean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeleteSubscribeNetRequestBean.h; sourceTree = "<group>"; };
+		124700BD1B53C213001CA2DE /* DeleteSubscribeNetRequestBean.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteSubscribeNetRequestBean.m; sourceTree = "<group>"; };
+		124700BE1B53C213001CA2DE /* DeleteSubscribeNetRespondBean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeleteSubscribeNetRespondBean.h; sourceTree = "<group>"; };
+		124700BF1B53C213001CA2DE /* DeleteSubscribeNetRespondBean.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteSubscribeNetRespondBean.m; sourceTree = "<group>"; };
+		124700C01B53C213001CA2DE /* DeleteSubscribeParseDomainBeanToDD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeleteSubscribeParseDomainBeanToDD.h; sourceTree = "<group>"; };
+		124700C11B53C213001CA2DE /* DeleteSubscribeParseDomainBeanToDD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteSubscribeParseDomainBeanToDD.m; sourceTree = "<group>"; };
+		124700C71B53C456001CA2DE /* Subscribe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Subscribe.h; sourceTree = "<group>"; };
+		124700C81B53C456001CA2DE /* Subscribe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Subscribe.m; sourceTree = "<group>"; };
+		124700C91B53C456001CA2DE /* SubscribeListDatabaseFieldsConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubscribeListDatabaseFieldsConstant.h; sourceTree = "<group>"; };
+		124700CA1B53C456001CA2DE /* SubscribeListDomainBeanHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubscribeListDomainBeanHelper.h; sourceTree = "<group>"; };
+		124700CB1B53C456001CA2DE /* SubscribeListDomainBeanHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubscribeListDomainBeanHelper.m; sourceTree = "<group>"; };
+		124700CC1B53C456001CA2DE /* SubscribeListNetRequestBean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubscribeListNetRequestBean.h; sourceTree = "<group>"; };
+		124700CD1B53C456001CA2DE /* SubscribeListNetRequestBean.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubscribeListNetRequestBean.m; sourceTree = "<group>"; };
+		124700CE1B53C456001CA2DE /* SubscribeListNetRespondBean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubscribeListNetRespondBean.h; sourceTree = "<group>"; };
+		124700CF1B53C456001CA2DE /* SubscribeListNetRespondBean.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubscribeListNetRespondBean.m; sourceTree = "<group>"; };
 		1256BD751B1EFEB300869995 /* IDomainBeanRequestPublicParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDomainBeanRequestPublicParams.h; sourceTree = "<group>"; };
 		1256BD761B1EFEB300869995 /* INetRequestParamsPackage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INetRequestParamsPackage.h; sourceTree = "<group>"; };
 		1256BD771B1EFEB300869995 /* INetResponseDataToNSDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INetResponseDataToNSDictionary.h; sourceTree = "<group>"; };
@@ -597,18 +623,52 @@
 		1218BDD51B1C516E008D49A1 /* DomainBeanModel */ = {
 			isa = PBXGroup;
 			children = (
+				12B592381B1D857700982834 /* UrlConstantForThisProject.h */,
+				12B592391B1D857700982834 /* UrlConstantForThisProject.m */,
+				1218BDD61B1C516E008D49A1 /* NetworkInterfaceMappingSingleton.h */,
+				1218BDD71B1C516E008D49A1 /* NetworkInterfaceMappingSingleton.m */,
+				124700C61B53C456001CA2DE /* subscribe_list */,
+				124700B81B53C213001CA2DE /* del_subscribe */,
 				12A91B651B4BBFF3008E33EE /* del_orderform */,
 				12A91B571B4BA73D008E33EE /* app_get_userorderformlist */,
 				12CEB6371B490B6400CEF710 /* del_favor */,
 				12918B881B412ADB00F94601 /* regist */,
 				12B592241B1D7BE600982834 /* login */,
 				12C343751B2821BD00EB4480 /* favor_list */,
-				12B592381B1D857700982834 /* UrlConstantForThisProject.h */,
-				12B592391B1D857700982834 /* UrlConstantForThisProject.m */,
-				1218BDD61B1C516E008D49A1 /* NetworkInterfaceMappingSingleton.h */,
-				1218BDD71B1C516E008D49A1 /* NetworkInterfaceMappingSingleton.m */,
 			);
 			path = DomainBeanModel;
+			sourceTree = "<group>";
+		};
+		124700B81B53C213001CA2DE /* del_subscribe */ = {
+			isa = PBXGroup;
+			children = (
+				124700B91B53C213001CA2DE /* DeleteSubscribeDatabaseFieldsConstant.h */,
+				124700BA1B53C213001CA2DE /* DeleteSubscribeDomainBeanHelper.h */,
+				124700BB1B53C213001CA2DE /* DeleteSubscribeDomainBeanHelper.m */,
+				124700C01B53C213001CA2DE /* DeleteSubscribeParseDomainBeanToDD.h */,
+				124700C11B53C213001CA2DE /* DeleteSubscribeParseDomainBeanToDD.m */,
+				124700BC1B53C213001CA2DE /* DeleteSubscribeNetRequestBean.h */,
+				124700BD1B53C213001CA2DE /* DeleteSubscribeNetRequestBean.m */,
+				124700BE1B53C213001CA2DE /* DeleteSubscribeNetRespondBean.h */,
+				124700BF1B53C213001CA2DE /* DeleteSubscribeNetRespondBean.m */,
+			);
+			path = del_subscribe;
+			sourceTree = "<group>";
+		};
+		124700C61B53C456001CA2DE /* subscribe_list */ = {
+			isa = PBXGroup;
+			children = (
+				124700C91B53C456001CA2DE /* SubscribeListDatabaseFieldsConstant.h */,
+				124700CA1B53C456001CA2DE /* SubscribeListDomainBeanHelper.h */,
+				124700CB1B53C456001CA2DE /* SubscribeListDomainBeanHelper.m */,
+				124700C71B53C456001CA2DE /* Subscribe.h */,
+				124700C81B53C456001CA2DE /* Subscribe.m */,
+				124700CC1B53C456001CA2DE /* SubscribeListNetRequestBean.h */,
+				124700CD1B53C456001CA2DE /* SubscribeListNetRequestBean.m */,
+				124700CE1B53C456001CA2DE /* SubscribeListNetRespondBean.h */,
+				124700CF1B53C456001CA2DE /* SubscribeListNetRespondBean.m */,
+			);
+			path = subscribe_list;
 			sourceTree = "<group>";
 		};
 		1256BD741B1EFEB300869995 /* SpecificInterfaces */ = {
@@ -873,6 +933,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				124700D41B53C456001CA2DE /* SubscribeListNetRequestBean.m in Sources */,
 				1218BD971B1C3A61008D49A1 /* SimpleNetworkEngineSingleton.m in Sources */,
 				12A91B641B4BA73D008E33EE /* AppGetUserOrderFormListParseDomainBeanToDD.m in Sources */,
 				1218BD031B1C2DFF008D49A1 /* UIImage+animatedGIF.m in Sources */,
@@ -890,6 +951,7 @@
 				1218BD001B1C2DFF008D49A1 /* UIAlertView+Blocks.m in Sources */,
 				12C343851B28233900EB4480 /* DiscountDetail.m in Sources */,
 				12918B951B412ADB00F94601 /* RegistParseDomainBeanToDD.m in Sources */,
+				124700C31B53C213001CA2DE /* DeleteSubscribeNetRequestBean.m in Sources */,
 				1218BD2E1B1C3393008D49A1 /* SimpleToast.m in Sources */,
 				1218BD441B1C3924008D49A1 /* NSDate+RFC1123.m in Sources */,
 				12A91B611B4BA73D008E33EE /* AppGetUserOrderFormListDomainBeanHelper.m in Sources */,
@@ -904,8 +966,10 @@
 				12B63D5C1B21823E0009C6D9 /* AppInit.m in Sources */,
 				12918B941B412ADB00F94601 /* RegistNetRespondBean.m in Sources */,
 				12A91B6F1B4BBFF3008E33EE /* DeleteOrderDomainBeanHelper.m in Sources */,
+				124700D21B53C456001CA2DE /* Subscribe.m in Sources */,
 				12B63D561B1FF0700009C6D9 /* DomainBeanCacheLayerSingleton.m in Sources */,
 				1218BD011B1C2DFF008D49A1 /* UIColor+HexConvert.m in Sources */,
+				124700C21B53C213001CA2DE /* DeleteSubscribeDomainBeanHelper.m in Sources */,
 				12CEB6431B490B6400CEF710 /* DeleteFavorNetRespondBean.m in Sources */,
 				1218BDCD1B1C4B08008D49A1 /* SpliceFullUrlByDomainBeanSpecialPath.m in Sources */,
 				12CEB6421B490B6400CEF710 /* DeleteFavorNetRequestBean.m in Sources */,
@@ -923,6 +987,7 @@
 				12B63D5F1B21931A0009C6D9 /* MKNetworkEngineSingletonForImageDownload.m in Sources */,
 				12B592431B1D92D100982834 /* GlobalDataCacheForDisk.m in Sources */,
 				12A91B861B4CFDCC008E33EE /* CETableViewBindingHelper.m in Sources */,
+				124700D31B53C456001CA2DE /* SubscribeListDomainBeanHelper.m in Sources */,
 				1218BDC81B1C4B08008D49A1 /* DomainBeanRequestPublicParams.m in Sources */,
 				12C343811B2821BD00EB4480 /* FavorListNetRespondBean.m in Sources */,
 				1218BDC91B1C4B08008D49A1 /* NetRequestParamsPackage.m in Sources */,
@@ -938,6 +1003,7 @@
 				12B592321B1D7BE600982834 /* AccessToken.m in Sources */,
 				1218BDCA1B1C4B08008D49A1 /* NetResponseDataToNSDictionary.m in Sources */,
 				1218BD451B1C3924008D49A1 /* NSDictionary+RequestEncoding.m in Sources */,
+				124700C41B53C213001CA2DE /* DeleteSubscribeNetRespondBean.m in Sources */,
 				12A91B701B4BBFF3008E33EE /* DeleteOrderNetRequestBean.m in Sources */,
 				1218BDD81B1C516E008D49A1 /* NetworkInterfaceMappingSingleton.m in Sources */,
 				1218BD491B1C3924008D49A1 /* MKNetworkOperation.m in Sources */,
@@ -947,8 +1013,10 @@
 				12A91B621B4BA73D008E33EE /* AppGetUserOrderFormListNetRequestBean.m in Sources */,
 				1218BD481B1C3924008D49A1 /* MKNetworkEngine.m in Sources */,
 				12CEB6441B490B6400CEF710 /* DeleteFavorParseDomainBeanToDD.m in Sources */,
+				124700D51B53C456001CA2DE /* SubscribeListNetRespondBean.m in Sources */,
 				12918B931B412ADB00F94601 /* RegistNetRequestBean.m in Sources */,
 				12B592351B1D7BE600982834 /* LoginNetRespondBean.m in Sources */,
+				124700C51B53C213001CA2DE /* DeleteSubscribeParseDomainBeanToDD.m in Sources */,
 				12B63D631B21A8140009C6D9 /* DomainBeanDiskCacheSingleton.m in Sources */,
 				1218BCFD1B1C2DFF008D49A1 /* NSObject+Serialization.m in Sources */,
 				12918B921B412ADB00F94601 /* RegistDomainBeanHelper.m in Sources */,

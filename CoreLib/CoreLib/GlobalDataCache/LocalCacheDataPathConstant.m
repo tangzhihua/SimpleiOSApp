@@ -78,6 +78,8 @@
                               attributes:nil
                                    error:nil];
     }
+    
+    PRPLog(@"\n\n本地缓存目录:\n%@\n\n", path);
   }
   
 }

@@ -14,6 +14,9 @@
 //
 #import "OrdersTableViewCellViewModel.h"
 
+//
+#import "DeleteOrderNetRequestBean.h"
+
 @interface OrdersViewModel () <SkyduckCEObservableMutableArrayRemoveDelegate>
 // cell viewmodel list 里面存放 FavoritTableViewCellViewModel
 @property (nonatomic, readwrite, strong) CEObservableMutableArray *cellViewModelList;
@@ -78,10 +81,12 @@
 
 #pragma mark - SkyduckCEObservableMutableArrayRemoveDelegate
 - (void)removedObject:(OrdersTableViewCellViewModel *)obj {
-  //  DeleteFavorNetRequestBean *netRequestBean = [[DeleteFavorNetRequestBean alloc] initWithID:obj.ID];
-  //  [[[SimpleNetworkEngineSingleton sharedInstance] signalForNetRequestDomainBean:netRequestBean] subscribeError:^(NSError *error) {
-  //    NSLog(@"%@", error.localizedDescription);
-  //  }];
+    DeleteOrderNetRequestBean *netRequestBean = [[DeleteOrderNetRequestBean alloc] initWithOrderId:obj.orderInfoModel.orderId];
+    [[[SimpleNetworkEngineSingleton sharedInstance] signalForNetRequestDomainBean:netRequestBean] subscribeNext:^(id x) {
+      
+    } error:^(NSError *error) {
+      NSLog(@"删除订单失败 = %@", error.localizedDescription);
+    }];
 }
 
 @end

@@ -1,12 +1,12 @@
 
-#import "DeleteOrderNetRequestBean.h"
+#import "DeleteSubscribeNetRequestBean.h"
 
-@implementation DeleteOrderNetRequestBean
+@implementation DeleteSubscribeNetRequestBean
 
-- (id)initWithOrderId:(NSString *)orderId {
+- (id)initWithSubscribeId:(NSString *)subscribeId{
   
   if ((self = [super init])) {
-    _orderId = [orderId copy];
+    _subscribeId = [subscribeId copy];
   }
   
   return self;

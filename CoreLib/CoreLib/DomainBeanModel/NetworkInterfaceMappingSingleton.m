@@ -25,6 +25,13 @@
 #import "DeleteOrderNetRequestBean.h"
 #import "DeleteOrderDomainBeanHelper.h"
 
+
+// 我的通知
+
+// 删除通知
+#import "DeleteSubscribeNetRequestBean.h"
+#import "DeleteSubscribeDomainBeanHelper.h"
+
 @implementation NetworkInterfaceMappingSingleton
 #pragma mark -
 #pragma mark Singleton Implementation
@@ -90,5 +97,10 @@
    * 删除订单
    */
   _networkInterfaceMapping[NSStringFromClass([DeleteOrderNetRequestBean class])] = [[DeleteOrderDomainBeanHelper alloc] init];
+  
+  /**
+   * 删除通知
+   */
+  _networkInterfaceMapping[NSStringFromClass([DeleteSubscribeNetRequestBean class])] = [[DeleteSubscribeDomainBeanHelper alloc] init];
 }
 @end
