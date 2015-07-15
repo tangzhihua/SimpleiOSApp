@@ -26,9 +26,11 @@
 @property (weak, nonatomic) IBOutlet UIButton *registerButton;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 
+@property (weak, nonatomic) IBOutlet UIButton *myAllZhekou;
 @property (weak, nonatomic) IBOutlet UIButton *myOrder;
 @property (weak, nonatomic) IBOutlet UIButton *myFavorites;
 @property (weak, nonatomic) IBOutlet UIButton *myNotifies;
+@property (weak, nonatomic) IBOutlet UIButton *mySetting;
 
 @end
 
@@ -150,7 +152,9 @@
     = [[LoginNetRequestBean alloc] initWithUsername:self.usernameTextField.text
                                            password:self.passwordTextField.text];
     [[[LoginManager sharedInstance] signalForLoginWithLoginNetRequestBean:loginNetRequestBean] subscribeNext:^(id x) {
-      
+      FavoritesViewController *contrllor = [[FavoritesViewController alloc] init];
+      contrllor.title = @"我的提醒";
+      [self.navigationController pushViewController:contrllor animated:YES];
     } error:^(NSError *error) {
       
     }];

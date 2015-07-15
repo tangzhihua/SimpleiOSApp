@@ -8,9 +8,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
             <connections>
                 <outlet property="loginButton" destination="1T5-d2-BVd" id="i6m-vF-faL"/>
+                <outlet property="myAllZhekou" destination="l8s-Oq-Iig" id="hx1-f9-QXM"/>
                 <outlet property="myFavorites" destination="tYC-E0-5N9" id="Qlh-cn-nQi"/>
                 <outlet property="myNotifies" destination="IYZ-ho-1hE" id="913-sP-y0L"/>
                 <outlet property="myOrder" destination="1Jt-1i-fAK" id="L6i-5x-pRk"/>
+                <outlet property="mySetting" destination="gJb-6b-YOi" id="dkx-Dy-NwG"/>
                 <outlet property="passwordTextField" destination="hw1-Nf-vVK" id="XUI-0Y-RhK"/>
                 <outlet property="registerButton" destination="gKR-Gr-WSC" id="1Ym-Sm-qDE"/>
                 <outlet property="usernameTextField" destination="00H-yn-ng6" id="6ZD-pe-1mH"/>
@@ -50,23 +52,37 @@
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1Jt-1i-fAK">
-                    <rect key="frame" x="86" y="299" width="149" height="30"/>
+                    <rect key="frame" x="86" y="318" width="149" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="我的订单">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tYC-E0-5N9">
-                    <rect key="frame" x="86" y="337" width="149" height="30"/>
+                    <rect key="frame" x="86" y="356" width="149" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="我的收藏">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="IYZ-ho-1hE">
-                    <rect key="frame" x="86" y="375" width="149" height="30"/>
+                    <rect key="frame" x="86" y="394" width="149" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="我的提醒">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="l8s-Oq-Iig">
+                    <rect key="frame" x="86" y="280" width="149" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="全部折扣">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gJb-6b-YOi">
+                    <rect key="frame" x="86" y="432" width="149" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="更多设置">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
